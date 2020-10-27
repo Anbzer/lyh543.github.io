@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Linux 日常命令 | 小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux,服务器,ssh,tips">
+    <meta name="description" content="常用命令的详细部分都分为单独博客撰写：  纯 bash 语法 Git APT npm vi 基础  系统以 root 身份登录1sudo su  修改 root 密码1sudo passwd root  添加 PATH 路径以下方法（二选一）可以临时在 PATH 目录下加入 ~/opt/bin 目录。 123export PATH=$PATH:~/opt/bin # 加在 PATH 的最后expo">
+<meta name="keywords" content="Linux,服务器,ssh,tips">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 日常命令">
+<meta property="og:url" content="https://blog.lyh543.cn/linux/tips/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:description" content="常用命令的详细部分都分为单独博客撰写：  纯 bash 语法 Git APT npm vi 基础  系统以 root 身份登录1sudo su  修改 root 密码1sudo passwd root  添加 PATH 路径以下方法（二选一）可以临时在 PATH 目录下加入 ~/opt/bin 目录。 123export PATH=$PATH:~/opt/bin # 加在 PATH 的最后expo">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-10-27T16:11:05.590Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux 日常命令">
+<meta name="twitter:description" content="常用命令的详细部分都分为单独博客撰写：  纯 bash 语法 Git APT npm vi 基础  系统以 root 身份登录1sudo su  修改 root 密码1sudo passwd root  添加 PATH 路径以下方法（二选一）可以临时在 PATH 目录下加入 ~/opt/bin 目录。 123export PATH=$PATH:~/opt/bin # 加在 PATH 的最后expo">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux 日常命令</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux 日常命令</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-14T22:04:00.000Z" itemprop="datePublished" class="page-time">
+  2019-10-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#以-root-身份登录"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">以 root 身份登录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改-root-密码"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">修改 root 密码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加-PATH-路径"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">添加 PATH 路径</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#alias-简化命令"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">alias 简化命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看发行版名称和版本号"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">查看发行版名称和版本号</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看-Linux-内核版本"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">查看 Linux 内核版本</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看-Linux-系统版本"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">查看 Linux 系统版本</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#当前文件夹-current-directory"><span class="post-toc-number">2.</span> <span class="post-toc-text">当前文件夹 current directory</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件"><span class="post-toc-number">3.</span> <span class="post-toc-text">文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载、解压"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">下载、解压</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载脚本并执行"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">下载脚本并执行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#读取文件-加权限"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">读取文件 加权限</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重定向-新建文本文件"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">重定向 新建文本文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">删除</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看文件-文件夹-磁盘的大小"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">查看文件/文件夹/磁盘的大小</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程"><span class="post-toc-number">4.</span> <span class="post-toc-text">进程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程-CPU、内存占用"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">进程 CPU、内存占用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#杀进程"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">杀进程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程后台运行"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">进程后台运行</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用-nohup"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">使用 nohup</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用-pm2"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">使用 pm2</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开机自启"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">开机自启</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户登录时执行语句"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">用户登录时执行语句</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ssh"><span class="post-toc-number">5.</span> <span class="post-toc-text">ssh</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一些链接"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">一些链接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看-ssh-登陆日志"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">查看 ssh 登陆日志</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网络"><span class="post-toc-number">6.</span> <span class="post-toc-text">网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看端口占用"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">查看端口占用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看网络流量"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">查看网络流量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#防火墙"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">防火墙</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-linux/tips"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux 日常命令</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-14 22:04:00" datetime="2019-10-14T22:04:00.000Z"  itemprop="datePublished">2019-10-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>常用命令的详细部分都分为单独博客撰写：</p>
+<ul>
+<li><a href="../bash">纯 bash 语法</a></li>
+<li><a href="../Git">Git</a></li>
+<li><a href="../APT">APT</a></li>
+<li><a href="../npm">npm</a></li>
+<li><a href="../vi">vi 基础</a></li>
+</ul>
+<h2 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h2><h3 id="以-root-身份登录"><a href="#以-root-身份登录" class="headerlink" title="以 root 身份登录"></a>以 root 身份登录</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改-root-密码"><a href="#修改-root-密码" class="headerlink" title="修改 root 密码"></a>修改 root 密码</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加-PATH-路径"><a href="#添加-PATH-路径" class="headerlink" title="添加 PATH 路径"></a>添加 PATH 路径</h3><p>以下方法（二选一）可以临时在 PATH 目录下加入 <code>~/opt/bin</code> 目录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:~/opt/bin <span class="comment"># 加在 PATH 的最后</span></span><br><span class="line"><span class="built_in">export</span> PATH=~/opt/bin:<span class="variable">$PATH</span> <span class="comment"># 加在 PATH 的最前</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span>                  <span class="comment"># 查看修改后的结果</span></span><br></pre></td></tr></table></figure>
+
+<p>加上 <code>export</code> 的赋值，会使得被赋值的变量在其子进程中依旧可见。</p>
+<p>但是以上是针对该进程的子进程，如果想要全局生效，需要修改 <code>~/.bashrc</code>（对当前用户生效）或 <code>/etc/profile</code>（对所有用户生效）。记得注销重启。</p>
+<h3 id="alias-简化命令"><a href="#alias-简化命令" class="headerlink" title="alias 简化命令"></a>alias 简化命令</h3><p>多次输入长语句着实麻烦，而 Linux 就提供了简化命令的方法。</p>
+<p>执行下面的语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> la=<span class="string">'ls -al --color=auto'</span></span><br></pre></td></tr></table></figure>
+
+<p>以后，输入 <code>la</code> 就等价于 <code>ls -al --color=auto</code> 了。</p>
+<p>不过注销以后就失效了。</p>
+<p>如果想要以后登录都生效，可以把 <code>alias</code> 命令追加到 <code>~/.bashrc</code>。</p>
+<p>我的 <code>~/.bashrc</code> 结尾是这样的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Alias definitions.</span></span><br><span class="line"><span class="comment"># You may want to put all your additions into a separate file like</span></span><br><span class="line"><span class="comment"># ~/.bash_aliases, instead of adding them here directly.</span></span><br><span class="line"><span class="comment"># See /usr/share/doc/bash-doc/examples in the bash-doc package.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -f ~/.bash_aliases ]; <span class="keyword">then</span></span><br><span class="line">    . ~/.bash_aliases</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># enable programmable completion features (you don't need to enable</span></span><br><span class="line"><span class="comment"># this, if it's already enabled in /etc/bash.bashrc and /etc/profile</span></span><br><span class="line"><span class="comment"># sources /etc/bash.bashrc).</span></span><br><span class="line"><span class="keyword">if</span> ! <span class="built_in">shopt</span> -oq posix; <span class="keyword">then</span></span><br><span class="line">  <span class="keyword">if</span> [ -f /usr/share/bash-completion/bash_completion ]; <span class="keyword">then</span></span><br><span class="line">    . /usr/share/bash-completion/bash_completion</span><br><span class="line">  <span class="keyword">elif</span> [ -f /etc/bash_completion ]; <span class="keyword">then</span></span><br><span class="line">    . /etc/bash_completion</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>注意到他推荐把 <code>alias</code> 放到 <code>~/.bash_aliases</code> 文件夹，其实也可以搞。因此，在 <code>~/.bashrc</code> 或 <code>~/.bash_aliases</code> 后追加（没有就创建并追加）以下命令，都是可以的。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> la='<span class="keyword">ls</span> -al <span class="params">--color=auto</span>'</span><br></pre></td></tr></table></figure>
+
+<p>下次启动生效。如想本次启动就生效，输入 <code>source ~/.bashrc</code> 即可。</p>
+<p>最后，输入 <code>alias</code> 即可查看所有的语句。</p>
+<h3 id="查看发行版名称和版本号"><a href="#查看发行版名称和版本号" class="headerlink" title="查看发行版名称和版本号"></a>查看发行版名称和版本号</h3><blockquote>
+<p>转载自：<a href="https://www.qiancheng.me/post/coding/show-linux-issue-version" target="_blank" rel="noopener">如何查看LINUX发行版的名称及其版本号</a></p>
+</blockquote>
+<h4 id="查看-Linux-内核版本"><a href="#查看-Linux-内核版本" class="headerlink" title="查看 Linux 内核版本"></a>查看 Linux 内核版本</h4><ol>
+<li><p><code>cat /proc/version</code></p>
+</li>
+<li><p><code>uname -a</code></p>
+</li>
+</ol>
+<h4 id="查看-Linux-系统版本"><a href="#查看-Linux-系统版本" class="headerlink" title="查看 Linux 系统版本"></a>查看 Linux 系统版本</h4><ol>
+<li><p><code>lsb_release -a</code>，通用；</p>
+</li>
+<li><p><code>cat /etc/issue</code>，也是通用；</p>
+</li>
+<li><p><code>cat /etc/redhat-release</code> 只适用于 Redhat 系 Linux。</p>
+</li>
+</ol>
+<h2 id="当前文件夹-current-directory"><a href="#当前文件夹-current-directory" class="headerlink" title="当前文件夹 current directory"></a>当前文件夹 current directory</h2><p>当前文件夹是便于写相对路径的。</p>
+<p>假设你当前在 <code>/mnt/c/Users/lyh/Documents/Git/lyh543.github.io</code> 文件夹。  </p>
+<p>当你需要访问文件夹下的 <code>_config.yml</code>，你就可以写 <code>_config.yml</code> 或 <code>./_config.yml</code> （注意一定要加<code>.</code>，否则会被视为根目录）来代替 <code>/mnt/c/Users/lyh/Documents/Git/lyh543.github.io/_config.yml</code>。</p>
+<p>可以在命令行的<code>$</code>前看到当前文件夹，也可以使用非常简洁的命令：<code>pwd</code>。该命令返回当前文件夹。</p>
+<ul>
+<li>更改当前文件夹使用 <code>cd [DIRECTORY]</code>  </li>
+<li>若想跳到当前文件夹下的 <code>themes</code> 文件夹，可以使用 <code>cd themes</code>  </li>
+<li>若想跳到上一级文件夹，可以使用 <code>cd ..</code>（Windows cmd 中 <code>cd</code> 和 <code>..</code> 间可以不加空格，但是 Linux Shell 必须要有空格）  </li>
+<li>若想跳到上两级文件夹，可以使用 <code>cd ../..</code>  </li>
+<li>若想跳到上两级文件夹下的<code>theme</code>文件夹，可以使用 <code>cd ../../theme</code>  </li>
+</ul>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="下载、解压"><a href="#下载、解压" class="headerlink" title="下载、解压"></a>下载、解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.29.0/frp_0.29.0_linux_amd64.tar.gz</span><br><span class="line">tar -zxvf frp_0.29.0_linux_amd64.tar.gz   <span class="comment"># -z 参数用于解压 .gz 文件</span></span><br></pre></td></tr></table></figure>
+
+<p><code>tar</code> 的用法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -cf archive.tar foo bar  <span class="comment"># Create archive.tar from files foo and bar.</span></span><br><span class="line">tar -tvf archive.tar         <span class="comment"># List all files in archive.tar verbosely.</span></span><br><span class="line">tar -xf archive.tar          <span class="comment"># Extract all files from archive.tar.</span></span><br></pre></td></tr></table></figure>
+
+<p>对于 <code>zip</code>，可以使用 <code>unzip</code>。</p>
+<h3 id="下载脚本并执行"><a href="#下载脚本并执行" class="headerlink" title="下载脚本并执行"></a>下载脚本并执行</h3><p>对于下载脚本内容然后执行的情况，还有更简单的写法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -s http://exmaple.com/)</span><br></pre></td></tr></table></figure>
+
+<p>注意 <code>&lt;</code> 左右的空格，左边必须有空格，右边必须没有。</p>
+<h3 id="读取文件-加权限"><a href="#读取文件-加权限" class="headerlink" title="读取文件 加权限"></a>读取文件 加权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ls  <span class="comment"># 显示文件夹的内容， -sh 显示大小（带大小单位）</span></span><br><span class="line"></span><br><span class="line">cat text.txt  <span class="comment"># 显示文档的内容</span></span><br><span class="line">head [-n 10] text.txt <span class="comment"># 显示文档开头</span></span><br><span class="line">tail [-n 10] text.txt <span class="comment"># 显示文档结尾</span></span><br><span class="line">more text.txt <span class="comment"># 逐段显示文本（按空格显示下一段）</span></span><br><span class="line">less text.txt <span class="comment"># 逐段显示文本，功能更多，按 q 退出</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 以上用法也可以使用 &lt;command&gt; | tail 的形式，将命令的输出进行对应的操作</span></span><br><span class="line"></span><br><span class="line">mkdir new_dir <span class="comment"># 新建文件夹</span></span><br><span class="line">chmod a+x test.sh <span class="comment"># 给脚本文件加可执行的权限</span></span><br><span class="line">./test.sh  <span class="comment"># 执行可执行文件</span></span><br></pre></td></tr></table></figure>
+
+<p>若想修改文档，请使用 <a href="../vi笔记">vi</a>。</p>
+<h3 id="重定向-新建文本文件"><a href="#重定向-新建文本文件" class="headerlink" title="重定向 新建文本文件"></a>重定向 新建文本文件</h3><p>在命令行控制台中的 <code>echo</code>（类似于 <code>C++</code> 的 <code>printf</code> 的输出语句）貌似没什么用。  </p>
+<p>但是使用重定向，就可以把本来要输出到屏幕的东西输出到某文件。</p>
+<p>在任意命令后（其实在前面也可以的）加 <code>&gt;[FILE]</code> 即可把输出</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p><code>rm [FILE]</code> 是 remove 的缩写，用于删除文件/文件夹。</p>
+<p>很经典的一个删库跑路语句是<code>rm -rf /*</code>，我们能从这句话记它的用法。</p>
+<ul>
+<li><code>-r</code>: recursive, 递归，即递归删除该文件夹以下的文件（夹），删非空文件夹时必加。</li>
+<li><code>-f</code>: force, 强制，即强制删除<del>虽然不知道有什么用</del></li>
+<li><code>[File]</code>: 写文件、文件夹名就行啦。</li>
+</ul>
+<h3 id="查看文件-文件夹-磁盘的大小"><a href="#查看文件-文件夹-磁盘的大小" class="headerlink" title="查看文件/文件夹/磁盘的大小"></a>查看文件/文件夹/磁盘的大小</h3><table>
+<thead>
+<tr>
+<th>中文</th>
+<th>英文</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查看磁盘大小</td>
+<td><strong>d</strong>isplay <strong>f</strong>ilesystem</td>
+<td><code>df -h</code></td>
+</tr>
+<tr>
+<td>查看目录下的文件大小</td>
+<td><strong>l</strong>i<strong>s</strong>t</td>
+<td><code>ls -hs</code></td>
+</tr>
+<tr>
+<td>查看目录下的文件夹的大小</td>
+<td><strong>d</strong>isk <strong>u</strong>sage</td>
+<td><code>du -h --max-depth=1</code></td>
+</tr>
+</tbody></table>
+<p>以上的 <code>-h</code> 都是 <code>--human-readable</code>，不使用这个开关，则会使用一个数字表示大小（单位为 <code>KB</code>）；使用开关后，则会使用 <code>200K</code>，<code>1.8G</code> 的形式。<br>注意 <code>du</code> 如不加 <code>--max-depth</code> 参数，会统计完所有的目录。</p>
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h3 id="进程-CPU、内存占用"><a href="#进程-CPU、内存占用" class="headerlink" title="进程 CPU、内存占用"></a>进程 CPU、内存占用</h3><p>可以使用 <code>top</code> 工具。</p>
+<p>如果想要让进程按 CPU 或内存排序，可以按 <code>X</code> 键使得焦点在某一列（那一列的数字呈亮白色），然后按 <code>&lt;</code> <code>&gt;</code> （<code>Shift+,</code> <code>Shift+.</code>）以左右移动焦点。</p>
+<p>另外，还可以使用类似的 <code>htop</code> 工具。</p>
+<h3 id="杀进程"><a href="#杀进程" class="headerlink" title="杀进程"></a>杀进程</h3><p>以杀掉 <code>vi</code> 为例：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep vi</span><br><span class="line"><span class="comment"># 返回之中有一行如下，则用户名后的 138 即为其 PID</span></span><br><span class="line"><span class="comment"># root 138  0.0  0.0  27612  6224 tty2     S    00:16   0:00 vi</span></span><br><span class="line"><span class="built_in">kill</span> -9 138</span><br></pre></td></tr></table></figure>
+
+<p>或者使用 <code>killall</code>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall vi</span><br></pre></td></tr></table></figure>
+
+<h3 id="进程后台运行"><a href="#进程后台运行" class="headerlink" title="进程后台运行"></a>进程后台运行</h3><h4 id="使用-nohup"><a href="#使用-nohup" class="headerlink" title="使用 nohup"></a>使用 nohup</h4><p>使用 <code>nohup</code> 的话，一行代码就 ok：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nohup &lt;command&gt; &amp; &amp;&gt;/dev/null</span></span><br><span class="line">nohup ssserver &amp; &amp;&gt; /dev/null</span><br></pre></td></tr></table></figure>
+
+<p>可能会看到 <code>ignore input</code> 之类的警告，不用管，<code>Ctrl+C</code> 退出前台即可，此时 <code>ssserver</code> 正在后台运行。</p>
+<h4 id="使用-pm2"><a href="#使用-pm2" class="headerlink" title="使用 pm2"></a>使用 pm2</h4><p>这个要麻烦一点，要从 <code>npm</code> 下载，所以还得先下载 <code>npm</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">apt install npm</span><br><span class="line">npm install pm2 -g</span><br><span class="line">pm2 --name s1 -f start http-server <span class="comment"># 配置 pm2</span></span><br><span class="line"></span><br><span class="line">pm2 save <span class="comment"># 可选命令，作用是保存当前的 pm2 状态</span></span><br><span class="line">pm2 startup <span class="comment"># 可选命令，下次开机的时候可以恢复到 save 的状态</span></span><br><span class="line"></span><br><span class="line">pm2 ls   <span class="comment"># 可选命令，列出当前 pm2 的任务</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h3><p>在 <code>sudo /etc/rc.local</code> 最后追加命令，然后给权限 <code>sudo chmod a+x /etc/rc.local</code> 即可。</p>
+<p>不过貌似 <code>alias</code> 语句无效，可能 <code>alias</code> 是用户级的命令，需要用户登录时执行。</p>
+<h3 id="用户登录时执行语句"><a href="#用户登录时执行语句" class="headerlink" title="用户登录时执行语句"></a>用户登录时执行语句</h3><h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><h3 id="一些链接"><a href="#一些链接" class="headerlink" title="一些链接"></a>一些链接</h3><p>在使用 Git 和搭建服务器的时候都会用到 ssh，于是笔记也比较零散。</p>
+<p>在这里丢几个链接：</p>
+<ul>
+<li><a href="../Git/#在-Linux-下-git-使用-ssh-密钥">创建 ssh 密钥并给 Git/服务器使用</a></li>
+<li><a href="../build-shadowsocks/#ssh-远程登录">ssh 远程登录服务器</a></li>
+<li><a href="../change-ssh-port/">修改 ssh 的端口</a></li>
+<li><a href="/Windows/setup-ssh-windows/">Windows 上使用 ssh</a></li>
+<li><h3 id="查看-ssh-登陆日志"><a href="#查看-ssh-登陆日志" class="headerlink" title="查看 ssh 登陆日志"></a>查看 ssh 登陆日志</h3></li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cat</span> /<span class="keyword">var</span>/<span class="keyword">log</span>/secure</span><br></pre></td></tr></table></figure>
+
+<p>也可以根据需要搭配 less 或 tail 等命令进行查看。</p>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="查看端口占用"><a href="#查看端口占用" class="headerlink" title="查看端口占用"></a>查看端口占用</h3><p><code>lsof -i:8999</code></p>
+<h3 id="查看网络流量"><a href="#查看网络流量" class="headerlink" title="查看网络流量"></a>查看网络流量</h3><p>可以使用第三方的 <code>nethogs</code>。</p>
+<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><blockquote>
+<p>参考链接：<a href="https://blog.csdn.net/fengspg/article/details/21337617" target="_blank" rel="noopener">https://blog.csdn.net/fengspg/article/details/21337617</a></p>
+</blockquote>
+<p>以下针对 Cent OS 7。</p>
+<p>打开/关闭防火墙：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld <span class="comment"># 查看防火墙打开/关闭状态</span></span><br><span class="line">systemctl start firewalld  <span class="comment"># 打开防火墙</span></span><br><span class="line">systemctl stop firewalld   <span class="comment"># 关闭防火墙</span></span><br></pre></td></tr></table></figure>
+
+<p>更改防火墙配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent <span class="comment"># 允许 80/TCP 端口通过，无 --permanent 参数则重启失效</span></span><br><span class="line">firewall-cmd --zone=public --add--port=1-65535/udp --pernament <span class="comment"># 开放 UDP 的 1-65535 端口</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --remove-port=80/tcp <span class="comment"># 关闭 80/TCP 端口</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --reload <span class="comment"># 重新加载防火墙，修改了以后都要执行这一步</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --query-port=80/tcp <span class="comment"># 查询 80/TCP 端口</span></span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-10-27T16:11:05.590Z" itemprop="dateUpdated">2020-10-27 16:11:05</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.lyh543.cn">
+            <img src="/img/avatar.png" alt="lyh543">
+            lyh543
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/linux/tips/&title=《Linux 日常命令》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/linux/tips/&title=《Linux 日常命令》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/linux/tips/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux 日常命令》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/linux/tips/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/linux/tips/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/latex/Hexo-insert-latex/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Hexo 插入 LaTeX 公式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/linux/build-shadowsocks/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">使用 Shadowsocks 搭建回国代理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ec7daa4e047c3c30570d',
+          clientSecret: '025a9e40a1d101f28fd1a945d286a819e9fa1c3d',
+          repo: 'lyh543.github.io',
+          owner: 'lyh543',
+          admin: ['lyh543'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/linux/tips/&title=《Linux 日常命令》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/linux/tips/&title=《Linux 日常命令》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/linux/tips/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux 日常命令》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/linux/tips/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/linux/tips/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3aQW7DMAwEwPz/0ynQaxN1ScmMA4xOgWM34x4IccXHI17P37X+vH7q7/X1s1sLFxd3m/tcroSbXMn/zjsDLi7uPDcpXknZ2uFGpRAXF/dm3Hf3v3uZavnDxcX9Rm4V1NsG4eLi3oebND+9zUr133GsV8PFxd3gngpMTzU8Q/kuLi5u61RiXVDyFii5P/p1XFzcEe6pTUny7PrF8nYIFxf3au66/dgJOqubmESCi4s7w92B9gpc9djmxRVcXNwRbjV/OLVxWd9fCExxcXGPcntRZn7guj+g+SLFwcXFHeRWB6qq25r89Qr5DS4u7sXcndJT/uFWXIuLizvD7TU8SeRRLWF5QIOLi3s192wZyj8njRYuLu5nuaf2D9UCl8cxuLi4k9xePFEtczuv3ZwZwcXF3eD2Yo689Jwqbbi4uPPcfJCiGnpG0WdcCnFxcSe5+bruROPA8QkuLu4hbrWg9IY2kivVb3Fxca/m5i1QlLIU7yl/i4uLO8jNx7Z6A1t5Bf3nKVxc3Jtxc3oekZQPbHBxcW/JzY9M8hilENTi4uIOcntHrafGNQoDW7i4uCPc/cC0Ok6RjGLg4uJ+iPsDv32VjN2xKjUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

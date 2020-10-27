@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta property="og:type" content="website">
+<meta property="og:title" content="小灰灰灰灰的博客">
+<meta property="og:url" content="https://blog.lyh543.cn/page/13/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小灰灰灰灰的博客">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">小灰灰灰灰的博客</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">小灰灰灰灰的博客</h1>
+        <h5 class="subtitle">
+            
+                
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-cpp/acm/最近公共祖先"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-31 00:00:00" datetime="2019-08-31T00:00:00.000Z"  itemprop="datePublished">2019-08-31</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/cpp/acm/最近公共祖先/">最近公共祖先 LCA（坑）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        倍增法倍增思路相当于层序遍历，逐层或几层跳跃查，查询时间复杂度为 O(logn) ，空间复杂度为 O(nlogn)对于每个结点先存储向上1层、2层、4层的结点，每个点有depth信息。
+倍增法：构建一个 fa[i][j] 数组， i 结点向上 2^j 层的结点是谁，然后再统一下层数。先让他们同层数，然后二分搜索。后面是 log(树的长度) j 的最大值还可以优化，对于每一个深度的结点就搞一个...
+    
+
+        <a href="/cpp/acm/最近公共祖先/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-python/python-functions"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-30 21:42:45" datetime="2019-08-30T21:42:45.000Z"  itemprop="datePublished">2019-08-30</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/python/python-functions/">Python 常用函数</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        需要引入模块的函数，以模块（需要 import 的文件名）为标题进行分组。函数和模块均以字母排序。
+builtins 内置函数1234567891011121314151617181920212223# 数学相关abs(float)max(a1,a2,a3,...) # 这里的输入参数是一个 sequence，和 C 语言不同，很有意思# 字符串相关str.find(',')     # 找...
+    
+
+        <a href="/python/python-functions/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-computer-science/Programming-Pearls"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-29 00:00:00" datetime="2019-08-29T00:00:00.000Z"  itemprop="datePublished">2019-08-29</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/计算机科学/">计算机科学</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/computer-science/Programming-Pearls/">《编程珠玑》笔记</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        编程珠玑每一章讲了编程、开发的不同的方面。  
+
+第一章讲如何准确、正确的定义问题。
+第二章讲算法设计（灵光一现，啊哈！算法）。
+第三章提到数据结构和编程的关系（欸有点面向对象的感觉）。
+第四章运用循环不变式来证明程序的正确性。
+第五章运用脚手架、断言调试程序。
+第六章概述了加速程序的几个方向，并在第八至x章分别阐述。
+第七章书如其名：粗略估算。
+第八章重新设计算法来降低程序的渐进时间复杂度...
+    
+
+        <a href="/computer-science/Programming-Pearls/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机科学/">计算机科学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-microsoft/windows/windows-tips"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-27 00:00:00" datetime="2019-08-27T00:00:00.000Z"  itemprop="datePublished">2019-08-27</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Microsoft/">Microsoft</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Microsoft/Windows/">Windows</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/microsoft/windows/windows-tips/">Windows 使用小技巧</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        也不只是 Windows 的，也可能是某款软件如 Chrome 或 Excel 的，这样就不局限于 Windows 系统了。
+好用冷门快捷键集合
+
+
+快捷键
+作用
+说明
+
+
+
+Ctrl +Shift + T
+重新打开关闭的标签页
+在 Visual Studio Code 和 Chrome 等可用
+
+
+Home 和 End 按键对于大多数小白，键盘上的这两个键形同摆设，但是在纯键盘流/处理大文...
+    
+
+        <a href="/microsoft/windows/windows-tips/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Excel/">Excel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Microsoft/">Microsoft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/">Windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-computer-science/character-encoding"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-23 00:00:00" datetime="2019-08-23T00:00:00.000Z"  itemprop="datePublished">2019-08-23</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/计算机科学/">计算机科学</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/computer-science/character-encoding/">字符编码</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        ASCII，Unicode 和 UTF-8
+转自：https://www.liaoxuefeng.com/wiki/1016959663602400/1017075323632896
+
+因为计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。最早的计算机在设计时采用 8 个比特（bit）作为一个字节（byte），所以，一个字节能表示的最大的整数就是 255（二进制 1111...
+    
+
+        <a href="/computer-science/character-encoding/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机科学/">计算机科学</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-linux/vi"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-20 00:00:00" datetime="2019-08-20T00:00:00.000Z"  itemprop="datePublished">2019-08-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/linux/vi/">vi 笔记（萌新向）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        有一个特别经典的段子是，要想生成随机数，可以让一群没有用过 vi 的人尝试退出 vi 。习惯了 Windows 写字板的用户，遇到没有 GUI 的 vi 时，确实很容易懵逼。但是 vi 这个神器，大佬用起来，秒杀其他一切编辑器。但是对于刚入坑 linux 的同学，如何使用 vi 比高级操作更重要，于是今天博主就简单总结一下 vi 的基本操作。  
+
+在任何状态按 esc 就能回到初始状态。
+...
+    
+
+        <a href="/linux/vi/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-cpp/cpp-grammar/lexicographical-order"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-20 00:00:00" datetime="2019-08-20T00:00:00.000Z"  itemprop="datePublished">2019-08-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/C-语法/">C++语法</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/cpp/cpp-grammar/lexicographical-order/">字符串数组以字典序排序</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        12345678910bool operator &lt; (char * a,char * b)&#123;    int l = min(strlen(a), strlen(b));    for (int i = 0; i &lt; l; i++)    &#123;        if (a[i] &lt; b[i]) return 1;        if (a[i] &gt; b...
+    
+
+        <a href="/cpp/cpp-grammar/lexicographical-order/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-语法/">C++语法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-cpp/cpp-grammar/位序"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-20 00:00:00" datetime="2019-08-20T00:00:00.000Z"  itemprop="datePublished">2019-08-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/C-语法/">C++语法</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/cpp/cpp-grammar/位序/">C/C++ 位序</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        1234567int main()&#123;    int i[2];    i[0] = 1 &lt;&lt; 10, i[1] = 0;//将i[1]初始化为 0，保证i[0]之后的位全为 0    int *p1 = &amp;i[0], *p2 = (int*)((int)p1 + 1);    cout &lt;&lt; *p1 &lt;&lt; " " &lt;&lt; *p2...
+    
+
+        <a href="/cpp/cpp-grammar/位序/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-语法/">C++语法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-cpp/cpp-grammar/c-priority-between-and-or"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-20 00:00:00" datetime="2019-08-20T00:00:00.000Z"  itemprop="datePublished">2019-08-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/C-语法/">C++语法</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/cpp/cpp-grammar/c-priority-between-and-or/">C/C++ &amp;&amp; 和 || 的优先级</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        结论：&amp;&amp; 高于 ||  
+记忆上面，可以认为我们更常使用 Disjunctive normal form 而不是 Conjunctive normal from。这是；离散数学-逻辑代数的一些知识。通俗的来讲，就是 ( x&lt;1 and y&lt;1 ) or (x&gt;1 and y&gt;1) or (x&lt;2 and y&gt;2) 这样的先与后或的 DNF...
+    
+
+        <a href="/cpp/cpp-grammar/c-priority-between-and-or/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-语法/">C++语法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-cpp/cpp-grammar/c-byte-alignment"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-20 00:00:00" datetime="2019-08-20T00:00:00.000Z"  itemprop="datePublished">2019-08-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/C-语法/">C++语法</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/cpp/cpp-grammar/c-byte-alignment/">C/C++ 字节对齐（Byte alignment）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        C/C++ 的结构，就像是一个将几种数据结构打包的功能。在使用的时候，可能会注意到，结构体的大小不等于结构体所有成员的大小之和,原因是编译器进行了字节对齐。
+字节对齐的目的如果一个变量的内存地址正好位于它长度的整数倍，他就被称做自然对齐。比如在 32 位 CPU 下，假设一个整型变量的地址为 0x00000004（下面简写为 0x04），那它就是自然对齐的。
+需要字节对齐的根本原因在于 CP...
+    
+
+        <a href="/cpp/cpp-grammar/c-byte-alignment/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-语法/">C++语法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/page/13/&title=小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/page/13/&title=小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/page/13/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=小灰灰灰灰的博客&url=https://blog.lyh543.cn/page/13/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/page/13/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABx0lEQVR42u3awa6CQAwFUP//p31bN+BtCw2+HFbG4HBk0czc9vWKr/fH9fnN+T35ahdfuLi4Y+779ErumayQG3Bxcfe5RxUjL1vnn49WyA24uLhP5p7TcxwuLu5/4h4Rk3PKI+ouLi5uzE0OJ5MQJN8GXXZWw8XFHXDzlPK+z7fku7i4uC3uPPqcBCLlp+Pi4q5w84KSPziJQkbtWFxc3Ju51RKTl6Ekdsn/2Kua1OLi4l7E7bVU50MYhZeFi4u7wr0qxEyOQ9UQ5PD14eLirnOTH+elrXoQiho2uLi4N3Mn25pq7yM/DpU3N7i4uJdyq9HnZCQiH+mIhjxwcXFv4/YKSv7I6gpf7sfFxV3hVrcdCSu/p3lWw8XFXeHmLY3e7qnwzoJCiYuLu8mdRJy9KyEeFjJcXNx17pdSUow8klGMwuEHFxd3nVsdxeg1TasN3WZag4uL2+LONyXVMGXUnsHFxV3h9lqkyZ/pRa75AAcuLu7d3AQxGcbKN0ZRgcPFxV3kllsaxcijd/jBxcX9LW41HJnEKF/GL3BxcR/Jzccpqhumw1YKLi7uCrdXeqrjGpM2LS4u7ia3XEpOcZPQZLIyLi7uRdw/GZZn1ny+qewAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

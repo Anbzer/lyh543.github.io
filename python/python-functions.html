@@ -1,0 +1,47 @@
+<hr>
+<p>title: Python 常用函数<br>date: 2019-08-30 21:42:45<br>tags:</p>
+<ul>
+<li>Python<br>category:</li>
+<li>Python<br>mathjax: true</li>
+</ul>
+<hr>
+<p>需要引入模块的函数，以模块（需要 import 的文件名）为标题进行分组。函数和模块均以字母排序。</p>
+<h2 id="builtins-内置函数"><a href="#builtins-内置函数" class="headerlink" title="builtins 内置函数"></a>builtins 内置函数</h2><pre><code class="py">
+<span class="comment"># 数学相关</span>
+
+abs(float)
+max(a1,a2,a3,...) <span class="comment"># 这里的输入参数是一个 sequence，和 C 语言不同，很有意思</span>
+
+<span class="comment"># 字符串相关</span>
+
+str.find(<span class="string">','</span>)     <span class="comment"># 找到就返回第一个下标，找不到就返回 -1（注意不是 False）</span>
+<span class="string">' '</span>.join(list)    <span class="comment"># 将 list 等组合为一个字符串，用 ' ' 分隔</span>
+str.split()       <span class="comment"># 将字符串按 sep = ' ' 分拆成 list</span>
+
+
+<span class="comment"># 容器相关</span>
+
+set()             <span class="comment"># 定义集合</span>
+
+<span class="comment"># 其他</span>
+
+elem <span class="keyword">in</span> list                          <span class="comment"># 在 list 中查找元素，返回 bool，这个直接用 in 关键字可太猛了</span>
+isinstance(variable, tuple of type)   <span class="comment"># 判断变量类型</span>
+range(start, stop[, step])            <span class="comment"># 得到一个序列，可用于 for，或转换为 list 类型</span>
+reversed(range(<span class="number">10</span>))                   <span class="comment"># 将一个 list/str 翻转</span>
+</code></pre>
+<h2 id="bisect"><a href="#bisect" class="headerlink" title="bisect"></a>bisect</h2><p>二分搜索。</p>
+<pre><code class="py">bisect.bisect_left(a, x, lo=<span class="number">0</span>, hi=len(a)) <span class="comment"># 返回第一个大于等于 x 的下标</span>
+bisect.bisect_right(a, x, lo=<span class="number">0</span>, hi=len(a)) <span class="comment"># 返回第一个大于 x 的下标</span>
+bisect.bisect <span class="comment"># == bisect_right</span></code></pre>
+<p>可见 Python 的 <code>bisect_left</code> 和 <code>bisect_right</code> 等价于 C++ 的 <code>lower_bound</code> 和 <code>upper_bound</code>。</p>
+<h2 id="functools"><a href="#functools" class="headerlink" title="functools"></a>functools</h2><pre><code class="py">functools.partial(func, **kw)
+functools.reduce(func, list)
+functools.wraps(func)</code></pre>
+<h2 id="math"><a href="#math" class="headerlink" title="math"></a>math</h2><pre><code class="py">math.sqrt(float)</code></pre>
+<h2 id="re"><a href="#re" class="headerlink" title="re"></a>re</h2><p>正则表达式相关内容请查看 <a href="/Computer-Science/regular-expression.md">正则表达式</a></p>
+<pre><code class="py">re.findall(<span class="string">'\d+'</span>,str) % 找到 str 中的数并组成 list</code></pre>
+<h2 id="sys"><a href="#sys" class="headerlink" title="sys"></a>sys</h2><pre><code class="py">sys.argv % 以 list 形式返回程序被调用时的参数</code></pre>
+<h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><pre><code class="py">
+time.sleep(second)
+time.time() % 单位为秒</code></pre>

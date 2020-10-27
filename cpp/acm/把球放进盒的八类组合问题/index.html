@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>把球放进盒的八类组合问题 | 小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,ACM,数论">
+    <meta name="description" content="摘自 http://azaleasays.com/2011/12/16/combinatorics-n-balls-in-m-boxes/ N球放M盒，其实有8种情况：  球同，盒同，盒不可以为空 球同，盒同，盒可以为空 球同，盒不同，盒不可以为空 球同，盒不同，盒可以为空 球不同，盒同，盒不可以为空 球不同，盒同，盒可以为空 球不同，盒不同，盒不可以为空 球不同，盒不同，盒可以为空  球同、盒同">
+<meta name="keywords" content="C++,ACM,数论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把球放进盒的八类组合问题">
+<meta property="og:url" content="https://blog.lyh543.cn/cpp/acm/把球放进盒的八类组合问题/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:description" content="摘自 http://azaleasays.com/2011/12/16/combinatorics-n-balls-in-m-boxes/ N球放M盒，其实有8种情况：  球同，盒同，盒不可以为空 球同，盒同，盒可以为空 球同，盒不同，盒不可以为空 球同，盒不同，盒可以为空 球不同，盒同，盒不可以为空 球不同，盒同，盒可以为空 球不同，盒不同，盒不可以为空 球不同，盒不同，盒可以为空  球同、盒同">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://azaleasays.com/images/2011/12/triangle.jpg">
+<meta property="og:updated_time" content="2020-10-27T16:11:05.550Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="把球放进盒的八类组合问题">
+<meta name="twitter:description" content="摘自 http://azaleasays.com/2011/12/16/combinatorics-n-balls-in-m-boxes/ N球放M盒，其实有8种情况：  球同，盒同，盒不可以为空 球同，盒同，盒可以为空 球同，盒不同，盒不可以为空 球同，盒不同，盒可以为空 球不同，盒同，盒不可以为空 球不同，盒同，盒可以为空 球不同，盒不同，盒不可以为空 球不同，盒不同，盒可以为空  球同、盒同">
+<meta name="twitter:image" content="http://azaleasays.com/images/2011/12/triangle.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">把球放进盒的八类组合问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">把球放进盒的八类组合问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-23T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-07-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#球同、盒同，球可以-不可以为空"><span class="post-toc-number">1.</span> <span class="post-toc-text">球同、盒同，球可以/不可以为空</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#球同，盒不同，盒可以-不可以为空"><span class="post-toc-number">2.</span> <span class="post-toc-text">球同，盒不同，盒可以/不可以为空</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#球不同的情况"><span class="post-toc-number">3.</span> <span class="post-toc-text">球不同的情况</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#斯特林数"><span class="post-toc-number">4.</span> <span class="post-toc-text">斯特林数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#球不同，盒同，盒不可以为空"><span class="post-toc-number">5.</span> <span class="post-toc-text">球不同，盒同，盒不可以为空</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#球不同，盒同，盒可以为空"><span class="post-toc-number">6.</span> <span class="post-toc-text">球不同，盒同，盒可以为空</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#球不同，盒不同，盒不可以为空"><span class="post-toc-number">7.</span> <span class="post-toc-text">球不同，盒不同，盒不可以为空</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结-N-球-M-盒结论"><span class="post-toc-number">8.</span> <span class="post-toc-text">总结 $N$ 球 $M$ 盒结论</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cpp/acm/把球放进盒的八类组合问题"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">把球放进盒的八类组合问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-23 00:00:00" datetime="2019-07-23T00:00:00.000Z"  itemprop="datePublished">2019-07-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>摘自 <a href="http://azaleasays.com/2011/12/16/combinatorics-n-balls-in-m-boxes/" target="_blank" rel="noopener">http://azaleasays.com/2011/12/16/combinatorics-n-balls-in-m-boxes/</a></p>
+<p>N球放M盒，其实有8种情况：</p>
+<ol>
+<li>球同，盒同，盒不可以为空</li>
+<li>球同，盒同，盒可以为空</li>
+<li>球同，盒不同，盒不可以为空</li>
+<li>球同，盒不同，盒可以为空</li>
+<li>球不同，盒同，盒不可以为空</li>
+<li>球不同，盒同，盒可以为空</li>
+<li>球不同，盒不同，盒不可以为空</li>
+<li>球不同，盒不同，盒可以为空</li>
+</ol>
+<h2 id="球同、盒同，球可以-不可以为空"><a href="#球同、盒同，球可以-不可以为空" class="headerlink" title="球同、盒同，球可以/不可以为空"></a>球同、盒同，球可以/不可以为空</h2><p>枚举法。</p>
+<p>例如 7 个相同球放入 4 个相同盒子，每盒至少一个，则先 4 个盒子每个放 1 个，多余 3 个。只需要考虑这3个球的去处就OK，由于盒子相同，所以只需要凑数就OK，不必考虑位置，因此只有300，211，111三种。</p>
+<p>例如 7 个相同球放入 4 个相同盒子，可以空盒，则还是凑数，<strong>大的化小的，小的化更小的</strong>。</p>
+<p>0007 0016 0025 0034 0115 0124 0133 0223 1114 1123 1222</p>
+<p>11种。</p>
+<p>代码实现上，可以用二维 DP。</p>
+<h2 id="球同，盒不同，盒可以-不可以为空"><a href="#球同，盒不同，盒可以-不可以为空" class="headerlink" title="球同，盒不同，盒可以/不可以为空"></a>球同，盒不同，盒可以/不可以为空</h2><p>用插板法（隔板法）解决。</p>
+<p><code>球同，盒不同，盒不可以为空</code> 的公式是把 $N$ 个球排成一排（一种方法），它们中间有 $N-1$ 个空。取 $M-1$ 个板，放到空上，就把它们分成 $M$ 部分，由于板不相邻，所以没有空盒。它的方法数有 $C_{N-1}^{M-1}$</p>
+<p>如果盒可以空（即 <code>球同，盒不同，盒可以为空</code>），为了避免空盒，先在每一个盒里假装放一个球，这样就有 $N+M$ 个球，$C_{N+M-1}^{M-1}$</p>
+<h2 id="球不同的情况"><a href="#球不同的情况" class="headerlink" title="球不同的情况"></a>球不同的情况</h2><p>球不同的情况里，先来分析最特殊的：<code>球不同，盒不同，盒可以为空</code>。每个球都有 $M$ 种选择， $N$ 个球就有 $M^N$ 种分法。</p>
+<p>关于剩下情况，“我先教大家一个非常特殊的三角形，这个你在 Google 百度非常难以找的到的，秘传型，一般人我不会告诉他的。”</p>
+<p>看起来很复杂，其实很简单：</p>
+<h2 id="斯特林数"><a href="#斯特林数" class="headerlink" title="斯特林数"></a>斯特林数</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://azaleasays.com/images/2011/12/triangle.jpg" alt="Stirling Triangle" title>
+                </div>
+                <div class="image-caption">Stirling Triangle</div>
+            </figure>
+
+<p>性质1，左右两边都是1，第几行就有几个数，比如第5行就是1XXX1</p>
+<p>性质2，$S(N, K) = S(N-1, K-1) + K * S(N-1, K)$，含义是第N排的第K个数等于他上一排的上一个位置数字加上一排的同样位置数字的K倍。</p>
+<p>例如 $S(7, 3)$ 就是第 7 排第 3 个数字，所以他等于上排第 6 排第 2 个数字+第 6 排第 3 个位置 3。  </p>
+<p>画图的话，明显第 1 排是 <code>1</code>，第 2 排 <code>1, 1</code>。<br>推理第 3 排（左右两边都是 1 ，只有中间那个数字没确定）。所以 $S(3, 2) = 第2排第1个数字+第2排第2个数字两倍 = 1+12 = 3$，所以第3排数字就是 <code>1, 3, 1</code>。<br>同理 $S(4, 2) = S(3, 1) + 2S(3, 2) = 1+23 = 7$, 以此类推。</p>
+<h2 id="球不同，盒同，盒不可以为空"><a href="#球不同，盒同，盒不可以为空" class="headerlink" title="球不同，盒同，盒不可以为空"></a>球不同，盒同，盒不可以为空</h2><p>$N$ 不同球，$M$ 同盒，无空盒。一共有 $S(N, M)$ 种分法，比如 7 个不同球， 4 个相同盒子，每个盒子至少一个，则看三角形的第 7 行，第 4 个数字多少。</p>
+<h2 id="球不同，盒同，盒可以为空"><a href="#球不同，盒同，盒可以为空" class="headerlink" title="球不同，盒同，盒可以为空"></a>球不同，盒同，盒可以为空</h2><p>$N$ 不同球，$M$ 同盒，允许空的时候（在上一种情况的基础上允许空盒）。明显是 $N$ 个球不变，一个空盒子都没有 + 有一个空盒子 + 有两个空盒子 + 有三个空盒子 + … + 有 $M-1$ 个空盒。说的简单点一共有就是</p>
+<p>$$S(N, 1) + S(N, 2) + S(N, 3) + … + S(N, M)$$</p>
+<p>也就是说第 $N$ 排开始第 1 个数字一直加到第 $M$ 个数字就是总的分法。</p>
+<h2 id="球不同，盒不同，盒不可以为空"><a href="#球不同，盒不同，盒不可以为空" class="headerlink" title="球不同，盒不同，盒不可以为空"></a>球不同，盒不同，盒不可以为空</h2><p>而 <code>球不同，盒不同，盒不可以为空</code> 的情况同样是在 <code>球不同，盒同，盒不可以为空</code> 的基础上升华，因为后者是盒同的，而前者不同，所以盒子自身多了 $M!$ 倍可能， 所以 <code>球不同，盒不同，盒不可以为空</code> 的公式就是 $M! * S(N, M)$</p>
+<h2 id="总结-N-球-M-盒结论"><a href="#总结-N-球-M-盒结论" class="headerlink" title="总结 $N$ 球 $M$ 盒结论"></a>总结 $N$ 球 $M$ 盒结论</h2><ol>
+<li>球同，盒同，盒不可以为空—穷举  </li>
+<li>球同，盒同，盒可以为空—穷举  </li>
+<li>球同，盒不同，盒不可以为空—$C(N-1, M-1)$</li>
+<li>球同，盒不同，盒可以为空—$C(N+M-1, M-1)$  </li>
+<li>球不同，盒同，盒不可以为空—$S(N, M)$  </li>
+<li>球不同，盒同，盒可以为空—$S(N, 1) + S(N, 2) + S(N, 3) + … + S(N, M)$  </li>
+<li>球不同，盒不同，盒不可以为空—$M! * S(N, M)$  </li>
+<li>球不同，盒不同，盒可以为空—M^N$  </li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-10-27T16:11:05.550Z" itemprop="dateUpdated">2020-10-27 16:11:05</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.lyh543.cn">
+            <img src="/img/avatar.png" alt="lyh543">
+            lyh543
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/把球放进盒的八类组合问题/&title=《把球放进盒的八类组合问题》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/把球放进盒的八类组合问题/&title=《把球放进盒的八类组合问题》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/把球放进盒的八类组合问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《把球放进盒的八类组合问题》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/把球放进盒的八类组合问题/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/把球放进盒的八类组合问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/cpp/cpp-grammar/cpp-built-in-sort/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">C++ 内置排序的排序顺序</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/cpp/acm/组合数学/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">组合数学</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ec7daa4e047c3c30570d',
+          clientSecret: '025a9e40a1d101f28fd1a945d286a819e9fa1c3d',
+          repo: 'lyh543.github.io',
+          owner: 'lyh543',
+          admin: ['lyh543'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/把球放进盒的八类组合问题/&title=《把球放进盒的八类组合问题》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/把球放进盒的八类组合问题/&title=《把球放进盒的八类组合问题》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/把球放进盒的八类组合问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《把球放进盒的八类组合问题》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/把球放进盒的八类组合问题/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/把球放进盒的八类组合问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACw0lEQVR42u3awa7iMAwFUP7/p2ektxqJodxrN/AWpysk0jQnSI2x/XjE15+f69/Pz9fzyOcZZuOvR95w4eHh4Y2Wni/6+dt2zuunPM98PfLVbHh4eHineflhcP3gV3Nez5YD8jXj4eHh/QZeftf1RiSbkuDx8PDwfj+vRV6nITbPwsPDw/sNvDZNUDwgTiu0yd+bcy14eHh4MW9WAPvu5+P1PTw8PLzDZaokbbFJ7M4uPDw8vBO8fYq2heUFrdl2PJIYHw8PD2/Ny4Ppu173+ZblxbM8IYKHh4e35+Wv13xX8oRvm5Bt08R4eHh4p3n5i3hfHstD+aQdoU5G4OHh4Y14+3RAXv6fbd+mSQsPDw/vBC9//Cy8zresWG7cJ4CHh4d3gpeEy3k4mz84weTFtpfHGx4eHt5HeHnz0+osGjUi1CU0PDw8vAO8WRI2x7cj2wREUQDDw8PD+whvn2bNQ/ZNeezNQYWHh4d3K++utqf8RZ8AcmTxu+Hh4eHdymvBs4aD/N689erNGDw8PLwP8mYv5btKWW04XvdE4OHh4S147es7AcyKZMm3q0QwHh4e3k28zdSzJEWylRvSm3MPDw8Pb81rYTkpmWcWgucpCTw8PLzTvLylKV96m4xoS3TFj4GHh4d3Ey8fus95tEvcHEKPdtfx8PDwSl6brp0F4nlxKwmpk/Xj4eHhneC17QL7wDrJGGzmrP8r4OHh4ZWrbRubNr1MLWyWen6TjMDDw8O7lZdcOXXTkjVLc/znx8DDw8M7wJtV3tt2q+TAmBW62kYHPDw8vLt4s8Mgf3HP7tqU1lbdB3h4eHgxb1/Q2i9rc4K9HImHh4f3VV4SNCfJhTzJmzdgRfU9PDw8vC/xkhC8bQXIGxSGyQg8PDy8A7w8wE1I7QblAX1dYMPDw8M7wGv/6ic3t7B2QTe0C+Dh4eFNeH8BsYUDJxUKrSUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

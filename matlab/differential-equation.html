@@ -1,0 +1,88 @@
+<hr>
+<p>title: MATLAB 解常微分方程<br>date: 2019-11-11 19:44:18<br>tags:</p>
+<ul>
+<li>课程笔记</li>
+<li>MATLAB</li>
+<li>常微分方程<br>category:</li>
+<li>MATLAB<br>mathjax: true</li>
+</ul>
+<hr>
+<h2 id="常微分方程"><a href="#常微分方程" class="headerlink" title="常微分方程"></a>常微分方程</h2><p>常微分方程就是解 $\frac{dN}{dt}=rN, N(0)=N_0$ 这一类的方程。</p>
+<p>上式中，若 $r$ 为常量，则常微分方程的解为 $N_0 e^{rt}$。</p>
+<p>建立常微分模型的过程略。</p>
+<h2 id="MATLAB-解常微分方程的函数解"><a href="#MATLAB-解常微分方程的函数解" class="headerlink" title="MATLAB 解常微分方程的函数解"></a>MATLAB 解常微分方程的函数解</h2><p>运用 <code>desolve</code> 命令。</p>
+<p>如果使用字符串，方法如下：</p>
+<pre><code class="m">desolve(<span class="string">''</span>)</code></pre>
+<p>如果运用符号编程，方法如下：</p>
+<pre><code class="m">syms N(t) K N0 r0;
+dsolve(diff(N,t,<span class="number">1</span>)<span class="built_in">=</span><span class="built_in">=</span>r0*(<span class="number">1</span>-N/K)*N, N(<span class="number">0</span>)<span class="built_in">=</span><span class="built_in">=</span>N0)
+pretty(ans)</code></pre>
+<h2 id="求解一元一阶常微分方程数值解"><a href="#求解一元一阶常微分方程数值解" class="headerlink" title="求解一元一阶常微分方程数值解"></a>求解一元一阶常微分方程数值解</h2><p>有些常微分方程能够解得显式函数，但是也有不能的。于是我们退而求其次，只需要求其数值解。</p>
+<p>更一般的是：</p>
+<p>$$<br>\frac{dy}{dt} = f(t,y) \\<br>y(t_0) = y_0<br>$$</p>
+<h3 id="误差分析"><a href="#误差分析" class="headerlink" title="误差分析"></a>误差分析</h3><p>局部截断误差思想：假设 $y_n$ 准确，计算 $y_{n+1}$ 的误差。</p>
+<blockquote>
+<p>设 $y_n=y(x_n)$，称 $R_{n+1} = y(x_{n+1}) - y_{n+1}$ 为局部截断误差。<br>若局部误差为 $O(h^{n+1})$，则称该方法有 $n$ 阶精度。</p>
+</blockquote>
+<h3 id="欧拉法"><a href="#欧拉法" class="headerlink" title="欧拉法"></a>欧拉法</h3><p>解法：（欧拉法，又名左矩形法）积分。</p>
+<p>显式快，但是不稳定，h需要很小；<br>隐式慢，但是稳定，h可以很大。</p>
+<p>显式的如下：</p>
+<p>$$\begin{aligned}<br>\int_{t_0}^{t_1}y’(t)dt &amp;= \int_{t_0}^{t_1}f(t,y)dt \\<br>y(t_1) - y(t_0) &amp;\approx (t_1 - t_0)f(t_0,y_0) \\<br>y(t_1) &amp;\approx y(t_0) + (t_1 - t_0)f(t_0,y_0) \qquad\cdots(1)<br>\end{aligned}$$</p>
+<p>由 (1) 式可解出 $y(t_1)$ 的近似值，并继续用 $y(t_1)$ 解出 $y(t_2),…$</p>
+<p>隐式的方法：</p>
+<p>$$\begin{aligned}<br>\int_{t_0}^{t_1}y’(t)dt &amp;= \int_{t_0}^{t_1}f(t,y)dt \\<br>y(t_1) - y(t_0) &amp;\approx (t_1 - t_0)f(t_1,y_1) \\<br>y(t_1) &amp;\approx y(t_0) + (t_1 - t_0)f(t_1,y_1) \qquad\cdots(2)<br>\end{aligned}$$</p>
+<p>同样可由 (2) 式解出 $y(t_1)$ 的近似值，并继续用 $y(t_1)$ 解出 $y(t_2),…$但问题在于对于 (2) 式右边的部分是未知的，也就是说，还要解一下 (2) 这个非线性方程。</p>
+<p>以上方法还可以解多元的情况。</p>
+<p>例题：预测战争模型</p>
+<p>$\left\{ \begin{aligned}<br>\frac{dx}{dt} &amp;= -0.15y \\<br>\frac{dy}{dt} &amp;= -0.1x \\<br>x_0 &amp;= 10000 \\<br>y_0 &amp;= 5000<br>\end{aligned} \right.$</p>
+<p>计算 t 为何值时， x 或 y 变为 0。</p>
+<pre><code class="m">dt<span class="built_in">=</span><span class="number">1</span>/<span class="number">3600</span>;
+N<span class="built_in">=</span><span class="number">10</span>;
+size <span class="built_in">=</span> fix(N/dt);
+a <span class="built_in">=</span> <span class="number">0.15</span>;
+b <span class="built_in">=</span> <span class="number">0.1</span>;
+y <span class="built_in">=</span> zeros(<span class="number">1</span>,size);
+x <span class="built_in">=</span> zeros(<span class="number">1</span>,size);
+x(<span class="number">1</span>) <span class="built_in">=</span> <span class="number">10000</span>;
+y(<span class="number">1</span>) <span class="built_in">=</span> <span class="number">5000</span>;
+for i <span class="built_in">=</span> <span class="number">2</span>:size+<span class="number">1</span>
+    x(i) <span class="built_in">=</span> x(i-<span class="number">1</span>) - a * y(i-<span class="number">1</span>) * dt;
+    y(i) <span class="built_in">=</span> y(i-<span class="number">1</span>) - b * x(i-<span class="number">1</span>) * dt;
+    <span class="built_in">if</span> (x(i) &lt; <span class="number">0</span> || y(i) &lt; <span class="number">0</span>)
+        break;
+    end
+end
+fprintf( <span class="string">'t=%d, x=%d, y=%d'</span>,double(i-<span class="number">1</span>)*dt,x(i), y(i))
+t <span class="built_in">=</span> <span class="number">1</span>:i;
+t <span class="built_in">=</span> t * dt;
+h <span class="built_in">=</span> plot(t, x(<span class="number">1</span>:i),<span class="string">'r-'</span>, t, y(<span class="number">1</span>:i), <span class="string">'k-'</span>) <span class="comment">% r 红色， k 黑色</span>
+set(h, <span class="string">'linewidth'</span> ,<span class="number">2</span>);
+legend(<span class="string">'x'</span>, <span class="string">'y'</span>);</code></pre>
+<h3 id="梯形法"><a href="#梯形法" class="headerlink" title="梯形法"></a>梯形法</h3><p>但是不想解非线性方程。</p>
+<p>于是搞了一个近似的方法——预估——校正法（修正的欧拉法）。是二阶误差的。</p>
+<p>$$<br>y(t_1) - y(t_0) = \frac{h}{2}[f(t_0,y_0)+f(t_1, y_1)] \\<br>\Rightarrow \begin{cases}<br>\tilde{y_1} = y_0 + hf(x_0, y_0) \qquad(由 1 式) \\<br>y_1 = y_0 + \frac{h}{2}[f(t_0,y_0)+f(t_1, \tilde{y_1})]<br>\end{cases}<br>$$</p>
+<h3 id="Range-Kutta-公式"><a href="#Range-Kutta-公式" class="headerlink" title="Range-Kutta 公式"></a>Range-Kutta 公式</h3><p>简单介绍一下就行。不需要记。</p>
+<blockquote>
+<p>MATLAB 命令解常微分方程数值解：二阶 <code>ode23</code>，四阶 <code>ode45</code>。</p>
+</blockquote>
+<h3 id="ode45"><a href="#ode45" class="headerlink" title="ode45"></a>ode45</h3><p>题目是<a href="#欧拉法">上面</a>的预测战争模型。</p>
+<pre><code class="m">function testmain
+[T,Y]<span class="built_in">=</span>ode45(@rigid,[<span class="number">0</span> <span class="number">6</span>],[<span class="number">10000</span> <span class="number">5000</span>]);
+
+plot(T,Y(:,<span class="number">1</span>),<span class="string">'-'</span>,T,Y(:,<span class="number">2</span>),<span class="string">'*'</span>)
+<span class="comment">% T的每一行表示时间，Y的每一行表示两边的兵力</span>
+
+function dy<span class="built_in">=</span>rigid(t,y)
+a<span class="built_in">=</span><span class="number">0.15</span>;
+b<span class="built_in">=</span><span class="number">0.1</span>;
+dy<span class="built_in">=</span>zeros(<span class="number">2</span>,<span class="number">1</span>);
+dy(<span class="number">1</span>)<span class="built_in">=</span> -a*y(<span class="number">2</span>);
+dy(<span class="number">2</span>)<span class="built_in">=</span> -b*y(<span class="number">1</span>);</code></pre>
+<h2 id="求解多元常微分方程"><a href="#求解多元常微分方程" class="headerlink" title="求解多元常微分方程"></a>求解多元常微分方程</h2><p>将 $y1,y2$ 用向量 $\vec{y}$ 来写，$f$ 用向量 $F$ 来写，数值解法和一元一阶常微分方法相同。</p>
+<h2 id="解高阶微分方程"><a href="#解高阶微分方程" class="headerlink" title="解高阶微分方程"></a>解高阶微分方程</h2><p>就是降阶。</p>
+<pre><code class="m">function dy<span class="built_in">=</span>odefun(t,y)
+n<span class="built_in">=</span>length(y);  dy<span class="built_in">=</span>zeros(n,<span class="number">1</span>);
+dy(<span class="number">1</span>)<span class="built_in">=</span>y(<span class="number">2</span>)
+dy(<span class="number">2</span>)<span class="built_in">=</span>y(<span class="number">3</span>)
+<span class="comment">% ...</span>
+dy(n)<span class="built_in">=</span>f(t,y(<span class="number">2</span>),y(<span class="number">3</span>),...,y(n-<span class="number">1</span>));</code></pre>

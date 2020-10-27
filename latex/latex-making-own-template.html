@@ -1,0 +1,63 @@
+<hr>
+<p>title: 编写自己的 LaTeX 模板<br>date: 2020-06-13 16:11:55<br>tags:</p>
+<ul>
+<li>课程笔记</li>
+<li>LaTeX<br>category:</li>
+<li>LaTeX<br>mathjax: true</li>
+</ul>
+<hr>
+<p>一般来说，网上的 LaTeX 模板已经足够用了，只需要会用就行了，基础语法请看<a href="../LaTeX-class-note">LaTeX 基础</a>。</p>
+<p>如果想要自己编写模板，则涉及到了一些高级一点的语法。</p>
+<h2 id="texdoc-手册"><a href="#texdoc-手册" class="headerlink" title="texdoc 手册"></a>texdoc 手册</h2><p>遇到不会的语法，常用自带的手册。可以使用 <code>texdoc &lt;command&gt;</code> 查询。</p>
+<h2 id="常用纸张布局"><a href="#常用纸张布局" class="headerlink" title="常用纸张布局"></a>常用纸张布局</h2><blockquote>
+<p>此部分源码及 PDF 见：<a href="https://github.com/lyh543/UESTC_LaTeX_Template/blob/master/Course_Thesis_others/心理学漫谈">https://github.com/lyh543/UESTC_LaTeX_Template/blob/master/Course_Thesis_others/心理学漫谈</a></p>
+</blockquote>
+<pre><code class="tex"><span class="comment">% 参考 Word 默认格式</span>
+<span class="tag">\<span class="name">usepackage</span><span class="string">[a4paper, inner=3.18cm, outer=3.18cm, top=2.54cm, bottom=2.54cm, bindingoffset=0cm]</span><span class="string">{geometry}</span></span></code></pre>
+<h2 id="页眉控制"><a href="#页眉控制" class="headerlink" title="页眉控制"></a>页眉控制</h2><blockquote>
+<p>此部分源码及 PDF 见：<a href="https://github.com/lyh543/UESTC_LaTeX_Template/blob/master/Course_Thesis_others/心理学漫谈">https://github.com/lyh543/UESTC_LaTeX_Template/blob/master/Course_Thesis_others/心理学漫谈</a></p>
+</blockquote>
+<p>注意中括号的内容的含义如下：<code>H, F</code> 页眉页脚、<code>L, C, R</code> 左中右部分、<code>O, E</code> 奇偶页。</p>
+<pre><code class="tex"><span class="tag">\<span class="name">usepackage</span><span class="string">{fancyhdr}</span></span>
+
+<span class="tag">\<span class="name">fancyhead</span><span class="string">{}</span></span> <span class="comment">% 清空之前的格式</span>
+<span class="tag">\<span class="name">fancyhead</span><span class="string">[HL]</span><span class="string">{心理学漫谈结课论文}</span></span>
+<span class="tag">\<span class="name">fancyhead</span><span class="string">[HR]</span><span class="string">{\zhdate*{2019/1/13}</span></span>}
+<span class="tag">\<span class="name">fancyfoot</span><span class="string">[FC]</span><span class="string">{\thepage}</span></span>
+<span class="tag">\<span class="name">setlength</span><span class="string">{\headsep}</span><span class="string">{5pt}</span></span> <span class="comment">% 设置页眉距</span>
+
+<span class="tag">\<span class="name">begin</span><span class="string">{document}</span></span>
+
+<span class="tag">\<span class="name">pagestyle</span><span class="string">{fancy}</span></span> <span class="comment">% 正文运用 fancy</span>
+
+<span class="tag">\<span class="name">maketitle</span></span>
+<span class="tag">\<span class="name">thispagestyle</span><span class="string">{fancy}</span></span> <span class="comment">% 标题页默认没有页眉，这句强制添加页眉</span></code></pre>
+<h2 id="摘要（不分页无大标题）"><a href="#摘要（不分页无大标题）" class="headerlink" title="摘要（不分页无大标题）"></a>摘要（不分页无大标题）</h2><blockquote>
+<p>此部分源码及 PDF 见：<a href="https://github.com/lyh543/UESTC_LaTeX_Template/blob/master/Course_Thesis_others/心理学漫谈">https://github.com/lyh543/UESTC_LaTeX_Template/blob/master/Course_Thesis_others/心理学漫谈</a></p>
+</blockquote>
+<p>不需要 <code>\section</code> 或 <code>\chapter</code> 或 <code>\begin{abstract}</code>，直接写就行。</p>
+<pre><code class="tex">{<span class="tag">\<span class="name">bfseries</span></span> 摘要：}随着社交网络渗透到人们生活的方方面面，刷朋友圈似乎已称为大学生生活不可缺少的一部分……
+
+{<span class="tag">\<span class="name">bfseries</span></span> 关键字：}朋友圈；嫉妒；心理分析</code></pre>
+<h2 id="修改-Abstract、Reference-为中文摘要、参考文献"><a href="#修改-Abstract、Reference-为中文摘要、参考文献" class="headerlink" title="修改 Abstract、Reference 为中文摘要、参考文献"></a>修改 Abstract、Reference 为中文摘要、参考文献</h2><blockquote>
+<p>此部分源码及 PDF 见：<a href="https://github.com/lyh543/UESTC_LaTeX_Template/blob/master/Course_Thesis_others/心理学漫谈">https://github.com/lyh543/UESTC_LaTeX_Template/blob/master/Course_Thesis_others/心理学漫谈</a></p>
+</blockquote>
+<pre><code class="tex"><span class="tag">\<span class="name">renewcommand</span></span><span class="tag">\<span class="name">refname</span><span class="string">{参考文献}</span></span>
+<span class="tag">\<span class="name">renewcommand</span><span class="string">{\abstractname}</span><span class="string">{\textbf{\large {摘\quad 要}</span></span>}} <span class="comment">%更改摘要二字的样式</span>
+<span class="tag">\<span class="name">begin</span><span class="string">{document}</span></span>
+<span class="comment">% ...</span></code></pre>
+<h2 id="中文数字、日期"><a href="#中文数字、日期" class="headerlink" title="中文数字、日期"></a>中文数字、日期</h2><p>参见 <code>texdoc zhnumber</code>。</p>
+<pre><code class="tex"><span class="tag">\<span class="name">zhdate</span><span class="string">{2019/1/13}</span></span> <span class="comment">% 生成 2019 年 1 月 13 日</span>
+<span class="tag">\<span class="name">zhdate*</span><span class="string">{2019/1/13}</span></span> <span class="comment">% 生成 2019 年 1 月 13 日 星期日</span></code></pre>
+<h2 id="newcommand-和-newenvironment"><a href="#newcommand-和-newenvironment" class="headerlink" title="newcommand 和 newenvironment"></a>newcommand 和 newenvironment</h2><pre><code class="tex"><span class="tag">\<span class="name">newcommand</span><span class="string">{\customcmd}</span><span class="string">{\realthing}</span></span>
+
+
+<span class="tag">\<span class="name">newenvironment</span><span class="string">{customenv}</span></span>
+{
+
+}
+
+<span class="tag">\<span class="name">customcmd</span></span>
+<span class="tag">\<span class="name">begin</span><span class="string">{customenv}</span></span>
+    <span class="comment">% ...</span>
+<span class="tag">\<span class="name">end</span><span class="string">{customenv}</span></span></code></pre>

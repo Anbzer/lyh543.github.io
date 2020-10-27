@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>软件工程 重点 | 小灰灰灰灰的博客</title><meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="计算机科学,课程笔记,软件工程">
+    <meta name="description" content="教材（据说很烂）：                                                                                              软件工程——共同演进的方法和实践               本门课程的判断题对的居多（？还有这种操作） 第一章重点 软件的四个组成成分（等式）、组成成分的定义（PPT） 软件的特点（书上大标题">
+<meta name="keywords" content="计算机科学,课程笔记,软件工程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程 重点">
+<meta property="og:url" content="https://blog.lyh543.cn/computer-science/software-engineering-classnote/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:description" content="教材（据说很烂）：                                                                                              软件工程——共同演进的方法和实践               本门课程的判断题对的居多（？还有这种操作） 第一章重点 软件的四个组成成分（等式）、组成成分的定义（PPT） 软件的特点（书上大标题">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/6d2bb642eb655fbc6918bf6709a2560e89660deff6ded91ff8a8ad83df90baa5.jpg">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/f901dc874eb26e020251696ea7ce0d2aaff654d0784b7f3e3e860f2def2497a2.png">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/ee9a3d50c24be3ca9c81f4af7ea26b74ad5b9280e3e66a6bae462ae4fc755e69.jpg">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/5f7f6dcf962ee514d5ba677a58d6f52b7d21f2cc78501155cba4a7cb73a8a24c.jpg">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/af403e133c5aeb8cf9d97199766a46d340aea4add508e56c685c6c3dbe0a8b02.jpg">
+<meta property="og:updated_time" content="2020-10-27T16:11:05.546Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件工程 重点">
+<meta name="twitter:description" content="教材（据说很烂）：                                                                                              软件工程——共同演进的方法和实践               本门课程的判断题对的居多（？还有这种操作） 第一章重点 软件的四个组成成分（等式）、组成成分的定义（PPT） 软件的特点（书上大标题">
+<meta name="twitter:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/6d2bb642eb655fbc6918bf6709a2560e89660deff6ded91ff8a8ad83df90baa5.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">软件工程 重点</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">软件工程 重点</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-09-07T20:24:32.000Z" itemprop="datePublished" class="page-time">
+  2020-09-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/计算机科学/">计算机科学</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一章"><span class="post-toc-number">1.</span> <span class="post-toc-text">第一章</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重点"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">重点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#题"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二章"><span class="post-toc-number">2.</span> <span class="post-toc-text">第二章</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重点-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">重点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#题-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第三章"><span class="post-toc-number">3.</span> <span class="post-toc-text">第三章</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重点-2"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">重点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#题-2"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">题</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-computer-science/software-engineering-classnote"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">软件工程 重点</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-09-07 20:24:32" datetime="2020-09-07T20:24:32.000Z"  itemprop="datePublished">2020-09-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/计算机科学/">计算机科学</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>教材（据说很烂）：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/6d2bb642eb655fbc6918bf6709a2560e89660deff6ded91ff8a8ad83df90baa5.jpg" alt="软件工程——共同演进的方法和实践" title>
+                </div>
+                <div class="image-caption">软件工程——共同演进的方法和实践</div>
+            </figure>
+
+<p>本门课程的判断题对的居多（？还有这种操作）</p>
+<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h3><ol>
+<li>软件的四个组成成分（等式）、组成成分的定义（PPT）</li>
+<li>软件的特点（书上大标题，简答题）</li>
+<li>软件的双重作用</li>
+<li>软件工程的目标（一句话）</li>
+<li>软件工程的七原则（大标题）</li>
+<li>IEEE 软件工程知识体系涵盖的十个方面（大标题）</li>
+<li>“缺乏有力的方法学的指导和有效的开发工具的支持，这往往是产生软件危机的原因之一。”</li>
+<li>软件危机的表现（书上）</li>
+<li>PPT 上 Misunderstanding &amp; Reality</li>
+<li>软件工程中文档的作用是什么<ol>
+<li>提高软件开发过程的能见度</li>
+<li>记录开发过程的有关信息，便于使用与维护</li>
+<li>作为开发人员阶段工作成果和结束标志</li>
+<li>提高开发效率</li>
+<li>提供软件运行、维护、培训的有关资料</li>
+<li>便于用户了解软件功能和性能</li>
+</ol>
+</li>
+</ol>
+<h3 id="题"><a href="#题" class="headerlink" title="题"></a>题</h3><ol>
+<li>软件产品的开发主要是（研制）</li>
+<li>软件是一种（逻辑产品）</li>
+<li>软件工程的出现主要是由于（软件危机的出现）</li>
+</ol>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><h3 id="重点-1"><a href="#重点-1" class="headerlink" title="重点"></a>重点</h3><ol>
+<li>软件过程模型的定义是什么？列举至少四种模型<ul>
+<li>定义补充：软件过程模型能直观表达软件开发全过程，明确规定要完成的主要任务、活动和开发策略</li>
+</ul>
+</li>
+<li>瀑布模型：线性、文档驱动<ul>
+<li>瀑布模型适用于 xx 情况</li>
+<li>瀑布模型的特点（一二点背标题、三点全背）、缺点（全背）</li>
+</ul>
+</li>
+<li>螺旋模型：风险驱动<ul>
+<li>优缺点（全背）</li>
+</ul>
+</li>
+<li>增量模型：增量是可以运行的，程序的运行版本在早期就可以得到<ul>
+<li>优缺点、需要注意的问题</li>
+<li>适用于软件需求不明确、设计方案有一定风险的软件项目</li>
+</ul>
+</li>
+<li>如何选择过程模型（PPT 背第三点）</li>
+<li>软件工程以质量为中心，软件过程、方法和工具为三要素（工具不是过程模型）</li>
+<li>软件生存周期分为几个阶段，每个阶段的提交x是什么<ul>
+<li>可行性研究、项目开发计划 -&gt; 项目开发计划、可行性分析报告</li>
+<li>需求分析 -&gt; 软件需求说明书</li>
+<li>概要设计 -&gt; 概要设计说明书</li>
+<li>详细设计 -&gt; 详细设计说明书</li>
+<li>编码 -&gt; 源程序清单</li>
+<li>测试 -&gt; 测试报告</li>
+<li>维护  -&gt; 维护报告</li>
+</ul>
+</li>
+<li>CMMI 五个级别的名字和侧重点</li>
+<li>增量模型和螺旋模型的异同点？<ul>
+<li>相同：都是非整体的、迭代式开发方式</li>
+<li>不同：<ul>
+<li>迭代层级不同：增量模型为活动级的迭代；螺旋模型是过程级的迭代</li>
+<li>需求分析时间不同：增量模型常先做总体需求分析和设计，再编码和测试逐个增量包开发；螺旋模型在开发周期内采用瀑布模型</li>
+<li>交付软件的方式不同：增量模型每次增量开发都在上一次增量的基础上提交新的一部分软件；螺旋模型每次迭代每次提交一个新的软件版本</li>
+<li>减少风险的方式不同：增量模式通过避免使用未成熟的技术和经常的客户反馈等方法减少风险；螺旋模型则是直接引入风险分析</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="题-1"><a href="#题-1" class="headerlink" title="题"></a>题</h3><ol>
+<li>大多数软件系统不容易变化，除非他们在设计时考虑了变化（√）</li>
+<li>目前的绝大多数软件都不适合快速原型模型（x，其实绝大多数适合）</li>
+<li>下面按个选项不属于能力成熟度模型的级别（重复级、确定级、高效级√、优化级）</li>
+<li>（原型化方法）是用户和设计交换最频繁的方法</li>
+<li>对增量模型，以下叙述错误的是（C）<br>A. 使用增量模型开发软件时，把软件产品分解为一系列的增量构建来设计<br>B. 增量构建的开发可以采用瀑布模型<br>C. 第一个增量构建往往实现软件的高级功能<br>D. 采用增量模型比采用瀑布模型和快速原型模型更需要精心的设计</li>
+<li>常用的三种软件过程模型：瀑布模型、演化模型、增量模型</li>
+</ol>
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><h3 id="重点-2"><a href="#重点-2" class="headerlink" title="重点"></a>重点</h3><ol>
+<li>需求的定义（背）</li>
+<li>功能性需求和非功能性需求的定义和区别（背，理解例子，列举五种非功能性需求）</li>
+<li>需求分析的 4 个步骤的定义</li>
+<li>需求分析的主要任务：PPT + 准确定义未来系统的目标，确定为了满足用户的需求，系统应该做什么，并用需求规格说明书规范的形式、准确地表达用户需求</li>
+<li>结构化分析方法要建立哪三种模型，（以什么为核心），每个图分别对应哪种建模</li>
+<li>数据流图的四种符号<ul>
+<li>数据流图中的每个加工至少有一个输入和一个输出</li>
+<li>结构化分析方法的分析策略是（自顶向下、逐步求精）</li>
+</ul>
+</li>
+<li>讲过的图的名字（UML、部署图、顺序图（时序图）等）</li>
+<li>UML 中动态模型的描述工具：顺序图、活动图、状态图</li>
+<li>用例图由哪些元素组成？主要用途？<ul>
+<li>元素：用例、参与者、关系、系统</li>
+<li>用途：用于需求的获取、定义和分析</li>
+</ul>
+</li>
+<li>UML 中什么是参与者？可以通过提出什么问题来明确参与者？（PPT）<ul>
+<li>谁或者什么。。。。。。 </li>
+</ul>
+</li>
+<li>画用例图（注意可能有 <code>include</code> 和 <code>extend</code>）</li>
+<li>顺序图的组成元素：类、角色、生命线、对象、激活期、消息</li>
+<li>用例图是显示一组用例、参与者、以及他们关系的图；用例图从用户的角度（而不是开发者）描述对软件产品的需求，分析产品所需的功能和动态行为</li>
+<li>用例图的作用：用来对需求建模，用例图是至关重要的，他的正确与否直接影响了用户对最终产品的满意度</li>
+<li>用例图的内容是：参与者、用例、泛化、扩展和 xxxx</li>
+</ol>
+<h3 id="题-2"><a href="#题-2" class="headerlink" title="题"></a>题</h3><ol>
+<li>数据流图的组成元素中，（数据流）用于描述数据处理所需的输入或输出</li>
+<li>在 UML 图中，（顺序图）图用于描述为实现一个用例多个对象之间动态的交互关系，以及的对象的生存期</li>
+<li>UML 状态图可以用来描述多个对象之间的行为协作（×）因为顺序图是多个对象之间的 状态图是一个对象的</li>
+<li>有效的需求变更管理需要对变更带来的潜在影响及可能的成本费用进行评估。（√）</li>
+<li>需求分析和设计，在这两个阶段主要确定目标系统的（逻辑模型），不涉及软件的（物理实现）</li>
+<li>UML 状态图用于描述一个对象所能达到的所有状态以及引起状态改变的（事件）</li>
+<li>UML用例图中，（包含）用例是指经过封装后可以在各种不同的基本用例中复用的用例（但实际意思是被包含，这是答案的问题）</li>
+<li>以下针对需求分析作用的描述中，错误的是（B）<br>A. 使开发者和用户对需求达成一致<br>B. 使程序接口定义明确<br>C. 使开发工作有章可循<br>D. 使测试有理可依</li>
+<li>如果使用增量模型，任何需求都可以很好控制（√）</li>
+<li>UML 活动图用于描述一个对象所能到达的所有状态以及引起状态转变的事件。（x）活动图没讲，其实是状态图</li>
+<li>软件需求可以分为哪两类？软件需求过程包括哪几个阶段？<ul>
+<li>分类：功能、非功能需求</li>
+<li>阶段：需求获取、分析、定义</li>
+</ul>
+</li>
+<li>出现软件缺陷的首要原因是 / 项目失败的首要原因是（B）<br>A. 设计技术不成熟<br>B. 需求不清<br>C. 代码错误<br>D. 进度压力</li>
+<li>（B）这一活动开始时作为系统工程或业务过程的一部分，接下来作为软件需求分析的第一步。<br>A. 确定软件开发过程<br>B. 定义产品的目标和范围<br>C. 进行项目估算<br>D. 定义项目度量</li>
+<li>如下图<ul>
+<li>成员方法是指向自己的</li>
+<li>私有方法是</li>
+</ul>
+</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/f901dc874eb26e020251696ea7ce0d2aaff654d0784b7f3e3e860f2def2497a2.png" alt="13 题 - A 卷" title>
+                </div>
+                <div class="image-caption">13 题 - A 卷</div>
+            </figure>  
+
+<p><img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/ee9a3d50c24be3ca9c81f4af7ea26b74ad5b9280e3e66a6bae462ae4fc755e69.jpg" alt="13 题 - A 卷图">  </p>
+<p><img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/5f7f6dcf962ee514d5ba677a58d6f52b7d21f2cc78501155cba4a7cb73a8a24c.jpg" alt="13 题 - B 卷">  </p>
+<p><img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/af403e133c5aeb8cf9d97199766a46d340aea4add508e56c685c6c3dbe0a8b02.jpg" alt="13 题 - B 卷图">  </p>
+<!-- flag of hidden posts -->
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-10-27T16:11:05.546Z" itemprop="dateUpdated">2020-10-27 16:11:05</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.lyh543.cn">
+            <img src="/img/avatar.png" alt="lyh543">
+            lyh543
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机科学/">计算机科学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程笔记/">课程笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/computer-science/software-engineering-classnote/&title=《软件工程 重点》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/computer-science/software-engineering-classnote/&title=《软件工程 重点》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/computer-science/software-engineering-classnote/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《软件工程 重点》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/computer-science/software-engineering-classnote/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/computer-science/software-engineering-classnote/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ec7daa4e047c3c30570d',
+          clientSecret: '025a9e40a1d101f28fd1a945d286a819e9fa1c3d',
+          repo: 'lyh543.github.io',
+          owner: 'lyh543',
+          admin: ['lyh543'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/computer-science/software-engineering-classnote/&title=《软件工程 重点》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/computer-science/software-engineering-classnote/&title=《软件工程 重点》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/computer-science/software-engineering-classnote/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《软件工程 重点》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/computer-science/software-engineering-classnote/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/computer-science/software-engineering-classnote/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3ay27CUAwFQP7/p6nUXUUhx48LLCarKhXkjivFru3bLb7uv9fjz6/vPN5/9tv7w/X6/vKFh4eH1zr6s+sZLzlKEoj8fvKsf74HDw8P7xhvngxefzYB508shAkPDw/vo7x52shTQjXceHh4eN/JmySAXhGfpw08PDy89/PmD+s9Pimj88YHHh4e3nt4k3L2Uz+/ab6Hh4eHVyxtq6ki//78uPfBhYeHh3eClx80WZxKkkpeLidFdhQmPDw8vMO8vA0xWclKGsFJIKKA4uHh4R3mJS/96gJBnk7y4rtQpuPh4eGt8pKP5SVvNWH0mhSF0h8PDw/vGG+rjM4L5dclcp5OLlIRHh4e3gHeVqE8GYnNF7CiJQM8PDy8JV5y3K3RV96AmAzVCgfFw8PDe3tLIgdUX+69VshFxsPDw8Nb4lUbBNV1qCSI1XZDcwCGh4eHd4A3aS7kq1HV8Vhv5PanGYGHh4e3yjsNqz54F4+Hh4d3gtdrH+Qtg+qnquCLPwkeHh7eAV5vWDUZ51dDk0+4LkKGh4eHt8rL/72vtncnS1q9krrQq8bDw8Nr8fJDJ8lga1mq2sa9+I8BDw8Pb5WXl8u9RatqW7YX7iiIeHh4eKu8i4q7GKe8OZuD81ZI4e+Gh4eHt8RLitTq0kAeiDwoeasCDw8P7wQvbxnkA7A82VRTwqQVgoeHh7fFq371bkO2+qIvrzjg4eHhHePlw/vemL9c+LauqNeCh4eHN+CdOEq1KZw/d7R0hYeHh7fE671wqw/u3c8L+oVkg4eHh1fk9RqpkyhurRdEgzQ8PDy8Y7wkGUxSSF4EV3MXHh4e3vfz8rFWNXn0VhbWutR4eHh4B3i7h85f971WCB4eHt5pXm/4FBW1xTvVgdxF+PDw8PAO8HothslyQO9+tdDHw8PDO8D7AS7Tc6gkaJ+dAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

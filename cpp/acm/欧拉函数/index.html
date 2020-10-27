@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>欧拉函数（坑） | 小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,坑,ACM,数论">
+    <meta name="description" content="定义欧拉函数$\varphi(n)$：对于正整数$n$，在小于等于$n$的正整数之中，和$n$互质的数的个数。 如在 1 到 8 之中，与 8 形成互质关系的是1、3、5、7，所以$\varphi(n)=4$。 $\varphi(n)$ 的计算1. 如果 $n=1$$$\varphi(n)=1$$ 2. 如果 $n$ 是质数$$\varphi(n)=n-1$$ 3. 如果 $n=p^k$$$\va">
+<meta name="keywords" content="C++,坑,ACM,数论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="欧拉函数（坑）">
+<meta property="og:url" content="https://blog.lyh543.cn/cpp/acm/欧拉函数/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:description" content="定义欧拉函数$\varphi(n)$：对于正整数$n$，在小于等于$n$的正整数之中，和$n$互质的数的个数。 如在 1 到 8 之中，与 8 形成互质关系的是1、3、5、7，所以$\varphi(n)=4$。 $\varphi(n)$ 的计算1. 如果 $n=1$$$\varphi(n)=1$$ 2. 如果 $n$ 是质数$$\varphi(n)=n-1$$ 3. 如果 $n=p^k$$$\va">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-10-27T16:11:05.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="欧拉函数（坑）">
+<meta name="twitter:description" content="定义欧拉函数$\varphi(n)$：对于正整数$n$，在小于等于$n$的正整数之中，和$n$互质的数的个数。 如在 1 到 8 之中，与 8 形成互质关系的是1、3、5、7，所以$\varphi(n)=4$。 $\varphi(n)$ 的计算1. 如果 $n=1$$$\varphi(n)=1$$ 2. 如果 $n$ 是质数$$\varphi(n)=n-1$$ 3. 如果 $n=p^k$$$\va">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">欧拉函数（坑）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">欧拉函数（坑）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-26T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-06-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义"><span class="post-toc-number">1.</span> <span class="post-toc-text">定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#varphi-n-的计算"><span class="post-toc-number">2.</span> <span class="post-toc-text">$\varphi(n)$ 的计算</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-如果-n-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1. 如果 $n=1$</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-如果-n-是质数"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2. 如果 $n$ 是质数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-如果-n-p-k"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3. 如果 $n=p^k$</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-如果-n-p1-cdot-p2"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4. 如果 $n=p1\cdot p2$</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-对于剩余情况"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">5. 对于剩余情况</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#欧拉定理"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">欧拉定理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#神奇的性质"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">神奇的性质</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cpp/acm/欧拉函数"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">欧拉函数（坑）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-26 00:00:00" datetime="2019-06-26T00:00:00.000Z"  itemprop="datePublished">2019-06-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>欧拉函数$\varphi(n)$：对于正整数$n$，在小于等于$n$的正整数之中，和$n$互质的数的个数。</p>
+<p>如在 1 到 8 之中，与 8 形成互质关系的是1、3、5、7，所以$\varphi(n)=4$。</p>
+<h2 id="varphi-n-的计算"><a href="#varphi-n-的计算" class="headerlink" title="$\varphi(n)$ 的计算"></a>$\varphi(n)$ 的计算</h2><h3 id="1-如果-n-1"><a href="#1-如果-n-1" class="headerlink" title="1. 如果 $n=1$"></a>1. 如果 $n=1$</h3><p>$$\varphi(n)=1$$</p>
+<h3 id="2-如果-n-是质数"><a href="#2-如果-n-是质数" class="headerlink" title="2. 如果 $n$ 是质数"></a>2. 如果 $n$ 是质数</h3><p>$$\varphi(n)=n-1$$</p>
+<h3 id="3-如果-n-p-k"><a href="#3-如果-n-p-k" class="headerlink" title="3. 如果 $n=p^k$"></a>3. 如果 $n=p^k$</h3><p>$$\varphi(n)=p^k-p^{k-1}$$</p>
+<p>因为 $p^k$ 有 $p^{k-1}$ 个因数</p>
+<p>又可以写成</p>
+<p>$$\varphi(p^k)=p^k\cdot(1-\frac{1}{p})$$</p>
+<h3 id="4-如果-n-p1-cdot-p2"><a href="#4-如果-n-p1-cdot-p2" class="headerlink" title="4. 如果 $n=p1\cdot p2$"></a>4. 如果 $n=p1\cdot p2$</h3><p>$$\varphi(n)=\varphi(p_1p_2)=\varphi(p_1)\varphi(p_2)$$</p>
+<blockquote>
+<p>如果 $a$ 与 $p_1$ 互质 $(a&lt;p_1)$ ，$b$与 $p_2$ 互质 $(b&lt;p_2)$ ，则 $a\cdot p_2+b\cdot p_1$ 肯定与 $p_1p_2$ 互质。<br>由于 $a$ 一共有 $\varphi(p_1)$ 种取值可能， $b$ 一共有 $\varphi(p_2)$ 个取值可能，所以 $\varphi(p_1p_2)$ 就等于$\varphi(p_1)\varphi(p_2)$.</p>
+</blockquote>
+<p>感觉有点不严谨额，不过就这么记吧。</p>
+<h3 id="5-对于剩余情况"><a href="#5-对于剩余情况" class="headerlink" title="5. 对于剩余情况"></a>5. 对于剩余情况</h3><p>$$<br>\begin{split}<br>\varphi(n) &amp; = \varphi(p_1^{k_1})\varphi(p_2^{k_2})\cdots\varphi(p_r^{k_r}) \\<br>&amp; = p_1^{k_1} p_2^{k_2} \cdots p_r^{k_r} (1-\frac{1}{p_1})  (1-\frac{1}{p_2}) \cdots  (1-\frac{1}{p_r}) \\<br>&amp; = n (1-\frac{1}{p_1})  (1-\frac{1}{p_2}) \cdots  (1-\frac{1}{p_r})<br>\end{split}<br>$$</p>
+<p>好我学会了<del>实际上并没有</del></p>
+<h3 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h3><p>若 a 与 n 互质，则：</p>
+<p>$$a^{\varphi(n)}\equiv 1(mod\quad n)$$</p>
+<h3 id="神奇的性质"><a href="#神奇的性质" class="headerlink" title="神奇的性质"></a>神奇的性质</h3><p>$$\sum_{(d|n)}\varphi(d)=n$$</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-10-27T16:11:05.558Z" itemprop="dateUpdated">2020-10-27 16:11:05</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.lyh543.cn">
+            <img src="/img/avatar.png" alt="lyh543">
+            lyh543
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/欧拉函数/&title=《欧拉函数（坑）》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/欧拉函数/&title=《欧拉函数（坑）》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/欧拉函数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《欧拉函数（坑）》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/欧拉函数/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/欧拉函数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/others/qq-wechat-call-system-webview/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">QQ，微信实现调用系统WebView教程</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/cpp/acm/矩阵覆盖Dilworth/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">矩阵覆盖 Dilworth（摘抄）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ec7daa4e047c3c30570d',
+          clientSecret: '025a9e40a1d101f28fd1a945d286a819e9fa1c3d',
+          repo: 'lyh543.github.io',
+          owner: 'lyh543',
+          admin: ['lyh543'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/欧拉函数/&title=《欧拉函数（坑）》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/欧拉函数/&title=《欧拉函数（坑）》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/欧拉函数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《欧拉函数（坑）》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/欧拉函数/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/欧拉函数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aQXKEMAwEwP3/p8l1L8CMzaYKu33aIsTQHFSSrM8nXsfX+r5y9vv7Srtn8r+DCwMD47WM43Ll9zz7IernYmBgbMA4e/DZPWfbJcjkY+XvhoGBgdEGxPylr0MzBgYGxq8DbvJf12EXAwMDY37ra0BSxLbJ4mO1OAYGxgsZebPs/3//5HwDAwPjVYyjXNfhNUkf81BevBUGBsbSjDzA5du1RWxUoCaJJgYGxtKMsUbbWAHcpqH5FQwMjB0YY+lgEkaT1HAsicTAwNiHMVa+jt05H2pvMlwMDIzlGG0ZmR80tgMZbTJaT4tgYGC8nDH2cm2BOl/c1r1ADAyMJRhJ+6w9emxL0Hxc7OYjYmBgLMpot5gZ87oOry3jdGYEAwNjUUbe3B8bqpgvXG/eEAMDY2lGewI41RQr23YPD1tgYGC8nNGWlO0jx0JwO6yGgYGxKiPfug21MwE3D9kYGBg7MNo/jwXEfDisHR27yXMxMDAWYuQttrFximvSWDF8MxyGgYGxGSMvUHNqklbWLT8MDIwNGPNN/Dy8tiE4uhMDA2MDRjv6kI9c5Mg2WBcnDxgYGK9lHOVq2fNHC9GxAQYGxtKMfLWpW3slP2D4zCwMDIzXMurGVhBk2wK1/WQYGBh7MmaGJ54NwVOlLAYGBsbQcEYObsM3BgYGxthRQfLIPEDnzTgMDIwdGO1hwExDrS2t62ELDAyM5Rht6TjTjGvbfHkgxsDAWJTxBw/Uk2GNNEytAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

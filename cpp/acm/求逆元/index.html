@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>求逆元 | 小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,ACM,数论">
+    <meta name="description" content="const int mod=97;` 若mod是质数可用费马小定理+快速幂 1234567891011121314151617int quickpow(int base, int pow)&amp;#123;    int ans = 1;    while (pow)    &amp;#123;        if (pow &amp;amp; 1)            ans = ans * base % mod;">
+<meta name="keywords" content="C++,ACM,数论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="求逆元">
+<meta property="og:url" content="https://blog.lyh543.cn/cpp/acm/求逆元/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:description" content="const int mod=97;` 若mod是质数可用费马小定理+快速幂 1234567891011121314151617int quickpow(int base, int pow)&amp;#123;    int ans = 1;    while (pow)    &amp;#123;        if (pow &amp;amp; 1)            ans = ans * base % mod;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-10-27T16:11:05.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="求逆元">
+<meta name="twitter:description" content="const int mod=97;` 若mod是质数可用费马小定理+快速幂 1234567891011121314151617int quickpow(int base, int pow)&amp;#123;    int ans = 1;    while (pow)    &amp;#123;        if (pow &amp;amp; 1)            ans = ans * base % mod;">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">求逆元</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">求逆元</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-19T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-08-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#若mod是质数"><span class="post-toc-number">1.</span> <span class="post-toc-text">若mod是质数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#若求-1-n-的逆元"><span class="post-toc-number">2.</span> <span class="post-toc-text">若求 1~n 的逆元</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扩展欧几里得定理"><span class="post-toc-number">3.</span> <span class="post-toc-text">扩展欧几里得定理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#若a-b不互质"><span class="post-toc-number">4.</span> <span class="post-toc-text">若a,b不互质</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cpp/acm/求逆元"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">求逆元</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-19 00:00:00" datetime="2019-08-19T00:00:00.000Z"  itemprop="datePublished">2019-08-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>const int mod=97;`</p>
+<h2 id="若mod是质数"><a href="#若mod是质数" class="headerlink" title="若mod是质数"></a>若mod是质数</h2><p>可用费马小定理+快速幂</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">quickpow</span><span class="params">(<span class="keyword">int</span> base, <span class="keyword">int</span> <span class="built_in">pow</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">pow</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">pow</span> &amp; <span class="number">1</span>)</span><br><span class="line">            ans = ans * base % mod;</span><br><span class="line">        <span class="built_in">pow</span> &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        base = base * base % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">inv1</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> quickpow(a,mod<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="若求-1-n-的逆元"><a href="#若求-1-n-的逆元" class="headerlink" title="若求 1~n 的逆元"></a>若求 1~n 的逆元</h2><p>可以用递推式</p>
+<p>$$ i^{-1} = (p - \lfloor \frac{p}{i} \rfloor) \times (p \% i) ^ {-1} \space \% p $$<br>$$ i ^ {-1} = \frac{1}{i} = \frac{p-a}{b} \space \% p $$<br>$$ \Big( p = ai + b, \lfloor \frac{p}{i} \rfloor = a, p \% i = b \Big) $$</p>
+<p>其中 inv[1] = 1;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> inv[mod] = &#123;<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">init_inv2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; mod; i++)</span><br><span class="line">        inv[i]=(mod-mod/i)*(inv[mod % i])%mod;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="扩展欧几里得定理"><a href="#扩展欧几里得定理" class="headerlink" title="扩展欧几里得定理"></a>扩展欧几里得定理</h2><p>裴蜀定理告诉了我们，ax+by=d存在整数解当且仅当 <code>gcd(a,b)∣d</code><br><code>ax+by=gcd(a,b)</code>可以递归为<code>ax&#39;+by&#39;=gcd(b,a%b)</code><br>其中<code>x=y&#39;, y=x&#39;-[a/b]*y</code><br>当<code>b==0</code>时，令<code>x=1, y=0</code>即可递推至原来的x,y</p>
+<p>若a,b互质，则<code>ax+by=gcd(a,b)=1</code>，x即是a的逆元（mod b）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> &amp;x ,<span class="keyword">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (b == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = <span class="number">1</span>;</span><br><span class="line">        y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = exgcd(b,a%b,x,y);</span><br><span class="line">    <span class="keyword">int</span> temp = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = temp - a / b * x;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">inv3</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">    exgcd(a,mod,x,y);</span><br><span class="line">    <span class="keyword">return</span> (x+mod)%mod;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="若a-b不互质"><a href="#若a-b不互质" class="headerlink" title="若a,b不互质"></a>若a,b不互质</h2><p>甚至简单不能使用逆元，但是<br>若<code>b|a</code>, 有<code>a / b mod p == a mod(b*p) / b</code><br>就可以快乐的用逆元啦。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-10-27T16:11:05.558Z" itemprop="dateUpdated">2020-10-27 16:11:05</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.lyh543.cn">
+            <img src="/img/avatar.png" alt="lyh543">
+            lyh543
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/求逆元/&title=《求逆元》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/求逆元/&title=《求逆元》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/求逆元/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《求逆元》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/求逆元/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/求逆元/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/cpp/cpp-grammar/windows-console/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Windows 控制台常用操作</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/cpp/cpp-grammar/struct/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">C++ 结构体</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ec7daa4e047c3c30570d',
+          clientSecret: '025a9e40a1d101f28fd1a945d286a819e9fa1c3d',
+          repo: 'lyh543.github.io',
+          owner: 'lyh543',
+          admin: ['lyh543'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/求逆元/&title=《求逆元》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/求逆元/&title=《求逆元》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/求逆元/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《求逆元》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/求逆元/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/求逆元/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvklEQVR42u3aQZLCQAgFUO9/6czWxUQ/kKBWvV5ZGtOPDUVDPx7xOp5W9ZvkbRcvXFzcMfd4uXJcHl7+6z/vx8XFXeSebXn2Of/X2fN5ysPFxf0Vbl6NJAHj4uL+OjdPWNWUh4uL+23c5HDSe76a2i47q+Hi4g6482Jl/vmW/i4uLm6LexRXdSjSa4+e7o6Li7vCzRNKlV4dpeTDXVxc3Lu5eSFSJeZvKAxgcHFxF7mvm6G9a1h5OisEj4uLu8LtXajqbXxVIwYXF3eTW71U0RvAVBPWm/kPLi7uCjcvXOZJcNKCwcXF3eH2QDm6etkr2hEXF/dm7qRkqW7Wa6bg4uLucPNSJo97MjJ5EzAuLu4KN3/d5BJGr5CKmjW4uLi3cfOBR2+Ukj8fNWJwcXEXudUGR56AkjFtoZDCxcX9EDdPN72rWnm6jH7GxcW9lHsUVx5Skv7Kl7dwcXFXuPmajFUm3ZpmMLi4uGNub7x61fWs5HtcXNxPcauJJglv6ayGi4v7Bdw89SQHpOaJDRcX98u4k2ZolKpeP4+Li7vIzUuWfNSaB1Nou+Di4q5wq6mkWr70LmFc0N/FxcXtcP8Aj3BI5/sraAIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

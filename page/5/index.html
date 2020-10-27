@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta property="og:type" content="website">
+<meta property="og:title" content="小灰灰灰灰的博客">
+<meta property="og:url" content="https://blog.lyh543.cn/page/5/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小灰灰灰灰的博客">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">小灰灰灰灰的博客</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">小灰灰灰灰的博客</h1>
+        <h5 class="subtitle">
+            
+                
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-mcm/self-study/graphs"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-04-28 00:00:00" datetime="2020-04-28T00:00:00.000Z"  itemprop="datePublished">2020-04-28</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数学建模/">数学建模</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/mcm/self-study/graphs/">数模自学笔记——图与网络模型及方法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        其实离散数学的时候讲过，数据结构又讲过，数模再讲一遍。
+什么问题能抽象为图论举了一堆例子，然后得出结论：
+
+能够把问题抽象为两种：元素，以及元素之间的关系
+
+上面的这种问题就可以抽象为图论
+基本概念图的元素
+$G=(V, E)$ $Vertex$ 为顶点，$Edge$ 为边  
+$V={v_1, v_2, v_3, v_4}, E={e_1, e_2, e_3, e_4}$  
+$e=(u,...
+    
+
+        <a href="/mcm/self-study/graphs/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学建模/">数学建模</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数模自学笔记/">数模自学笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-python/python-oop"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-04-22 22:29:15" datetime="2020-04-22T22:29:15.000Z"  itemprop="datePublished">2020-04-22</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/python/python-oop/">Python 面向对象编程</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        在学 Python OOP 之前，我在想，怎么还没到结构体，后来才恍然大悟，结构体是 C 的东西，C++ 有了类以后，（不考虑效率问题）就不需要结构体了，而 Python 也是这样，有了类，还需要结构体做什么呢？
+该篇博客默认读者曾学过至少一门 OOP 语言。
+Python 和 C++ 的对同一个概念的称呼的简单对照表：
+
+
+
+Python
+C++
+
+
+
+类 class
+类 class
+
+
+...
+    
+
+        <a href="/python/python-oop/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象编程/">面向对象编程</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-mcm/self-study-note"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-04-13 13:14:41" datetime="2020-04-13T13:14:41.000Z"  itemprop="datePublished">2020-04-13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数学建模/">数学建模</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/mcm/self-study-note/">数模自学笔记</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        本篇原内容已迁移至 数模自学笔记 规划问题。
+所有自学笔记的链接：Tags: 数模自学笔记
+
+    
+
+        <a href="/mcm/self-study-note/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-mcm/self-study/optimization"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-04-13 10:27:07" datetime="2020-04-13T10:27:07.000Z"  itemprop="datePublished">2020-04-13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数学建模/">数学建模</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/mcm/self-study/optimization/">数模自学笔记——规划问题</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        本章内容：线性规划 整数规划 非线性规划
+规划问题 建模思路无非就是把这些规划化成对应规划的标准形式，然后就可以丢进 MATLAB 里跑了。
+线性规划用 linprog。整数线性规划用 intlinprog。二次规划使用 quadprog。
+非线性约束中，对于无约束优化用 fminunc 或 fminsearch，对于有约束优化用 fmincon。
+对于要求一系列函数中最大值的极小值，可以使...
+    
+
+        <a href="/mcm/self-study/optimization/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学建模/">数学建模</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数模自学笔记/">数模自学笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最优化算法/">最优化算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-matlab/matlab-syms"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-03-31 22:00:58" datetime="2020-03-31T22:00:58.000Z"  itemprop="datePublished">2020-03-31</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MATLAB/">MATLAB</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/matlab/matlab-syms/">MATLAB 符号编程</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+符号对象 (Symbolic Objects 不同于普通的数值计算) 是 Matlab 中的一种特殊数据类型，它可以用来表示符号变量、表达式以及矩阵。利用符号对象能够在不考虑符号所对应的具体数值的情况下能够进行代数分析和符号计算 (symbolic math operations)，例如解代数方程、微分方程、进行矩阵运算等。符号对象需要通过 sym 或 syms 函数来指定, 普通的数字转...
+    
+
+        <a href="/matlab/matlab-syms/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB/">MATLAB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程笔记/">课程笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-others/sql-server"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-03-23 09:31:21" datetime="2020-03-23T09:31:21.000Z"  itemprop="datePublished">2020-03-23</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/others/sql-server/">SQL SERVER 基础</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        此篇博客来自《数据库管理及应用》课程的第三章。教材为《数据库系统及应用》（第 2 版，魏祖宽 主编）。
+MySQL 相关语法见 MySQL。
+SQL 简介
+SQL：Structured Query Language
+
+
+SQL 决不仅仅是一个查询工具，还用于控制 DBMS 提供给用户的所有功能：
+
+数据定义(Data definition)：SQL 可用于定义被存放数据的结构和组织，以及数据...
+    
+
+        <a href="/others/sql-server/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程笔记/">课程笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-front-end/html/basic"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-03-06 16:52:32" datetime="2020-03-06T16:52:32.000Z"  itemprop="datePublished">2020-03-06</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/计算机科学/">计算机科学</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/front-end/html/basic/">HTML（萌新向）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一个 HTML 在线测试网站
+注释1&lt;!-- this is a comment --&gt;
+
+显示一张图片将一行代码保存为 index.html：
+1&lt;img src="maomao.gif"&gt;
+
+既可以使用（服务器的）本地图片，也可以使用网上的图片。
+调整图片显示尺寸可以按照像素进行放缩，如下面调整宽度为 320 像素，高度为 240 像素：
+1&lt;img src...
+    
+
+        <a href="/front-end/html/basic/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机科学/">计算机科学</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-linux/nginx"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-03-01 20:46:22" datetime="2020-03-01T20:46:22.000Z"  itemprop="datePublished">2020-03-01</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/linux/nginx/">Nginx（萌新向）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        下面记录 Nginx 在使用过程中遇到的“基本”操作。
+修改配置文件、测试重启Nginx 首先检查的配置文件在 /etc/nginx/nginx.conf。在这个文件中如果有如下内容：
+1include /etc/nginx/conf.d/*.conf;
+
+那么也会检查 /etc/nginx/conf.d/ 下的所有 conf 文件。本着干净的原则，我们推荐在 nginx.conf 加入 i...
+    
+
+        <a href="/linux/nginx/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-linux/build-https-sites-with-nginx"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-03-01 15:42:05" datetime="2020-03-01T15:42:05.000Z"  itemprop="datePublished">2020-03-01</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/linux/build-https-sites-with-nginx/">全站添加 https</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+参考链接：
+
+LET’S ENCRYPT 给网站加 HTTPS 完全指南
+Docker 搭建私有云 Nextcloud
+nginx强制使用https访问(http跳转到https)
+
+
+哪个男孩不想要自己的网站全站 https 呢
+现在基本都要求各网站使用 HTTPS 、SSL 之类的。于是准备给自己的博客和网站也整一个。
+这篇博客就简单说一下，如何在自己的网站上使用 https。
+请把本...
+    
+
+        <a href="/linux/build-https-sites-with-nginx/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/">https</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-linux/build-owncloud-on-server"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-02-27 16:33:05" datetime="2020-02-27T16:33:05.000Z"  itemprop="datePublished">2020-02-27</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/linux/build-owncloud-on-server/">搭建自己的 Owncloud 云盘</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+2020.2.12 更新：相比 Owncloud，NextCloud 貌似更新。所以博主转投 NextCloud 了。另外知乎上也有很多人安利 seafile。2020.2.27 更新：接触了 Docker 以后，发现使用 Docker 搭建更加方便（可从这篇博客中了解）。于是也花了一点时间钻研，搭建好了 NextCloud 和 Seafile，并把方法一并写在下面。
+
+安装 Ownclo...
+    
+
+        <a href="/linux/build-owncloud-on-server/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/4/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/6/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/page/5/&title=小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/page/5/&title=小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/page/5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=小灰灰灰灰的博客&url=https://blog.lyh543.cn/page/5/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/page/5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB0UlEQVR42u3aQW4CMRAEQP7/aXKNRHbpHscWSOVTFIG3zGHk6dnHI17Pl/X7//ffut/tsWPh4uIuc5+36+oBV59sn5IbcHFxz3Pvy9DrZ662y4+UFERcXNzv4iZbX+2QX5VwcXG/i5tfSj6u7uLi4sbcpDlJIpJ2n429Gi4u7gI3Tyn3/b0l38XFxR1xn+VqA9DZ9ehyZ1xc3CPcNvJoLyj58fLn4uLi7uYmweUs8mhfs4gGMLi4uEe4szijbV3asWt0xcHFxd3GTRDrkegs+vxjT1xc3IPclbZkNkYdDmhxcXGPcGebtmFHez2Kmh9cXNxt3NkIpJ2BthHMMDDFxcX9V+5685MXxLZ0bunVcHFxA25SYmbvSiVj2qVeDRcXdwM3aTlm7U0Sl9x/680Ph4uLu5k7K2H5Cxbtgd9Esbi4uAe57UZ5Y9MGJW+uXLi4uMe5+WB1FrDOnlLXTlxc3AXus1x5zDGLVJYyGFxc3H/izpqcPDrJy1wbrODi4u7mtg9r25X8kNEviouLe5CbjzSSS087dBmOUnBxcT+Gm0Sls8FtNI7FxcX9YG4bqq6PcnFxcc9zVwaisytRO6zFxcU9yZ2Vp/YVipVj4+LiHuT+ACdckJ9DWZE9AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

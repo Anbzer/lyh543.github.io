@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>欧拉回路 | 小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,图论,ACM">
+    <meta name="description" content="入度（进入该点的，d-(x)）、出度 欧拉通路：遍历所有边无向图欧拉回路：所有顶点度为偶数有向图欧拉回路：所有顶点入度等于出度 DFS搜索欧拉回路可以把两个相交的回路合成更大的回路 写法：删边然后递归，递归以后把边加入路径 1234567891011121314151617181920//递归搜索(深度优先搜索)欧拉回路void Euler(int u)&amp;#123;    int v;    fo">
+<meta name="keywords" content="C++,图论,ACM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="欧拉回路">
+<meta property="og:url" content="https://blog.lyh543.cn/cpp/acm/欧拉回路/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:description" content="入度（进入该点的，d-(x)）、出度 欧拉通路：遍历所有边无向图欧拉回路：所有顶点度为偶数有向图欧拉回路：所有顶点入度等于出度 DFS搜索欧拉回路可以把两个相交的回路合成更大的回路 写法：删边然后递归，递归以后把边加入路径 1234567891011121314151617181920//递归搜索(深度优先搜索)欧拉回路void Euler(int u)&amp;#123;    int v;    fo">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://blog.lyh543.cn/cpp/acm/欧拉回路/DFS_euler_circuit.png">
+<meta property="og:updated_time" content="2020-10-27T16:11:05.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="欧拉回路">
+<meta name="twitter:description" content="入度（进入该点的，d-(x)）、出度 欧拉通路：遍历所有边无向图欧拉回路：所有顶点度为偶数有向图欧拉回路：所有顶点入度等于出度 DFS搜索欧拉回路可以把两个相交的回路合成更大的回路 写法：删边然后递归，递归以后把边加入路径 1234567891011121314151617181920//递归搜索(深度优先搜索)欧拉回路void Euler(int u)&amp;#123;    int v;    fo">
+<meta name="twitter:image" content="https://blog.lyh543.cn/cpp/acm/欧拉回路/DFS_euler_circuit.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">欧拉回路</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">欧拉回路</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-31T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-08-31
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#欧拉通路：遍历所有边"><span class="post-toc-number">1.</span> <span class="post-toc-text">欧拉通路：遍历所有边</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DFS搜索欧拉回路"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">DFS搜索欧拉回路</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cpp/acm/欧拉回路"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">欧拉回路</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-31 00:00:00" datetime="2019-08-31T00:00:00.000Z"  itemprop="datePublished">2019-08-31</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>入度（进入该点的，d-(x)）、出度</p>
+<h2 id="欧拉通路：遍历所有边"><a href="#欧拉通路：遍历所有边" class="headerlink" title="欧拉通路：遍历所有边"></a>欧拉通路：遍历所有边</h2><p>无向图欧拉回路：所有顶点度为偶数<br>有向图欧拉回路：所有顶点入度等于出度</p>
+<h3 id="DFS搜索欧拉回路"><a href="#DFS搜索欧拉回路" class="headerlink" title="DFS搜索欧拉回路"></a>DFS搜索欧拉回路</h3><p>可以把两个相交的回路合成更大的回路</p>
+<p>写法：<strong>删边然后递归，递归以后把边加入路径</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归搜索(深度优先搜索)欧拉回路</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Euler</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> v;</span><br><span class="line">    <span class="keyword">for</span>(v = <span class="number">0</span>; v &lt; n; v++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(graph[u][v] == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            graph[u][v] = graph[v][u] = <span class="number">0</span>;</span><br><span class="line">            Euler(v);</span><br><span class="line">            path[pc++] = v;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//调用代码</span></span><br><span class="line">pc = <span class="number">0</span>;</span><br><span class="line">Euler(s);</span><br><span class="line">path[pc++] = s;</span><br><span class="line"><span class="keyword">for</span>(i = pc - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d "</span>, path[i]+<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="DFS_euler_circuit.png" alt="DFS 欧拉回路" title>
+                </div>
+                <div class="image-caption">DFS 欧拉回路</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-10-27T16:11:05.558Z" itemprop="dateUpdated">2020-10-27 16:11:05</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.lyh543.cn">
+            <img src="/img/avatar.png" alt="lyh543">
+            lyh543
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/欧拉回路/&title=《欧拉回路》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/欧拉回路/&title=《欧拉回路》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/欧拉回路/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《欧拉回路》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/欧拉回路/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/欧拉回路/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/cpp/acm/带权并查集/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">带权并查集</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/blog/markdownlint/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Markdownlint 使用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ec7daa4e047c3c30570d',
+          clientSecret: '025a9e40a1d101f28fd1a945d286a819e9fa1c3d',
+          repo: 'lyh543.github.io',
+          owner: 'lyh543',
+          admin: ['lyh543'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/欧拉回路/&title=《欧拉回路》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/欧拉回路/&title=《欧拉回路》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/欧拉回路/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《欧拉回路》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/欧拉回路/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/欧拉回路/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3ay26DMBAF0Pz/T9NtpRZyr00iYR9WUdsAx4vpvF6v+DpOrt+//fuX+T3b7w5eGBgYj2Ucl9ddj0zw14dy9m4YGBj7MM4enNz6+lCS2JhQ37wzBgYGRvm5hSXPxcDAwGhvNwbL01AMDAyM+Vtfw5Iitk0Wb6vFMTAwHsjIm2Xf//yR+QYGBsajGEd55UPNfJyQh9fTJ2JgYCzNyANcfru2iI0K1CTRxMDAWJTRtulndrHG0tDoJxgYGEszkjQuaZklCWKSLI6tjmFgYGC0AfeuNYt8gQMDA2MHxnX4y5PF/CDGGnBRqMXAwFiOkS9gzS86tMVt8RQMDIylGXmxOhYW83K0HYJGvUMMDIwlGEmra2apIi+Gxw4UAwNjH0bUjftAoGxTw2IhDAMDY1HGzHBxfkUjb8+9yW0xMDCWZuQBN1nIaL/bhmAMDIx9GN/prs8H3HpsgIGBsRCjvVFSuI4tcIxNKv/pGmJgYCzHyANuGzrHCuN2BaT+v4GBgfFYRrSRMVT0tsd0xFfUO8TAwNiAMdasb9c1ZhJTDAyMPRlR/jgdTMeK25uzWgwMjIcwjvJqB5n5okbCe5MUYmBgLMpog2mbRM4cwW2vjoGBsQTj3lKzKDuHhg0YGBg7M/K1hvzlxkLwVCmLgYGBUY4K8gA6NmbAwMDAaBcv8lfPA3TejMPAwNiB0Q4D2lHlfFMvWrbAwMBYlNGWjm1zvx1z5oeIgYGxAeMHpPN0cjc0NyEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

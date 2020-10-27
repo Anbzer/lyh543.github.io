@@ -1,0 +1,322 @@
+<hr>
+<p>title: Docker 笔记<br>date: 2020-02-19 21:01:58<br>tags:</p>
+<ul>
+<li>Docker</li>
+<li>服务器</li>
+<li>Linux<br>category:</li>
+<li>Linux<br>mathjax: true</li>
+</ul>
+<hr>
+<p>Docker 像是一个容器一样，能够让应用运行在隔离的环境中。其实很像一个虚拟机，但是其本质和虚拟机是不同的，结构较虚拟机简单的多，因此速度也远快于虚拟机。<br>Docker 还是跨平台的，可以在 Linux/Windows/MacOS 上运行。<br>对于 Windows 的 Docker（准确的说是 Docker Desktop），它还提供了 Linux 和 Windows 两种子系统。（也就是说，在 Linux 下能运行的 Docker 容器，完全能够在 Windows 上运行）</p>
+<p>而 Docker Compose 可以根据配置文件自动下载镜像、配置、运行 Docker 容器，一气呵成。<br>下载网上写好的配置文件，然后一行代码 <code>docker-compose</code> 即可完成配置，搭建好自己的云服务。它同样是跨平台的。这也是 Docker 方便的原因之一。</p>
+<blockquote>
+<p>Docker 文档：<a href="https://docs.docker.com/install/linux/docker-ce/centos/">https://docs.docker.com/install/linux/docker-ce/centos/</a><br>Docker Compose 文档：<a href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></p>
+</blockquote>
+<p>我收集的基于 Docker 的好用的云服务可以见<a href="#docker-镜像">后面小节</a>。</p>
+<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><h3 id="Linux-安装-Docker"><a href="#Linux-安装-Docker" class="headerlink" title="Linux 安装 Docker"></a>Linux 安装 Docker</h3><h4 id="脚本安装"><a href="#脚本安装" class="headerlink" title="脚本安装"></a>脚本安装</h4><pre><code class="sh">bash &lt;(curl -s https://get.docker.com)</code></pre>
+<h4 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h4><p>由于项目是基于 Docker 的，所以要先安装 Docker。这篇文章安装的是稳定版的 Docker Engine - Community。</p>
+<p>先卸载以前的 Docker 安装：</p>
+<pre><code class="sh">$ sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine</code></pre>
+<p>再安装所需的包：</p>
+<pre><code class="sh">$ sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2</code></pre>
+<p>接下来添加 Docker 的库，并安装 Docker：</p>
+<pre><code class="sh">$ sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+$ sudo yum install -y docker-ce docker-ce-cli containerd.io</code></pre>
+<p>到这里，我们安装了 Docker 并建立了 <code>Docker</code> 用户组，但里面还没有成员。  </p>
+<p>接下来启动 Docker：</p>
+<pre><code class="sh">$ sudo systemctl start docker</code></pre>
+<p>然后进行一个对 Docker 的 Hello-World 测试：</p>
+<pre><code class="sh">$ sudo docker run hello-world
+Unable to find image <span class="string">'hello-world:latest'</span> locally
+latest: Pulling from library/hello-world
+1b930d010525: Pull complete
+Digest: sha256:9572f7cdcee8591948c2963463447a53466950b3fc15a247fcad1917ca215a2f
+Status: Downloaded newer image <span class="keyword">for</span> hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the <span class="string">"hello-world"</span> image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image <span class="built_in">which</span> runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, <span class="built_in">which</span> sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/</code></pre>
+<p>表示测试正常。</p>
+<h3 id="Windows-安装-Docker"><a href="#Windows-安装-Docker" class="headerlink" title="Windows 安装 Docker"></a>Windows 安装 Docker</h3><p>Windows 也是支持 Docker 的，他还支持 Windows 容器和 Linux 容器。</p>
+<p>安装方法是去官网下载 Docker Desktop 并安装，然后就可以在命令行中使用 <code>docker</code> 和下面提到的 <code>docker-compose</code> 了，命令和 Linux 也是一样的。</p>
+<h3 id="在-WSL-1-中使用-docker-cli"><a href="#在-WSL-1-中使用-docker-cli" class="headerlink" title="在 WSL 1 中使用 docker-cli"></a>在 WSL 1 中使用 docker-cli</h3><p>WSL 2 中集成了 docker-cli，可以直接管理 Windows 的 Docker。在 WSL 1 中输入 <code>docker</code>，可以看到 Docker 推荐你转换为 WSL 2。</p>
+<pre><code>The command &apos;docker&apos; could not be found in this WSL 1 distro.
+We recommend to convert this distro to WSL 2 and activate
+the WSL integration in Docker Desktop settings.
+
+See https://docs.docker.com/docker-for-windows/wsl/ for details.</code></pre><p>然而博主并不想转换，可参考 <a href="https://blog.csdn.net/esinzhong/article/details/107617284">Windows 10 WSL1 的子系统下完美解决docker的命令问题_累积技术 沉淀经验-CSDN博客</a> 在 WSL1 下安装 <code>docker-cli</code>。</p>
+<h2 id="安装-Docker-Compose"><a href="#安装-Docker-Compose" class="headerlink" title="安装 Docker Compose"></a>安装 Docker Compose</h2><p>Docker Compose，就可以使用配置文件，一行代码配置 Docker 了。</p>
+<p>Docker Desktop 自带 Docker Compose，Linux 需要自行下载。</p>
+<p>下载 Docker Compose 最新版，并给予可执行权限：</p>
+<pre><code>sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose</code></pre><p>最后检查一下是否成功安装：</p>
+<pre><code>$ docker-compose --version
+docker-compose version 1.25.4, build 8d51620a</code></pre><h2 id="Docker-更换国内源"><a href="#Docker-更换国内源" class="headerlink" title="Docker 更换国内源"></a>Docker 更换国内源</h2><blockquote>
+<p>参考链接：<a href="https://www.cnblogs.com/wushuaishuai/p/9984228.html#_label0">https://www.cnblogs.com/wushuaishuai/p/9984228.html#_label0</a></p>
+</blockquote>
+<p>和很多东西一样，Docker 镜像也有国内仓库。</p>
+<p>国内的 Docker 镜像仓库有：</p>
+<pre><code>https://registry.docker-cn.com
+http://hub-mirror.c.163.com
+https://3laho3y3.mirror.aliyuncs.com
+http://f1361db2.m.daocloud.io
+https://mirror.ccs.tencentyun.com</code></pre><p>这里选 aliyun 的做示范。</p>
+<p>创建一个 <code>daemon.json</code>：</p>
+<pre><code class="bash">sudo vim /etc/docker/daemon.json</code></pre>
+<p>按 <code>i</code> 进入编辑模式，写入以下内容：</p>
+<pre><code class="json">{
+  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://3laho3y3.mirror.aliyuncs.com"</span>]
+}</code></pre>
+<p>按 <code>esc</code> 退出编辑模式，按 <code>:wq</code> 保存。</p>
+<p>然后重启 Docker 服务。</p>
+<pre><code>sudo systemctl restart docker</code></pre><p>Windows 应到 Docker Desktop 的 Settings 中的 Docker Engine 栏中修改。下面是我修改后的内容。</p>
+<pre><code class="json">{
+  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://3laho3y3.mirror.aliyuncs.com"</span>],
+  <span class="attr">"insecure-registries"</span>: [],
+  <span class="attr">"debug"</span>: <span class="literal">true</span>,
+  <span class="attr">"experimental"</span>: <span class="literal">false</span>
+}</code></pre>
+<p>验证镜像源可以使用命令 <code>docker info</code>，如果看到有两行：</p>
+<pre><code>Registry Mirrors:
+ https://3laho3y3.mirror.aliyuncs.com/</code></pre><p>就表示成功。</p>
+<p>下次拉取镜像的时候就快得多了。</p>
+<h2 id="常用-Docker-镜像"><a href="#常用-Docker-镜像" class="headerlink" title="常用 Docker 镜像"></a>常用 Docker 镜像</h2><p>个人收集的一些基于 Docker 的云服务。</p>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>镜像名</th>
+<th><code>docker-compose.yml</code>链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>私人云</td>
+<td>NextCloud</td>
+<td><a href="https://blog.lyh543.cn/Linux/build-owncloud-on-server/nextcloud-docker-compose.tar">nextcloud-docker-compose.tar</a></td>
+</tr>
+<tr>
+<td>私人云</td>
+<td><a href="https://github.com/HumanBrainProject/seafile-compose/">Seafile</a></td>
+<td><a href="https://github.com/HumanBrainProject/seafile-compose/blob/master/docker-compose.yaml">docker-compse.yaml</a></td>
+</tr>
+<tr>
+<td>WebDAV</td>
+<td><a href="https://blog.devzeng.com/blog/build-webdav-server-in-docker.html">morrisjobke/webdav</a></td>
+<td><code>docker run -d --name webdav -v D:/:/var/webdav -e USERNAME=test -e PASSWORD=test -p 8888:80 --restart always morrisjobke/webdav</code></td>
+</tr>
+<tr>
+<td>在线 Markdown 编辑器</td>
+<td><a href="https://github.com/hackmdio/codimd">CodiMD</a></td>
+<td><a href="https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-docker-deployment#Using-docker-compose-to-setup-CodiMD">docker-compse.yml</a></td>
+</tr>
+<tr>
+<td>在线 LaTeX 编辑器</td>
+<td><a href="https://github.com/overleaf/overleaf/wiki/Quick-Start-Guide">Overleaf</a></td>
+<td><a href="https://github.com/overleaf/overleaf/blob/master/docker-compose.yml">docker-compose.yml</a></td>
+</tr>
+<tr>
+<td>云 SSH</td>
+<td><a href="https://hub.docker.com/r/oldiy/docker-webssh2">WebSSH2</a></td>
+<td>无</td>
+</tr>
+<tr>
+<td>远程 Firefox</td>
+<td><a href="https://hub.docker.com/r/oldiy/firefox-enpass-novnc">firefox-enpass-novnc</a></td>
+<td>无</td>
+</tr>
+<tr>
+<td>Shadowsocks</td>
+<td><a href="https://hub.docker.com/r/oddrationale/docker-shadowsocks">oddrationale/docker-shadowsocks</a></td>
+<td><code>docker run --name shadowsocks -d -p 54285:54285 --restart always oddrationale/docker-shadowsocks -s 0.0.0.0 -p 54285 -k yourpasswd -m aes-256-cfb</code></td>
+</tr>
+<tr>
+<td>v2ray+自定义dns</td>
+<td><a href="https://github.com/pengchujin/v2rayDocker">pengchujin/v2ray_ws</a></td>
+<td><code>docker run -d --name v2ray -p 443:443 -p 80:80 -v $HOME/.caddy:/root/.caddy  pengchujin/v2ray_ws:0.10 YOURDOMAIN.COM V2RAY_WS &amp;&amp; sleep 3s &amp;&amp; sudo docker logs v2ray</code></td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>mysql</td>
+<td><code>docker run -dit --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 --restart always mysql</code></td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>redis</td>
+<td><code>docker run -d --name redis -p 6379:6379 --restart always redis</code></td>
+</tr>
+</tbody></table>
+<h2 id="Docker-基础命令"><a href="#Docker-基础命令" class="headerlink" title="Docker 基础命令"></a>Docker 基础命令</h2><p>初次接触 Docker，要记得两个概念：images（镜像） 和 containers（容器）。从网上获取一个镜像，然后每次可以由这个镜像创造一个容器（像是每次由一个系统镜像安装一个系统一样）。</p>
+<p>下面是博主最先接触到的几条命令，可能比较适合和博主一样的新人。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+<th>常用参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>docker run -dit ubuntu</code></td>
+<td>从 Ubuntu 镜像创造一个容器并运行</td>
+<td>可用 <code>--name</code> 对容器命名，默认名是随机生成的；在最后可加 <code>&lt;command&gt;</code></td>
+</tr>
+<tr>
+<td><code>docker start -i &lt;name&gt;</code></td>
+<td>运行名为 <code>&lt;name&gt;</code>（也可以是容器的 container ID 值的前几位）的容器</td>
+<td></td>
+</tr>
+<tr>
+<td><code>docker images</code></td>
+<td>查看本地的镜像</td>
+<td></td>
+</tr>
+<tr>
+<td><code>docker image prune -af</code></td>
+<td>删除所有没有使用的镜像（如果有容器使用了某镜像，无论这个容器正在运行/已停止，这个镜像不会被删除）</td>
+<td></td>
+</tr>
+<tr>
+<td><code>docker ps</code></td>
+<td>查看正在运行的容器</td>
+<td>加 <code>--all</code> 或 <code>-a</code> 查看所有的（包括已停止的镜像）</td>
+</tr>
+<tr>
+<td><code>docker container rm &lt;name&gt;</code></td>
+<td>删除名为 <code>&lt;name&gt;</code>（也可以是容器的 container ID 值的前几位）的容器</td>
+<td></td>
+</tr>
+<tr>
+<td><code>docker container prune -af</code></td>
+<td>删除所有已停止的容器</td>
+<td></td>
+</tr>
+<tr>
+<td><code>docker container rename &lt;old_name&gt; &lt;new_name&gt;</code></td>
+<td>给容器改名</td>
+<td></td>
+</tr>
+<tr>
+<td><code>docker exec -it &lt;name&gt; /bin/bash</code></td>
+<td>在正在运行的 <code>&lt;name&gt;</code> 容器中运行 bash 命令行</td>
+<td></td>
+</tr>
+<tr>
+<td><code>docker update --restart=always &lt;name&gt;</code></td>
+<td>让 <code>&lt;name&gt;</code> 容器开机自启、自动重启</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-v ~/downloads:/var/webdav</code></td>
+<td>将容器外的 <code>~/downloads</code> 映射到容器内的 <code>/var/webdav</code></td>
+<td>Windows 下将路径中 <code>\</code> 改为 <code>/</code> 即可，如 <code>d:/Downloads</code></td>
+</tr>
+</tbody></table>
+<h2 id="Docker-Compose-基础命令"><a href="#Docker-Compose-基础命令" class="headerlink" title="Docker Compose 基础命令"></a>Docker Compose 基础命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+<th>常用参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>docker-compose up</code></td>
+<td>以当前文件夹下的 <code>docker-compose.yml</code> 作为配置文件，<code>run</code> 一个容器</td>
+<td><code>-d</code>可在后台运行</td>
+</tr>
+<tr>
+<td><code>docker-compose down -v</code></td>
+<td>删除当前文件夹下的 <code>docker-compose.yml</code> 所指的容器</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="Docker-Compose-文件语法"><a href="#Docker-Compose-文件语法" class="headerlink" title="Docker Compose 文件语法"></a>Docker Compose 文件语法</h2><p>本人不会写 <code>docker-compose.yml</code>，只会做一些简单的修改，因此只记录自己用过的语法。</p>
+<pre><code class="yml"><span class="attr">ports:</span>
+  <span class="bullet">-</span> <span class="number">7070</span><span class="string">:80</span>
+  <span class="comment"># 将 Docker 内的 80 端口映射到宿主机的 7070 端口</span>
+  <span class="comment"># 即可以通过访问 Docker 外部的 7070 端口访问到内部的 80 端口</span></code></pre>
+<h2 id="常见错误及解决办法"><a href="#常见错误及解决办法" class="headerlink" title="常见错误及解决办法"></a>常见错误及解决办法</h2><h3 id="在-Docker-容器中如何安装软件"><a href="#在-Docker-容器中如何安装软件" class="headerlink" title="在 Docker 容器中如何安装软件"></a>在 Docker 容器中如何安装软件</h3><p>不少 Docker 容器都是采用的 Alpine Linux，这个 linux 发行版没有 <code>sudo</code>，没有 <code>bash</code>，我猜是为了简洁吧，毕竟要做成镜像，所以把没用的功能尽量都砍了。</p>
+<p>Alpine Linux 下安装软件的命令为：</p>
+<pre><code class="sh">apk add &lt;package name&gt;</code></pre>
+<p>顺便中科大镜像源也有 Alpine Linux 的软件源，觉得国内网速慢的可以去更换，镜像站也有更换教程。</p>
+<h3 id="Read-only-file-system"><a href="#Read-only-file-system" class="headerlink" title="Read-only file system"></a>Read-only file system</h3><p>可能是 <code>docker-compose.yml</code> 中指定了目录为只读。这些可能出现在：</p>
+<pre><code class="yml"><span class="attr">version:</span> <span class="string">'3.3'</span>
+
+<span class="attr">services:</span>
+  <span class="attr">redis:</span>
+    <span class="attr">image:</span> <span class="string">redis:4.0.1-alpine</span>
+    <span class="attr">networks:</span>
+      <span class="bullet">-</span> <span class="string">myoverlay</span>
+    <span class="attr">read_only:</span> <span class="literal">true</span> <span class="comment"># 指定为只读</span>
+
+<span class="attr">networks:</span>
+  <span class="attr">myoverlay:</span></code></pre>
+<pre><code class="yml"><span class="attr">web:</span>
+  <span class="attr">build:</span> <span class="string">./web</span>
+  <span class="attr">restart:</span> <span class="string">always</span>
+  <span class="attr">ports:</span>
+    <span class="bullet">-</span> <span class="number">7070</span><span class="string">:80</span>
+  <span class="attr">volumes:</span>
+    <span class="comment"># - nextcloud:/var/www/html:ro   # ro 为只读 (read-only)</span>
+    <span class="bullet">-</span> <span class="string">nextcloud:/var/www/html</span>        <span class="comment"># 可读写的版本</span>
+  <span class="attr">depends_on:</span>
+    <span class="bullet">-</span> <span class="string">app</span></code></pre>
+<h3 id="Container-is-unhealty"><a href="#Container-is-unhealty" class="headerlink" title="Container is unhealty"></a>Container is unhealty</h3><p>博主在 Windows 下安装 overleaf 时，出现过下面的情况。</p>
+<pre><code class="sh">&gt; docker-compose up
+Creating network <span class="string">"overleaf_default"</span> with the default driver
+Creating overleaf_redis ... <span class="keyword">done</span>
+Creating overleaf_mongo ... <span class="keyword">done</span>
+
+ERROR: <span class="keyword">for</span> sharelatex  Container <span class="string">"233abaae4ea7"</span> is unhealthy.
+ERROR: Encountered errors <span class="keyword">while</span> bringing up the project.</code></pre>
+<p>在配置文件 <code>docker-compose.yml</code> 中写到，<code>sharelatex</code> 基于 <code>overleaf_redis</code> 和 <code>overleaf_mongo</code>，并且要求 <code>mongo</code> 是 healthy 的。<br><code>233abaae4ea7</code> 正是我电脑上的 <code>mongo</code> 的 Container ID。</p>
+<pre><code class="yml"><span class="attr">sharelatex:</span>
+    <span class="attr">depends_on:</span>
+        <span class="attr">mongo:</span>
+            <span class="attr">condition:</span> <span class="string">service_healthy</span>
+        <span class="attr">redis:</span>
+            <span class="attr">condition:</span> <span class="string">service_started</span>
+<span class="attr">mongo:</span>
+    <span class="attr">healthcheck:</span>
+        <span class="attr">test:</span> <span class="string">echo</span> <span class="string">'db.stats().ok'</span> <span class="string">|</span> <span class="string">mongo</span> <span class="string">localhost:27017/test</span> <span class="string">--quiet</span>
+        <span class="attr">interval:</span> <span class="string">10s</span>
+        <span class="attr">timeout:</span> <span class="string">10s</span>
+        <span class="attr">retries:</span> <span class="number">5</span></code></pre>
+<p>healthy 可以理解为是正常运行。</p>
+<p>这里出错就有两种情况了，一是 <code>mongo</code> 本身不正常了，另一种是 <code>mongo</code> 检查的太频繁了，导致还没完成启动，就被诊断为 unhealthy 了。</p>
+<p>我们检查一下 mongo 的 log。</p>
+<pre><code class="bash">&gt; docker ps | find <span class="string">"233a"</span>
+233abaae4ea7        mongo                                   <span class="string">"docker-entrypoint.s鈥?   About a minute ago   Restarting (14) 47 seconds ago                            overleaf_mongo</span></code></pre>
+<p>显示 <code>mongo</code> 正在重启，我估计是在反复不正常-重启，因此就考虑在这方面进行 debug。<br>最后的问题出在由于我是在 Windows 上运行，文件映射可能不正确，我把配置文件的 <code>volumes</code> 部分删掉就可以了。</p>
+<p>当然，如果是正确的情况，上一行会显示：</p>
+<pre><code class="bash">&gt; docker ps --all | find <span class="string">"mongo"</span>
+194bafd8158f        mongo                                   <span class="string">"docker-entrypoint.s鈥?   13 minutes ago      Up 12 minutes (healthy)   27017/tcp                overleaf_mongo</span></code></pre>
+<p>这种情况下，可以考虑把 <code>mongo</code> 的 <code>healthcheck</code> 部分的 <code>inteval</code> 和 <code>timeout</code> 调大。</p>

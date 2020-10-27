@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>数据结构专题 讲座 | 小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,ACM,数据结构">
+    <meta name="description" content="程序=数据结构+算法数据 结构分为两类：物理结构【数组、链表】，逻辑结构【树的结点关系、并查集】一般用数组不用指针 栈 Stack12345678910//STL Standard Template Library//Windows Stack: 8M//Unix Stack: 8Mstack&amp;lt;int&amp;gt; s;int x = 1;s.push(1);x = s.top(); s.pop(">
+<meta name="keywords" content="C++,ACM,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构专题 讲座">
+<meta property="og:url" content="https://blog.lyh543.cn/cpp/acm/数据结构专题讲座/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:description" content="程序=数据结构+算法数据 结构分为两类：物理结构【数组、链表】，逻辑结构【树的结点关系、并查集】一般用数组不用指针 栈 Stack12345678910//STL Standard Template Library//Windows Stack: 8M//Unix Stack: 8Mstack&amp;lt;int&amp;gt; s;int x = 1;s.push(1);x = s.top(); s.pop(">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-10-27T16:11:05.550Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构专题 讲座">
+<meta name="twitter:description" content="程序=数据结构+算法数据 结构分为两类：物理结构【数组、链表】，逻辑结构【树的结点关系、并查集】一般用数组不用指针 栈 Stack12345678910//STL Standard Template Library//Windows Stack: 8M//Unix Stack: 8Mstack&amp;lt;int&amp;gt; s;int x = 1;s.push(1);x = s.top(); s.pop(">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">数据结构专题 讲座</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">数据结构专题 讲座</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-15T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-07-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#栈-Stack"><span class="post-toc-number">1.</span> <span class="post-toc-text">栈 Stack</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#队列-Queue"><span class="post-toc-number">2.</span> <span class="post-toc-text">队列 Queue</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vector"><span class="post-toc-number">3.</span> <span class="post-toc-text">vector</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#priority-queue"><span class="post-toc-number">4.</span> <span class="post-toc-text">priority_queue</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#树-Tree"><span class="post-toc-number">5.</span> <span class="post-toc-text">树 Tree</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字典树-Trie-（AC自动机）"><span class="post-toc-number">6.</span> <span class="post-toc-text">字典树 Trie （AC自动机）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#并查集"><span class="post-toc-number">7.</span> <span class="post-toc-text">并查集</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线段树-Interval-Tree"><span class="post-toc-number">8.</span> <span class="post-toc-text">线段树 Interval Tree</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#树状数组"><span class="post-toc-number">9.</span> <span class="post-toc-text">树状数组</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cpp/acm/数据结构专题讲座"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">数据结构专题 讲座</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-15 00:00:00" datetime="2019-07-15T00:00:00.000Z"  itemprop="datePublished">2019-07-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>程序=数据结构+算法数据</p>
+<p>结构分为两类：物理结构【数组、链表】，逻辑结构【树的结点关系、并查集】<br>一般用数组不用指针</p>
+<h2 id="栈-Stack"><a href="#栈-Stack" class="headerlink" title="栈 Stack"></a>栈 Stack</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//STL Standard Template Library</span></span><br><span class="line"><span class="comment">//Windows Stack: 8M</span></span><br><span class="line"><span class="comment">//Unix Stack: 8M</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line"><span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line">s.push(<span class="number">1</span>);</span><br><span class="line">x = s.top(); s.pop();</span><br><span class="line"><span class="keyword">int</span> s.<span class="built_in">size</span>();</span><br><span class="line"><span class="keyword">bool</span> s.empty();</span><br></pre></td></tr></table></figure>
+
+<h2 id="队列-Queue"><a href="#队列-Queue" class="headerlink" title="队列 Queue"></a>队列 Queue</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line"><span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line">s.push(<span class="number">1</span>);</span><br><span class="line">x = s.front(); s.pop();</span><br><span class="line"><span class="keyword">int</span> s.<span class="built_in">size</span>();</span><br><span class="line"><span class="keyword">bool</span> s.empty();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">实现一个栈：入栈、出栈、取最小元素的时间复杂度为O(<span class="number">1</span>)</span><br><span class="line">运用两个栈，第二个栈存小于栈首的元素的下标</span><br><span class="line"><span class="comment">//这是个栈，只会出最顶层的值（逃</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p>方便但不高效<br>开一片内存，不够用就开更大的一片，然后复制过去</p>
+<h2 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h2><p>实现：堆排序<br>堆：ki&lt;=k2i &amp;&amp; k1&lt;=k2i+1<br>//二叉搜索树：k2i&lt;=ki&lt;=k2i+1<br>入队、出队：log(2n)</p>
+<h2 id="树-Tree"><a href="#树-Tree" class="headerlink" title="树 Tree"></a>树 Tree</h2><p>一种重要的非线性数据结构<br>数据按分支关系组织起来<br>没有环</p>
+<p>二叉树是最简单的树结构<br>二叉树链表<br>二叉搜索树</p>
+<p>红黑树是一种自平衡的二叉查找树</p>
+<p>更多特性：</p>
+<ul>
+<li>结点：红色、黑色</li>
+<li>根结点：黑色</li>
+<li>红色子结点是黑色，黑色非空子结点是红色</li>
+<li>空结点是黑色，在黑色的子结点</li>
+</ul>
+<h2 id="字典树-Trie-（AC自动机）"><a href="#字典树-Trie-（AC自动机）" class="headerlink" title="字典树 Trie （AC自动机）"></a>字典树 Trie （AC自动机）</h2><p>插入一个字符串</p>
+<ul>
+<li>从根结点出发，判断字母对应边是否存在</li>
+<li>存在：访问；不存在：新建</li>
+<li>对终点做特殊标记</li>
+</ul>
+<p>查询字符串</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Trie</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> next[MAX];</span><br><span class="line">    <span class="keyword">int</span> v; <span class="comment">//结束标志</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createTrie</span><span class="params">(<span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(str);</span><br><span class="line"></span><br><span class="line">    Trie *p = root, *q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> id = str[i]-<span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;next[id] == <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            q = (Trie *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Trie));</span><br><span class="line">            q-&gt;v = <span class="number">1</span>;<span class="comment">//初始v==1</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;MAX; ++j)</span><br><span class="line">                q-&gt;next[j] = <span class="literal">NULL</span>;</span><br><span class="line">            p-&gt;next[id] = q;</span><br><span class="line">            p = p-&gt;next[id];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;next[id]-&gt;v++;</span><br><span class="line">            p = p-&gt;next[id];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    p-&gt;v = <span class="number">-1</span>; <span class="comment">//若为结尾，则将v改成-1表示</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findTrie</span><span class="params">(<span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(str);</span><br><span class="line">    Trie *p = root;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">int</span> id = str[i]-<span class="string">'0'</span>;</span><br><span class="line">    p = p-&gt;next[id];</span><br><span class="line">    <span class="keyword">if</span>(p == <span class="literal">NULL</span>)   <span class="comment">//若为空集，表示不存以此为前缀的串</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(p-&gt;v == <span class="number">-1</span>)   <span class="comment">//字符集中已有串是此串的前缀</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;   <span class="comment">//此串是字符集中某串的前缀</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>小巧高效有用<br>压缩路径以后，没有必要启发式合并<br>可以用递归压缩路径(logn也没有什么问题，gcd递归也是logn)<br>Kruskal 无向图最小生成树</p>
+<h2 id="线段树-Interval-Tree"><a href="#线段树-Interval-Tree" class="headerlink" title="线段树 Interval Tree"></a>线段树 Interval Tree</h2><p>三个小时肯定讲不完</p>
+<p>n次查询某一区间的和（最大值）——n*O(logn)</p>
+<ul>
+<li>区间查询（极值、求和、etc）</li>
+<li>区间更新（同一加一个值）</li>
+<li>分为三类（更新点，查询区间；更新区间，查询点；更新区间，查询区间</li>
+<li>线段树空间应开为原数组长度的四倍</li>
+</ul>
+<p>但是线段树可没这么简单。。。“懒操作”在更更新区间的有关问题上⾄至关重要。（然而我不会啊wsl）</p>
+<p>经典问题：<br>a[1]~a[n]<br>操作：修改一个值；求区间最大值；求区间和</p>
+<p>线段树的结点是区间结构图？</p>
+<h2 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a><a href="../树状数组">树状数组</a></h2><p>树状数组已在其他文章进行拓展讲解。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-10-27T16:11:05.550Z" itemprop="dateUpdated">2020-10-27 16:11:05</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.lyh543.cn">
+            <img src="/img/avatar.png" alt="lyh543">
+            lyh543
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/数据结构专题讲座/&title=《数据结构专题 讲座》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/数据结构专题讲座/&title=《数据结构专题 讲座》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/数据结构专题讲座/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数据结构专题 讲座》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/数据结构专题讲座/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/数据结构专题讲座/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/cpp/cpp-grammar/int128/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">__int128</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/maths/wolfram-alpha-and-mathematica/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Wolfram Alpha 和 Mathematica</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ec7daa4e047c3c30570d',
+          clientSecret: '025a9e40a1d101f28fd1a945d286a819e9fa1c3d',
+          repo: 'lyh543.github.io',
+          owner: 'lyh543',
+          admin: ['lyh543'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/数据结构专题讲座/&title=《数据结构专题 讲座》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/数据结构专题讲座/&title=《数据结构专题 讲座》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/数据结构专题讲座/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数据结构专题 讲座》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/数据结构专题讲座/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/数据结构专题讲座/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3a0W7CMAwFUP7/pztpT5s0yrVd0JqcPCFI25w+BDv24xGP43v8/Hz+TfXa5D4XDAwMjNsyjtPxbE7v2vOrzmHP5mNgYOzDuGqTPV9Wvu3ma8PAwMBI5iSkZCYGBgbGtYx5OJgnzBgYGBh5Inp+63nI+KFcHAMD44aMXmHgM5/fXt/AwMD494yjOHJqL+BrrgoDA2NpRlKeTIK/avtF9RUkoScGBsYOjLxsWT0+ywsJvZIDBgbG2oxquDZpyMjDzfJWjoGBsQGjV4aMwrX4qryZ449Xj4GBsTRjElHOl36+oVfvjIGBsSqjuty8FSNv56qmzS+SWAwMjKUZ+SaYh3HzO0cwDAyMbRj5gnq/Xtui8eJ/AwMDYzlGtUmimnBWQ8ZySRUDA2MDRrkBaxAI5r8mx3+FPRsDA+PmjLwZIp+TpKD562s2W2BgYCzB6F3WW0r1dZTnY2BgbMAo9GXEh2XJqLaLYWBg7MkolwyLCXCSxOZHeNEcDAyMhRijFodWUTPfZJNXhoGBgdHbLnvFhurh2otmCwwMjIUYk6R03jTWe2IhwsXAwFiCcRRHlZ0XGCYBJQYGxtqM+fF9L+ybHOqNShEYGBi3ZSSb7FVFzfmGi4GBsTMjf2Q1ic2bw6rJ86+rMDAwMOIFzRPUXhsHBgYGRv74eZEy36AxMDB2Y/QKkNUywPz7p38AGBgYSzPmhYH8GG7C6CW9GBgYN2d8AYihrWNId0DLAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<hr>
+<p>title: NumPy<br>date: 2020-10-13 14:36:42<br>tags:</p>
+<ul>
+<li>Python</li>
+<li>NumPy<br>category:</li>
+<li>Python<br>mathjax: true</li>
+</ul>
+<hr>
+<h2 id="NumPy-for-MATLAB-users"><a href="#NumPy-for-MATLAB-users" class="headerlink" title="NumPy for MATLAB users"></a>NumPy for MATLAB users</h2><p>作为 MATLAB 用户，本想写一篇对比 NumPy 和 MATLAB 语法的博客。但是一想，网上应该有不少类似文章。一搜，居然 NumPy 官方也提供了文章。</p>
+<p><a href="https://numpy.org/doc/stable/user/numpy-for-matlab-users.html#numpy-for-matlab-users">NumPy for MATLAB users</a></p>
+<p><a href="https://numpy.org/doc/stable/user/numpy-for-matlab-users.html#table-of-rough-matlab-numpy-equivalents">Table of Rough MATLAB-NumPy Equivalents</a></p>
+<p>文章里面提到：</p>
+<ul>
+<li>MATLAB 矩阵用 1 作为起始下标，而 Numpy 则类似于 Python，使用 0 作为起始下标</li>
+<li>MATLAB 中的切片操作是对复制的数组进行操作，而 NumPy 的切片是原矩阵的引用。<ul>
+<li>如需进行复制，请使用 <code>B = A.copy()</code></li>
+<li>如下 Python 代码，B 作为 A 的切片，修改 B 会使得 A 变化：</li>
+</ul>
+</li>
+</ul>
+<pre><code class="py">In [<span class="number">2</span>]: A = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]])
+
+In [<span class="number">3</span>]: A
+Out[<span class="number">3</span>]: array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])
+
+In [<span class="number">7</span>]: B = A[<span class="number">0</span>,:<span class="number">-1</span>]
+
+In [<span class="number">8</span>]: B
+Out[<span class="number">8</span>]: array([<span class="number">1</span>, <span class="number">2</span>])
+
+In [<span class="number">10</span>]: B[<span class="number">0</span>] = <span class="number">2</span>
+
+In [<span class="number">12</span>]: A
+Out[<span class="number">12</span>]: array([[<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>]])</code></pre>

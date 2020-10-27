@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>带权并查集 | 小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,ACM,数据结构">
+    <meta name="description" content="带权并查集是并查集的一种，每个元素除了知道和什么元素有关，还知道是什么关系。比如 A 和 C 相同，B 和 D 相反，A 和 B 相反，则可以推出 C 和 D 相同。（这好像是种类并查集，不过不影响，种类并查集的题也能用带权并查集所以就不用学种类并查集辽）。 更广义的带权并查集中有这么一个定义，每个元素除了知道和谁有关（祖先是谁）以外，还要存一个和祖先的有向距离 dist。如图。">
+<meta name="keywords" content="C++,ACM,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="带权并查集">
+<meta property="og:url" content="https://blog.lyh543.cn/cpp/acm/带权并查集/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:description" content="带权并查集是并查集的一种，每个元素除了知道和什么元素有关，还知道是什么关系。比如 A 和 C 相同，B 和 D 相反，A 和 B 相反，则可以推出 C 和 D 相同。（这好像是种类并查集，不过不影响，种类并查集的题也能用带权并查集所以就不用学种类并查集辽）。 更广义的带权并查集中有这么一个定义，每个元素除了知道和谁有关（祖先是谁）以外，还要存一个和祖先的有向距离 dist。如图。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://blog.lyh543.cn/cpp/acm/带权并查集/带权并查集1.jpg">
+<meta property="og:image" content="https://blog.lyh543.cn/cpp/acm/带权并查集/带权并查集2.jpg">
+<meta property="og:updated_time" content="2020-10-27T16:11:05.550Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="带权并查集">
+<meta name="twitter:description" content="带权并查集是并查集的一种，每个元素除了知道和什么元素有关，还知道是什么关系。比如 A 和 C 相同，B 和 D 相反，A 和 B 相反，则可以推出 C 和 D 相同。（这好像是种类并查集，不过不影响，种类并查集的题也能用带权并查集所以就不用学种类并查集辽）。 更广义的带权并查集中有这么一个定义，每个元素除了知道和谁有关（祖先是谁）以外，还要存一个和祖先的有向距离 dist。如图。">
+<meta name="twitter:image" content="https://blog.lyh543.cn/cpp/acm/带权并查集/带权并查集1.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">带权并查集</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">带权并查集</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-31T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-08-31
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-cpp/acm/带权并查集"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">带权并查集</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-31 00:00:00" datetime="2019-08-31T00:00:00.000Z"  itemprop="datePublished">2019-08-31</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>带权并查集是并查集的一种，每个元素除了知道和什么元素有关，还知道是什么关系。比如 A 和 C 相同，B 和 D 相反，A 和 B 相反，则可以推出 C 和 D 相同。（<del>这好像是种类并查集</del>，不过不影响，种类并查集的题也能用带权并查集<del>所以就不用学种类并查集辽</del>）。</p>
+<p>更广义的带权并查集中有这么一个定义，每个元素除了知道和谁有关（祖先是谁）以外，还要存一个和祖先的有向距离 <code>dist</code>。如图。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="带权并查集1.jpg" alt="带权并查集1" title>
+                </div>
+                <div class="image-caption">带权并查集1</div>
+            </figure>
+
+<p>按上面的 A、B、C 的例子，A、C距离为0，B、D 距离为 1。</p>
+<p>当我们需要合并 A、B 的时候，如图，除了按照常规的将 A 的祖先 (C) 成为 B 的祖先 (D) 的爸爸，我们还需要重新计算 D 到 C 的距离。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="带权并查集2.jpg" alt="带权并查集2" title>
+                </div>
+                <div class="image-caption">带权并查集2</div>
+            </figure>
+
+<p>显然，<br>$$ \overrightarrow{DC} = \overrightarrow{AC} + \overrightarrow{BA} - \overrightarrow{BD} $$<br>即，<br>$$ D.dist = A.dist + BA - B.dist $$</p>
+<p>特别地，当元素关系是 <code>1（相同）</code> 或 <code>0（不同）</code> 的时候，<code>+</code> 和 <code>-</code> 可以用异或 <code>^</code> 代替。</p>
+<p>下面是一道 Lutece 上的题。这个题使用的和上面的带权并查集有点不一样<del>当时还没学带权并查集，自己想的</del>，它的距离定义是<strong>和当前父亲</strong>的距离，而不是<strong>和祖先</strong>的距离。对于按上面定义的带权并查集，有另外一个 Codeforces 上的题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Lutece 2153 对答案</span></span><br><span class="line"><span class="comment">//https://acm.uestc.edu.cn/contest/12/problem/K</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">10000001</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ufset</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> father;</span><br><span class="line">    <span class="keyword">int</span> change_with_father; <span class="comment">//和当前父亲的距离</span></span><br><span class="line">&#125;presum[maxn]; <span class="comment">//presum[i]:1~i</span></span><br><span class="line"><span class="function">ufset <span class="title">findrt</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (presum[a].father == a)</span><br><span class="line">        <span class="keyword">return</span> &#123; a, <span class="number">0</span> &#125;;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        ufset rt = findrt(presum[a].father);</span><br><span class="line">        presum[a].father = rt.father;</span><br><span class="line">        presum[a].change_with_father = presum[a].change_with_father <span class="keyword">xor</span> rt.change_with_father;</span><br><span class="line">        <span class="keyword">return</span> presum[a];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ra = findrt(a).father, rb = findrt(b).father;</span><br><span class="line">    <span class="keyword">if</span> (ra == rb)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> (presum[a].change_with_father <span class="keyword">xor</span> presum[b].change_with_father <span class="keyword">xor</span> c)<span class="keyword">xor</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        presum[ra].father = rb;</span><br><span class="line">        presum[ra].change_with_father = c^presum[a].change_with_father^presum[b].change_with_father;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面这个就是一个带有离散化的带权并查集的板子。原题是暑期集训时在 Codeforces 上做的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//http://codeforces.com/problemset/problem/1074/D</span></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, ll&gt; P;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,P&gt; m; <span class="comment">//需要离散化</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (m.<span class="built_in">find</span>(cur) == m.<span class="built_in">end</span>())</span><br><span class="line">        m[cur] = &#123; cur,<span class="number">0</span> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findrt</span><span class="params">(<span class="keyword">int</span> cur)</span> <span class="comment">//return father</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (m[cur].first == cur)</span><br><span class="line">        <span class="keyword">return</span> cur;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> fa = findrt(m[cur].first);</span><br><span class="line">        m[cur].second ^= m[m[cur].first].second;</span><br><span class="line">        m[cur].first = m[fa].first;</span><br><span class="line">        <span class="keyword">return</span> m[cur].first;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    init(l);</span><br><span class="line">    init(r);</span><br><span class="line">    <span class="keyword">int</span> rl = findrt(l), rr = findrt(r);</span><br><span class="line">    <span class="keyword">if</span> (rl == rr)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    m[rl].first = rr;</span><br><span class="line">    m[rl].second  = m[l<span class="number">-1</span>].second  ^ m[r].second ^ x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    init(l);</span><br><span class="line">    init(r);</span><br><span class="line">    <span class="keyword">if</span> (findrt(l) == findrt(r))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> m[l].second ^ m[r].second;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-10-27T16:11:05.550Z" itemprop="dateUpdated">2020-10-27 16:11:05</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.lyh543.cn">
+            <img src="/img/avatar.png" alt="lyh543">
+            lyh543
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/带权并查集/&title=《带权并查集》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/带权并查集/&title=《带权并查集》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/带权并查集/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《带权并查集》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/带权并查集/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/带权并查集/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/cpp/acm/有向无环图/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">有向无环图 DAG（坑）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/cpp/acm/欧拉回路/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">欧拉回路</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ec7daa4e047c3c30570d',
+          clientSecret: '025a9e40a1d101f28fd1a945d286a819e9fa1c3d',
+          repo: 'lyh543.github.io',
+          owner: 'lyh543',
+          admin: ['lyh543'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/带权并查集/&title=《带权并查集》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/带权并查集/&title=《带权并查集》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/带权并查集/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《带权并查集》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/带权并查集/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/带权并查集/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aS27DMAwFwNz/0uk2QGH3kVQKWBqtgsC2PFkw4uf1itf7YyXXfF55ddfVlfe7jBYGBsZjGe/b1bvm9/OvPt+zk30xMDDOYVxFsLXbJ+A8WGNgYGD0guD96+Z4DAwMjAljVRqcB24MDAyMPHQmd+WBtUddkItjYGA8kJGHy////JX+BgYGxqMY7+LqtS3zxmfzrTAwMLZm5AEuwdzDek8rvA8GBsbWjCR03o9QVAfI8mNo/g0GBsaujN7QQy/hrI6dFfbFwMDYmpEEtUkgzg95yeBF4WiIgYGxESMpclXLZPkv1yvV/ZGFY2BgbMpIgmZ1m0kQb2a9GBgYmzImBa9qca13lByxMTAwtmDko6v5Br3x02rhrzAzgoGB8XDGpHDfK73l/wB50ouBgXEOIy+6zdsDqwY7MDAwTmCMyvGtqlfesCz8NBgYGFsz8sZkb/xrVbMzLwtiYGDsx6g2AOYJ57xtedkYwMDA2JRRBfRSzXmRrvyPgYGBsR2jd2ibJL1JKlsO1hgYGAcwVoXRvHlQbTOUe7AYGBibMvLEMnm57zUbMDAwzmG8iys/zOV3Jc+MOrEYGBibMiZBeXLsm6S4i/9bMDAwHsKYB9l8pmNZyoqBgXEkYz5gUR28iDqra3uwGBgYxzCSoHyfrFbDbnQYxcDAwCgOrebPqT7h8koMDIwDGKORrDhNzVPT+3sxMDBOY6ytZVXHL5KXq46sYWBgbMT4AVyWdHIcFboIAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

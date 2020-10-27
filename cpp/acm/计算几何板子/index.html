@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>计算几何板子 | 小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++,ACM,计算几何">
+    <meta name="description" content="参考链接：https://www.cnblogs.com/Eterna-King/p/10542881.html  计算几何，就是把高中的向量知识、解析几何知识进行编程化，然后用它来解决程序问题。本质还是考思维能力，但是没有板子也是万万不能的。下面就放一份潇神的板子。当然，有空也可以自己写一个。 12345678910111213141516171819202122232425262728293">
+<meta name="keywords" content="C++,ACM,计算几何">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算几何板子">
+<meta property="og:url" content="https://blog.lyh543.cn/cpp/acm/计算几何板子/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:description" content="参考链接：https://www.cnblogs.com/Eterna-King/p/10542881.html  计算几何，就是把高中的向量知识、解析几何知识进行编程化，然后用它来解决程序问题。本质还是考思维能力，但是没有板子也是万万不能的。下面就放一份潇神的板子。当然，有空也可以自己写一个。 12345678910111213141516171819202122232425262728293">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-10-27T16:11:05.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算几何板子">
+<meta name="twitter:description" content="参考链接：https://www.cnblogs.com/Eterna-King/p/10542881.html  计算几何，就是把高中的向量知识、解析几何知识进行编程化，然后用它来解决程序问题。本质还是考思维能力，但是没有板子也是万万不能的。下面就放一份潇神的板子。当然，有空也可以自己写一个。 12345678910111213141516171819202122232425262728293">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">计算几何板子</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">计算几何板子</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-19T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-07-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-cpp/acm/计算几何板子"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">计算几何板子</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-19 00:00:00" datetime="2019-07-19T00:00:00.000Z"  itemprop="datePublished">2019-07-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>参考链接：<a href="https://www.cnblogs.com/Eterna-King/p/10542881.html" target="_blank" rel="noopener">https://www.cnblogs.com/Eterna-King/p/10542881.html</a></p>
+</blockquote>
+<p>计算几何，就是把高中的向量知识、解析几何知识进行编程化，然后用它来解决程序问题。本质还是考思维能力，但是没有板子也是万万不能的。下面就放一份潇神的板子。当然，有空也可以自己写一个。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------------------------------点与直线部分-----------------------------</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-10</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Dcmp</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">fabs</span>(x) &lt; eps)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> x &gt; <span class="number">0</span> ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">point</span> &#123;</span></span><br><span class="line">    <span class="keyword">friend</span> istream&amp; <span class="keyword">operator</span> &gt;&gt;(istream&amp; in, <span class="built_in">point</span>&amp; rhs) &#123;</span><br><span class="line">        in &gt;&gt; rhs.x &gt;&gt; rhs.y;</span><br><span class="line">        <span class="keyword">return</span> in;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span> &lt;&lt;(ostream&amp; os, <span class="keyword">const</span> <span class="built_in">point</span>&amp; rhs) &#123;</span><br><span class="line">        os &lt;&lt; rhs.x &lt;&lt; <span class="string">' '</span> &lt;&lt; rhs.y;</span><br><span class="line">        <span class="keyword">return</span> os;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> == (<span class="keyword">const</span> <span class="built_in">point</span>&amp; rhs)<span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Dcmp(x - rhs.x) == <span class="number">0</span> &amp;&amp; Dcmp(y - rhs.y) == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> <span class="built_in">point</span>&amp; rhs)<span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> x &lt; rhs.x || (x == rhs.x &amp;&amp; y &lt; rhs.y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &gt;(<span class="keyword">const</span> <span class="built_in">point</span>&amp; rhs)<span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> rhs &lt; *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">point</span> <span class="keyword">operator</span> + (<span class="keyword">const</span> <span class="built_in">point</span>&amp; p)<span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">point</span>(x + p.x, y + p.y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">point</span> <span class="keyword">operator</span> * (<span class="keyword">double</span> p)<span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">point</span>(x * p, y * p);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//点乘</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">dot</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; p)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x * p.x + y * p.y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//叉乘</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">det</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; p)</span><span class="keyword">const</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x * p.y - y * p.x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">line</span> &#123;</span></span><br><span class="line">    <span class="keyword">friend</span> istream&amp; <span class="keyword">operator</span> &gt;&gt;(istream&amp; in, <span class="built_in">line</span>&amp; rhs) &#123;</span><br><span class="line">        in &gt;&gt; rhs.p &gt;&gt; rhs.v;</span><br><span class="line">        <span class="keyword">return</span> in;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span> &lt;&lt;(ostream&amp; os, <span class="keyword">const</span> <span class="built_in">line</span>&amp; rhs) &#123;</span><br><span class="line">        os &lt;&lt; rhs.p &lt;&lt; <span class="string">' '</span> &lt;&lt; rhs.v;</span><br><span class="line">        <span class="keyword">return</span> os;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> <span class="built_in">line</span>&amp; rhs)<span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (Dcmp(ang - rhs.ang))<span class="keyword">return</span> ang &lt; rhs.ang;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> Dcmp(v.det(rhs.v)) == <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">point</span> <span class="title">Get_Point</span><span class="params">(<span class="keyword">double</span> t)</span><span class="keyword">const</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> p + v * t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">IsParallel</span><span class="params">(<span class="keyword">const</span> <span class="built_in">line</span>&amp; rhs)</span><span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> Dcmp(v.det(rhs.v)) == <span class="number">0</span>; &#125;</span><br><span class="line">    <span class="built_in">point</span> p, v;</span><br><span class="line">    <span class="keyword">double</span> ang;</span><br><span class="line">    <span class="built_in">line</span>() &#123;&#125;</span><br><span class="line">    <span class="built_in">line</span>(<span class="built_in">point</span> _p, <span class="built_in">point</span> _v) :p(_p), v(_v) &#123; ang = <span class="built_in">atan2</span>(_v.y, _v.x); &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//不想写scanf</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="built_in">point</span> <span class="title">read_point</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf %lf"</span>, &amp;x, &amp;y);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">point</span>(x, y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//向量长度</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">length</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; a)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">sqrt</span>(a.dot(a)); &#125;</span><br><span class="line"><span class="comment">//两点之间长度的平方</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">Dist</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; a, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b)</span> </span>&#123; <span class="keyword">return</span> (a - b).dot(a - b); &#125;</span><br><span class="line"><span class="comment">//两向量的夹角</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">Angle</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; a, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">acos</span>(a.dot(b) / (length(a) * length(b))); &#125;</span><br><span class="line"><span class="comment">//三点无向面积公式</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">Area2</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; a, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b, <span class="keyword">const</span> <span class="built_in">point</span>&amp; c)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">fabs</span>((b - a).det(c - a)) / <span class="number">2</span>; &#125;</span><br><span class="line"><span class="comment">//判断p q两点是否在线段ab的同侧</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">SameSide</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; a, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b, <span class="keyword">const</span> <span class="built_in">point</span>&amp; p, <span class="keyword">const</span> <span class="built_in">point</span>&amp; q)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">point</span> ab = b - a, ac = p - a, ap = q - a;</span><br><span class="line">    <span class="keyword">double</span> res = ab.det(ac) * ab.det(ap);</span><br><span class="line">    <span class="keyword">return</span> Dcmp(res) &gt;= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断点是否在三角形内</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">InTriangle</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; a, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b, <span class="keyword">const</span> <span class="built_in">point</span>&amp; c, <span class="keyword">const</span> <span class="built_in">point</span>&amp; p)</span> </span>&#123; <span class="keyword">return</span> SameSide(a, b, c, p) &amp;&amp; SameSide(b, c, a, p) &amp;&amp; SameSide(c, a, b, p); &#125;</span><br><span class="line"><span class="comment">//逆时针旋转向量</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="built_in">point</span> <span class="title">Rotate</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; rhs, <span class="keyword">double</span> rad)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">point</span>(rhs.x * <span class="built_in">cos</span>(rad) - rhs.y *<span class="built_in">sin</span>(rad), rhs.x * <span class="built_in">sin</span>(rad) + rhs.y * <span class="built_in">cos</span>(rad)); &#125;</span><br><span class="line"><span class="comment">//求向量单位法向量</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="built_in">point</span> <span class="title">Normal</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; rhs)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(rhs.x) == <span class="number">0</span> &amp;&amp; Dcmp(rhs.y) == <span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">point</span>(<span class="number">0.0</span>, <span class="number">0.0</span>);</span><br><span class="line">    <span class="keyword">double</span> len = length(rhs);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">point</span>(-rhs.y / len, rhs.x / len);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求单位向量</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="built_in">point</span> <span class="title">Unit_vector</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; rhs)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> len = length(rhs);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">point</span>(rhs.x / len, rhs.y / len);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断q点是否在线段p1, p1上</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">On_seg</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; p1, <span class="keyword">const</span> <span class="built_in">point</span>&amp; p2, <span class="keyword">const</span> <span class="built_in">point</span>&amp; q)</span> </span>&#123; <span class="keyword">return</span> Dcmp((p1 - q).det(p2 - q)) == <span class="number">0</span> &amp;&amp; Dcmp((p1 - q).dot(p2 - q)) &lt; <span class="number">0</span>; &#125;</span><br><span class="line"><span class="comment">//判断p是否在直线左边</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">On_Left</span><span class="params">(<span class="keyword">const</span> <span class="built_in">line</span>&amp; L, <span class="keyword">const</span> <span class="built_in">point</span>&amp; p)</span> </span>&#123; <span class="keyword">return</span> L.v.det(p - L.p) &gt; <span class="number">0</span>; &#125;</span><br><span class="line"><span class="comment">//通过4点坐标求两直线交点</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="built_in">point</span> <span class="title">Intersection_point</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; p1, <span class="keyword">const</span> <span class="built_in">point</span>&amp; p2, <span class="keyword">const</span> <span class="built_in">point</span>&amp; q1, <span class="keyword">const</span> <span class="built_in">point</span>&amp; q2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p1 + (p2 - p1) * ((q2 - q1).det(q1 - p1) / (q2 - q1).det(p2 - p1));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//通过直线上一点及其方向向量求交点</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="built_in">point</span> <span class="title">Intersection_line</span><span class="params">(<span class="keyword">const</span> <span class="built_in">line</span>&amp; L1, <span class="keyword">const</span> <span class="built_in">line</span>&amp; L2)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">point</span> u = L1.p - L2.p;</span><br><span class="line">    <span class="keyword">double</span> t = L2.v.det(u) / L1.v.det(L2.v);</span><br><span class="line">    <span class="keyword">return</span> L1.p + L1.v * t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断两线段是否规范相交</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">SegmentProperIntersection</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; a1, <span class="keyword">const</span> <span class="built_in">point</span>&amp; a2, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b1, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> c1 = (a2 - a1).det(b1 - a1), c2 = (a2 - a1).det(b2 - a1), c3 = (b2 - b1).det(a1 - b1), c4 = (b2 - b1).det(a2 - b1);</span><br><span class="line">    <span class="keyword">return</span> Dcmp(c1) * Dcmp(c2) &lt; <span class="number">0</span> &amp;&amp; Dcmp(c3) * Dcmp(c4) &lt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断两线段是否相交，判断所有情况</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">SegmentIntersection</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; a1, <span class="keyword">const</span> <span class="built_in">point</span>&amp; a2, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b1, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Dcmp((a2 - a1).det(b2 - b1)) == <span class="number">0</span>)<span class="keyword">return</span> On_seg(a1, a2, b1) || On_seg(a1, a2, b2) || On_seg(b1, b2, a1) || On_seg(b2, b2, a2);</span><br><span class="line">    <span class="keyword">double</span> c1 = (a2 - a1).det(b1 - a1), c2 = (a2 - a1).det(b2 - a1), c3 = (b2 - b1).det(a1 - b1), c4 = (b2 - b1).det(a2 - b1);</span><br><span class="line">    <span class="keyword">return</span> Dcmp(c1) * Dcmp(c2) &lt; <span class="number">0</span> &amp;&amp; Dcmp(c3) * Dcmp(c4) &lt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求点p到直线ab的垂直距离</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">DistanceToLine</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; p, <span class="keyword">const</span> <span class="built_in">point</span>&amp; a, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b)</span> </span>&#123; <span class="keyword">return</span> <span class="number">2</span> * Area2(p, a, b) / length(a - b); &#125;</span><br><span class="line"><span class="comment">//求点p到线段ab的距离</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">DistanceToSegment</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; p, <span class="keyword">const</span> <span class="built_in">point</span>&amp; a, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a == b)<span class="keyword">return</span> length(p - a);</span><br><span class="line">    <span class="built_in">point</span> v1 = b - a, v2 = p - a, v3 = p - b;</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(v1.dot(v2) &lt; <span class="number">0</span>))<span class="keyword">return</span> length(v2);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (Dcmp(v1.dot(v3) &gt; <span class="number">0</span>))<span class="keyword">return</span> length(v3);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> DistanceToLine(p, a, b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求点p在直线ab上的投影点</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="built_in">point</span> <span class="title">GetLineProjection</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; p, <span class="keyword">const</span> <span class="built_in">point</span>&amp; a, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">point</span> v = b - a;</span><br><span class="line">    <span class="keyword">return</span> a + v * (v.dot(p - a) / v.dot(v));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//计算凸多边形面积</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">ConvexPolygonArea</span><span class="params">(<span class="built_in">point</span>* p, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n - <span class="number">1</span>; ++i)res += Area2(p[<span class="number">0</span>], p[i], p[i + <span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//计算任意多边形面积公式</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">PolygonArea</span><span class="params">(<span class="built_in">point</span>* p, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n - <span class="number">1</span>; ++i)res += (p[i] - p[<span class="number">0</span>]).det(p[i + <span class="number">1</span>] - p[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> res / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断点是否在多边形内</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isPointinPolygon</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; p, <span class="built_in">vector</span>&lt;<span class="built_in">point</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>, n = v.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (On_seg(v[i], v[(i + <span class="number">1</span>) % n], p))<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> k = Dcmp((v[(i + <span class="number">1</span>) % n] - v[i]).det(p - v[i]));</span><br><span class="line">        <span class="keyword">int</span> d1 = Dcmp(v[i].y - p.y), d2 = Dcmp(v[(i + <span class="number">1</span>) % n].y - p.y);</span><br><span class="line">        <span class="keyword">if</span> (k &gt; <span class="number">0</span> &amp;&amp; d1 &lt;= <span class="number">0</span> &amp;&amp; d2 &gt; <span class="number">0</span>)++cnt;</span><br><span class="line">        <span class="keyword">if</span> (k &lt; <span class="number">0</span> &amp;&amp; d2 &lt;= <span class="number">0</span> &amp;&amp; d1 &gt; <span class="number">0</span>)--cnt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cnt)<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//内部</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//外部</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">point</span>&gt; v;</span><br><span class="line"><span class="comment">//构造凸包</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Get_convex_hall</span><span class="params">(<span class="built_in">point</span>* arr, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    v.<span class="built_in">clear</span>();</span><br><span class="line">    v.resize(n &lt;&lt; <span class="number">1</span>);</span><br><span class="line">    sort(arr + <span class="number">1</span>, arr + <span class="number">1</span> + n);</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="keyword">while</span> (cnt &gt; <span class="number">1</span> &amp;&amp; (v[cnt - <span class="number">1</span>] - v[cnt - <span class="number">2</span>]).det(arr[i] - v[cnt - <span class="number">1</span>]) &lt;= <span class="number">0</span>)--cnt;</span><br><span class="line">        v[cnt++] = arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>, t = cnt; i &gt; <span class="number">0</span>; --i) &#123;</span><br><span class="line">        <span class="keyword">while</span> (cnt &gt; t &amp;&amp; (v[cnt - <span class="number">1</span>] - v[cnt - <span class="number">2</span>]).det(arr[i] - v[cnt - <span class="number">1</span>]) &lt;= <span class="number">0</span>)--cnt;</span><br><span class="line">        v[cnt++] = arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    v.resize(cnt - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//旋转卡壳</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Rotate_Calipers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> res = <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">int</span> n = v.<span class="built_in">size</span>();</span><br><span class="line">    v.push_back(v[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">int</span> now = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">while</span> ((v[now] - v[i + <span class="number">1</span>]).det(v[i] - v[i + <span class="number">1</span>]) &lt; (v[now + <span class="number">1</span>] - v[i + <span class="number">1</span>]).det(v[i] - v[i + <span class="number">1</span>]))now = (now + <span class="number">1</span>) % n;</span><br><span class="line">        res = <span class="built_in">max</span>(res, <span class="built_in">max</span>(Dist(v[now], v[i]), Dist(v[now + <span class="number">1</span>], v[i + <span class="number">1</span>])));</span><br><span class="line">    &#125;</span><br><span class="line">    v.pop_back();</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求半平面交</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">HalfPlaneIntersection</span><span class="params">(<span class="built_in">line</span>* arr, <span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="built_in">point</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">deque</span>&lt;<span class="built_in">line</span>&gt; qLine;</span><br><span class="line">    <span class="built_in">deque</span>&lt;<span class="built_in">point</span>&gt; qPoint;</span><br><span class="line">    sort(arr + <span class="number">1</span>, arr + <span class="number">1</span> + n);</span><br><span class="line">    qLine.push_back(arr[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (Dcmp(arr[i].ang - arr[i - <span class="number">1</span>].ang)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (qLine.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; (qLine[<span class="number">0</span>].IsParallel(qLine[<span class="number">1</span>]) || qLine[qLine.<span class="built_in">size</span>() - <span class="number">1</span>].IsParallel(qLine[qLine.<span class="built_in">size</span>() - <span class="number">2</span>])))<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">while</span> (qLine.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; !On_Left(arr[i], qPoint[qPoint.<span class="built_in">size</span>() - <span class="number">1</span>]))qPoint.pop_back(), qLine.pop_back();</span><br><span class="line">            <span class="keyword">while</span> (qLine.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; !On_Left(arr[i], qPoint[<span class="number">0</span>]))qPoint.pop_front(), qLine.pop_front();</span><br><span class="line">            qLine.push_back(arr[i]);</span><br><span class="line">            <span class="keyword">if</span> (qLine.<span class="built_in">size</span>() &gt; <span class="number">1</span>)qPoint.push_back(Intersection_line(qLine[qLine.<span class="built_in">size</span>() - <span class="number">1</span>], qLine[qLine.<span class="built_in">size</span>() - <span class="number">2</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (qLine.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; !On_Left(qLine[<span class="number">0</span>], qPoint[qPoint.<span class="built_in">size</span>() - <span class="number">1</span>]))qLine.pop_back(), qPoint.pop_back();</span><br><span class="line">    <span class="keyword">while</span> (qLine.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; !On_Left(qLine[qLine.<span class="built_in">size</span>() - <span class="number">1</span>], qPoint[<span class="number">0</span>]))qLine.pop_front(), qPoint.pop_front();</span><br><span class="line">    <span class="keyword">if</span> (qPoint.<span class="built_in">size</span>() &lt; <span class="number">2</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    qPoint.push_back(Intersection_line(qLine[<span class="number">0</span>], qLine[qLine.<span class="built_in">size</span>() - <span class="number">1</span>]));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; qPoint.<span class="built_in">size</span>(); ++i)v.push_back(qPoint[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//------------------------------点与直线部分-----------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//------------------------------圆与球部分-------------------------------</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">circle</span> &#123;</span></span><br><span class="line">    <span class="keyword">friend</span> istream&amp; <span class="keyword">operator</span> &gt;&gt;(istream&amp; in, <span class="built_in">circle</span>&amp; rhs) &#123;</span><br><span class="line">        in &gt;&gt; rhs.c &gt;&gt; rhs.r;</span><br><span class="line">        <span class="keyword">return</span> in;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span> &lt;&lt;(ostream&amp; os, <span class="keyword">const</span> <span class="built_in">circle</span>&amp; rhs) &#123;</span><br><span class="line">        os &lt;&lt; rhs.c &lt;&lt; <span class="string">" "</span> &lt;&lt; rhs.r;</span><br><span class="line">        <span class="keyword">return</span> os;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">point</span> c;</span><br><span class="line">    <span class="keyword">double</span> r;</span><br><span class="line">    <span class="built_in">circle</span>() &#123;&#125;</span><br><span class="line">    <span class="built_in">circle</span>(<span class="built_in">point</span> _c, <span class="keyword">double</span> _r) :c(_c), r(_r) &#123;&#125;</span><br><span class="line">    <span class="comment">//通过圆心角求圆上点</span></span><br><span class="line">    <span class="function"><span class="built_in">point</span> <span class="title">Get_point</span><span class="params">(<span class="keyword">double</span> a)</span><span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">point</span>(c.x + r * <span class="built_in">cos</span>(a), c.y + r * <span class="built_in">sin</span>(a)); &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//求极角</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">polar_angle</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; rhs)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">atan2</span>(rhs.y, rhs.x); &#125;</span><br><span class="line"><span class="comment">//将角度转换为弧度</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">torad</span><span class="params">(<span class="keyword">double</span> deg)</span> </span>&#123; <span class="keyword">return</span> deg / <span class="number">180.</span> * pi; &#125;</span><br><span class="line"><span class="comment">//解方程求直线与圆的交点</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetLineCircleIntersection</span><span class="params">(<span class="keyword">const</span> <span class="built_in">line</span>&amp; L, <span class="keyword">const</span> <span class="built_in">circle</span>&amp; C, <span class="keyword">double</span>&amp; t1, <span class="keyword">double</span>&amp; t2, <span class="built_in">vector</span>&lt;<span class="built_in">point</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a = L.v.x, b = L.p.x - C.c.x, c = L.v.y, d = L.p.y - C.c.y;</span><br><span class="line">    <span class="keyword">double</span> e = a * a + c * c, f = <span class="number">2</span> * (a * b + c * d), g = b * b + d * d - C.r * C.r;</span><br><span class="line">    <span class="keyword">double</span> delta = f * f - <span class="number">4</span> * e * g;</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(delta) &lt; <span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(delta) == <span class="number">0</span>) &#123;</span><br><span class="line">        t1 = t2 = -f / (<span class="number">2</span> * e);</span><br><span class="line">        v.push_back(L.Get_Point(t1));</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    t1 = (-f - <span class="built_in">sqrt</span>(delta)) / (<span class="number">2</span> * e);</span><br><span class="line">    t2 = (-f + <span class="built_in">sqrt</span>(delta)) / (<span class="number">2</span> * e);</span><br><span class="line">    v.push_back(L.Get_Point(t1));</span><br><span class="line">    v.push_back(L.Get_Point(t2));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//勾股定理求直线与圆的交点</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetLineCircleIntersection</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; A, <span class="keyword">const</span> <span class="built_in">point</span>&amp; B, <span class="keyword">const</span> <span class="built_in">circle</span>&amp;C, <span class="keyword">double</span>&amp; L, <span class="built_in">vector</span>&lt;<span class="built_in">point</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> d = DistanceToLine(C.c, A, B);</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(C.r - d) &lt; <span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">point</span> p = GetLineProjection(C.c, A, B);</span><br><span class="line">    <span class="keyword">double</span> len = <span class="built_in">sqrt</span>(C.r * C.r - d * d);</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(len) == <span class="number">0</span>) &#123;</span><br><span class="line">        L = <span class="number">0</span>;</span><br><span class="line">        v.push_back(p);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">point</span> unit = Unit_vector(B - A);</span><br><span class="line">    L = len;</span><br><span class="line">    v.push_back(p - unit * len);</span><br><span class="line">    v.push_back(p + unit * len);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求两圆交点</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetCircleCircleIntersection</span><span class="params">(<span class="keyword">const</span> <span class="built_in">circle</span>&amp; C1, <span class="keyword">const</span> <span class="built_in">circle</span>&amp; C2, <span class="built_in">vector</span>&lt;<span class="built_in">point</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> d = length(C1.c - C2.c);</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(d) == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (Dcmp(C1.r - C2.r) == <span class="number">0</span>)<span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//两圆重合</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(C1.r + C2.r - d) &lt; <span class="number">0</span> || Dcmp(<span class="built_in">fabs</span>(C1.r - C1.r) - d) &gt; <span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> a = polar_angle(C2.c - C1.c);</span><br><span class="line">    <span class="keyword">double</span> da = <span class="built_in">acos</span>((C1.r * C1.r + d * d - C2.r * C2.r) / (<span class="number">2</span> * C1.r * d));</span><br><span class="line">    <span class="built_in">point</span> p1 = C1.Get_point(a - da), p2 = C1.Get_point(a + da);</span><br><span class="line">    v.push_back(p1);</span><br><span class="line">    <span class="keyword">if</span> (p1 == p2)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    v.push_back(p2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求点到圆的切线</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetTangents</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; p, <span class="keyword">const</span> <span class="built_in">circle</span>&amp; c, <span class="built_in">vector</span>&lt;<span class="built_in">point</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">point</span> u = c.c - p;</span><br><span class="line">    <span class="keyword">double</span> dist = length(u);</span><br><span class="line">    <span class="keyword">if</span> (dist &lt; c.r)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (Dcmp(dist - c.r) == <span class="number">0</span>) &#123;</span><br><span class="line">        v.push_back(Rotate(u, pi / <span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">double</span> ang = <span class="built_in">asin</span>(c.r / dist);</span><br><span class="line">        v.push_back(Rotate(u, -ang));</span><br><span class="line">        v.push_back(Rotate(u, +ang));</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求两圆的切线，返回切线个数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetTangents</span><span class="params">(<span class="built_in">circle</span> A, <span class="built_in">circle</span> B, <span class="built_in">vector</span>&lt;<span class="built_in">point</span>&gt;&amp; a, <span class="built_in">vector</span>&lt;<span class="built_in">point</span>&gt;&amp; b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(A.r - B.r) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        swap(A, B);</span><br><span class="line">        swap(a, b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">double</span> d2 = Dist(A.c, B.c), rdiff = A.r - B.r, rsum = A.r + B.r;</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(d2 - rdiff * rdiff) == <span class="number">-1</span>)<span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//内含</span></span><br><span class="line">    <span class="keyword">double</span> base = <span class="built_in">atan2</span>(B.c.y - A.c.y, B.c.x - A.c.x);</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(d2) == <span class="number">0</span> &amp;&amp; Dcmp(A.r - B.r) == <span class="number">0</span>)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(d2 - rdiff * rdiff) == <span class="number">0</span>) &#123;</span><br><span class="line">        a.push_back(A.Get_point(base));</span><br><span class="line">        b.push_back(B.Get_point(base));</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="comment">//内切</span></span><br><span class="line">    <span class="keyword">double</span> ang = <span class="built_in">acos</span>((A.r - B.r) / <span class="built_in">sqrt</span>(d2));</span><br><span class="line">    a.push_back(A.Get_point(base + ang)), a.push_back(A.Get_point(base - ang));</span><br><span class="line">    b.push_back(B.Get_point(base + ang)), b.push_back(B.Get_point(base - ang));</span><br><span class="line">    <span class="keyword">if</span> (Dcmp(d2 - rsum * rsum) == <span class="number">0</span>) &#123;</span><br><span class="line">        a.push_back(A.Get_point(base));</span><br><span class="line">        b.push_back(B.Get_point(pi + base));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (Dcmp(d2 - rsum * rsum) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        ang = <span class="built_in">acos</span>((A.r + B.r) / <span class="built_in">sqrt</span>(d2));</span><br><span class="line">        a.push_back(A.Get_point(base + ang)), a.push_back(A.Get_point(base - ang));</span><br><span class="line">        b.push_back(B.Get_point(pi + base + ang)), b.push_back(B.Get_point(pi + base - ang));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">int</span>)a.<span class="built_in">size</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求三角形外接圆</span></span><br><span class="line"><span class="function"><span class="built_in">circle</span> <span class="title">CircumscribedCircle</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; a, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b, <span class="keyword">const</span> <span class="built_in">point</span>&amp; c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> Bx = b.x - a.x, By = b.y - a.y, Cx = c.x - a.x, Cy = c.y - a.y;</span><br><span class="line">    <span class="keyword">double</span> D = <span class="number">2</span> * (Bx * Cy - Cx * By);</span><br><span class="line">    <span class="keyword">double</span> cx = (Cy * (Bx * Bx + By * By) - By *(Cx * Cx + Cy * Cy)) / D + a.x;</span><br><span class="line">    <span class="keyword">double</span> cy = (Bx * (Cx * Cx + Cy * Cy) - Cx *(Bx * Bx + By * By)) / D + a.y;</span><br><span class="line">    <span class="built_in">point</span> p = <span class="built_in">point</span>(cx, cy);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">circle</span>(p, length(a - p));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求三角形内接圆</span></span><br><span class="line"><span class="function"><span class="built_in">circle</span> <span class="title">InscribedCircle</span><span class="params">(<span class="keyword">const</span> <span class="built_in">point</span>&amp; a, <span class="keyword">const</span> <span class="built_in">point</span>&amp; b, <span class="keyword">const</span> <span class="built_in">point</span>&amp; c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> lena = length(b - c), lenb = length(c - a), lenc = length(a - b);</span><br><span class="line">    <span class="built_in">point</span> p = (a * lena + b * lenb + c * lenc) / (lena + lenb + lenc);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">circle</span>(p, DistanceToLine(p, a, b));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//------------------------------圆与球部分-------------------------------</span></span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-10-27T16:11:05.558Z" itemprop="dateUpdated">2020-10-27 16:11:05</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.lyh543.cn">
+            <img src="/img/avatar.png" alt="lyh543">
+            lyh543
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算几何/">计算几何</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/计算几何板子/&title=《计算几何板子》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/计算几何板子/&title=《计算几何板子》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/计算几何板子/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《计算几何板子》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/计算几何板子/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/计算几何板子/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/cpp/acm/树状数组/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">树状数组 (Binary Indexed Tree)</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/cpp/cpp-grammar/int128/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">__int128</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ec7daa4e047c3c30570d',
+          clientSecret: '025a9e40a1d101f28fd1a945d286a819e9fa1c3d',
+          repo: 'lyh543.github.io',
+          owner: 'lyh543',
+          admin: ['lyh543'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/cpp/acm/计算几何板子/&title=《计算几何板子》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/cpp/acm/计算几何板子/&title=《计算几何板子》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/cpp/acm/计算几何板子/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《计算几何板子》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/cpp/acm/计算几何板子/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/cpp/acm/计算几何板子/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGElEQVR42u3aS27DMAwFwNz/0u62QBHnkVIKmBqtCieRNV6w5uf1itf1a727cn99Zc9tCwMD47GM63btek73O/y9V342DAyMcxj51sk3k0MnwTo5GwYGBsa77+ThOA/iGBgYGN9m5L+6Py4GBgbGShLbu2WvDPfFXBwDA+OBjLxY9v9/f6W/gYGB8SjGVVzVYFpNU6/WwsDAmM3IA1y+3d4ktvDgMDAwRjOqIXLliNUyX34FAwPjTEb1KAl4VzsTAwPjZEa1TJ8nsb0wWg3WGBgYUxl5kM0T1F4ZrndfDAyMExh5Uroy6NB7HSz/r8DAwBjN2BVS9w6WNWEYGBjjGL3UNC+6fW9cAwMD4wRGr9RebQBUP622SDEwMGYz8p9VX92S8NprghbebTEwMEYw8pvdF+DypmPyaR7QMTAwTmAkDYDewNZ6ylreAQMDYzRjZbSi2qpMHlAvhcbAwJjNWAmO62X96ojYh1dDDAyM0Yw8ycyLcb2wvpSRY2BgjGb0Ytd6UponzB92w8DAOICRF9GiWbM4De4NeZSn2zAwMB7LuIorL7Ttai1EyS0GBsZoRr72Jrr5kMeGo2NgYIxgrBfr8yS2F7ibTxoDA2Mcoxr41luYK6ksBgYGRv6Klr/qJSG7OuSBgYGBkSeQecOgmgYXGpkYGBgHMKpDD3lYrDLyR4OBgXEOo5o65iWzalDuFeYwMDBGM34AuDaTYRgco+UAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta property="og:type" content="website">
+<meta property="og:title" content="小灰灰灰灰的博客">
+<meta property="og:url" content="https://blog.lyh543.cn/page/10/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小灰灰灰灰的博客">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">小灰灰灰灰的博客</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">小灰灰灰灰的博客</h1>
+        <h5 class="subtitle">
+            
+                
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-latex/latex-high-level"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-24 21:23:36" datetime="2019-09-24T21:23:36.000Z"  itemprop="datePublished">2019-09-24</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/LaTeX/">LaTeX</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/latex/latex-high-level/">LaTeX 高阶部分</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        该文章记录 LaTeX 原理等部分，和前一篇的简单用法分开。
+LaTeX 编译过程LaTeX 编译过程中会有六个文件：
+
+.aux——存放交叉引用信息；  
+.dvi——是 LaTeX 编译运行后的主要结果。用户可以使用 DVI 预览软件查看 .dvi 内容；  
+.log——记录上一次编译器运行的日志；  
+.pdf——PDF 文件，文件是 pdflatex 编译运行后的主要结果；  
+....
+    
+
+        <a href="/latex/latex-high-level/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaTeX/">LaTeX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程笔记/">课程笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-matlab/genetic-algorithm"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-23 21:13:10" datetime="2019-09-23T21:13:10.000Z"  itemprop="datePublished">2019-09-23</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MATLAB/">MATLAB</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/matlab/genetic-algorithm/">遗传算法 和 MATLAB</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+参考链接：如何通俗易懂地解释遗传算法？有什么例子？ - 严晟嘉的回答 - 知乎https://www.zhihu.com/question/23293449/answer/120220974
+
+那就不多说了，仅说说自己更多的理解。
+遗传算法原理遗传算法的原理其实大家在初中生物就学过了，对你没看错，是生物书，就是那个达尔文的进化论。
+
+我们希望有这样一个种群，它所包含的个体所对应的函数值都很...
+    
+
+        <a href="/matlab/genetic-algorithm/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB/">MATLAB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最优化算法/">最优化算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程笔记/">课程笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/遗传算法/">遗传算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-matlab/matlab-plot"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-23 20:33:01" datetime="2019-09-23T20:33:01.000Z"  itemprop="datePublished">2019-09-23</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MATLAB/">MATLAB</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/matlab/matlab-plot/">MATLAB 绘图</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        按自变量、因变量值绘图这是老师教的方法。官方文档
+这个方法的实现是：将输入的 n 个点中，相邻两个点都用直线连接。当点足够密时，可以认为曲线是平滑的了。需要散点图在最后加一个参数 .。
+已知表达式123xx = linspace(0, 2*pi, 100);yy = sin(xx);plot(xx,yy);
+
+参数方程1234t = linspace(0,2*pi,100);x1 = r*c...
+    
+
+        <a href="/matlab/matlab-plot/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB/">MATLAB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程笔记/">课程笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-matlab/matlab-string-and-file-function"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-23 19:46:47" datetime="2019-09-23T19:46:47.000Z"  itemprop="datePublished">2019-09-23</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MATLAB/">MATLAB</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/matlab/matlab-string-and-file-function/">MATLAB 字符串与文件</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        char 和 string老师上课讲的字符串是 char 类型，等价于字符矩阵，形式为 &#39;this is a char&#39;，和 C 语言等不一样的是，结尾无 \0。
+MATLAB R2016b 引入了一种新的 string 字符串类型，每个字符串为一个元素，这样构建一个 n*m 矩阵就只需要一个二维矩阵（如果是 char，需要三维矩阵，或者改用二维 cell）。string 字...
+    
+
+        <a href="/matlab/matlab-string-and-file-function/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB/">MATLAB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程笔记/">课程笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-blog/gitalk"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-17 00:00:00" datetime="2019-09-17T00:00:00.000Z"  itemprop="datePublished">2019-09-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Blog/">Blog</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/blog/gitalk/">Hexo 使用 Gitalk 评论</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+2019.10.29 更新：由于 Gitalk 对 GitHub 之外的网站支持不好（在 github.io 以外的域名下都不能进行评论），现已迁移至 Valine。Valine 的博客推送做的不是很好，不过有第三方实现方案。可查阅 官方网站。
+2019.11.6 更新：由于 GitHub OAuth API 限制，只能有一个回调网页Authorization callback URL，但...
+    
+
+        <a href="/blog/gitalk/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-cpp/acm/LightOJ_1298"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-17 00:00:00" datetime="2019-09-17T00:00:00.000Z"  itemprop="datePublished">2019-09-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/ACM/">ACM</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/cpp/acm/LightOJ_1298/">LightOJ 1298 递推求一堆数的乘积之和</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        这是一道在 2019 暑期集训做到的题。
+链接：https://vjudge.net/contest/312000#problem/G
+这个题意是给定 $k$ 和 $p$，要求 $\varphi(x)$ 之和，$x$ 的质因数分解有 $k$ 个质数并且包含且只包含质数表前 $p$ 个（下称“前 $p$ 种”）质数。$k, p \leq 500$。
+当时做这个题的时候，直接就交了一个 $O(n...
+    
+
+        <a href="/cpp/acm/LightOJ_1298/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-blog/hexo-backup"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-17 00:00:00" datetime="2019-09-17T00:00:00.000Z"  itemprop="datePublished">2019-09-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Blog/">Blog</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/blog/hexo-backup/">Hexo 备份（及一次翻车的经历）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        由于 Hexo 的本地文件是没有上传到 Github 的，某天突发奇想，想把 Hexo 文件夹直接移至 Onedrive 自动备份。后来发现由于 Hexo 的 node_modules 文件太多了(10000+)，以至于需要同步很久。另外，每一次 generate，都会有一堆东西要删除，但是由于 Onedrive 的设定，这些文件就在 Onedrive 云端保留了，非常混乱。
+于是就不整了。...
+    
+
+        <a href="/blog/hexo-backup/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-cpp/cpp-grammar/cpp-type-conversion"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-17 00:00:00" datetime="2019-09-17T00:00:00.000Z"  itemprop="datePublished">2019-09-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/C-语法/">C++语法</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/cpp/cpp-grammar/cpp-type-conversion/">C++类型转换</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+隐式类型转换就是编译器自动转；
+
+显式类型转换类如 (char)
+
+
+C++的强制类型转换（nb）C++中强制类型转换的几种形式
+1cast-name&lt;type&gt;(expression);
+
+其中的cast-name可以为：
+1234static_cast			//静态转换dynamic_cast		//动态转换const_cast			//常量转换reinterpret_ca...
+    
+
+        <a href="/cpp/cpp-grammar/cpp-type-conversion/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-语法/">C++语法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-blog/hexo-building-blog"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-17 00:00:00" datetime="2019-09-17T00:00:00.000Z"  itemprop="datePublished">2019-09-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Blog/">Blog</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/blog/hexo-building-blog/">Hexo 建站</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        先放一个Hexo官方文档的链接。
+初始化hexo博客12npm install hexo-cli -ghexo init lyh543.github.io
+
+然后接常规二连就可以了
+常规二连1234# hexo clean# 如果后面突然报bug，可以试下clean（虽然我也不知道有什么用）hexo ghexo d #可以替换为git add, commit, push三连
+
+貌似调用hex...
+    
+
+        <a href="/blog/hexo-building-blog/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-cpp/cpp-grammar/cpp-oop-summerize"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-17 00:00:00" datetime="2019-09-17T00:00:00.000Z"  itemprop="datePublished">2019-09-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/C-语法/">C++语法</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/cpp/cpp-grammar/cpp-oop-summerize/">C++ 面向对象编程 概述</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        C++面向对象编程 这一分类只是学校课程的笔记，C++语法 分类中也会有不少的 C++ 面向对象的知识。
+C++ = C + 面向对象（对象和类） + …
+面向过程的缺点大型程序中，有很多全局数据和全局函数，这导致了函数和数据之间数目巨大的潜在连接。若全局数据有所改动，可能会导致所有访问这个数据内的全部函数的重写，程序维护困难。
+面向对象语言特点抽象、封装、继承、多态。
+抽象抽象描述了一个对...
+    
+
+        <a href="/cpp/cpp-grammar/cpp-oop-summerize/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-语法/">C++语法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程笔记/">课程笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象编程/">面向对象编程</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/9/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/11/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/page/10/&title=小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/page/10/&title=小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/page/10/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=小灰灰灰灰的博客&url=https://blog.lyh543.cn/page/10/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/page/10/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aQY7CMAwF0N7/0sx2JCj9tpsA0ssKoSh56cKK7RxHPB5P4///z3Py1Y4VAxcXd8x9vB0Jt7dCvg4uLu6nuGcRIw9Yd82/sOHi4v4INwlAyQq4uLi/y80TmOoBcHFxv42bJCd52MoD4sJcDRcXd8DNq5Trfi+p7+Li4ra4j+JIriB5QaS8Oy4u7hZuHlB6R5pcjE4PjIuLu5ibh6pJWzRnXRRTcHFxt3Dzqb2HF/kzjsInwMXFXcxNGiS9smmSApULMbi4uNu5+ZOIcqQcNE5OAxkuLu4ybr59niwlmyVN2WgXXFzcBdz8UjLv5SaBshx3cXFxl3Hnl488QaomVC+SH1xc3C3caimzF5jyT1PO1XBxcW/lzqFJYbRa7Li4TuHi4m7nJo2NagG0V06NAhkuLu5G7mTpe590vPhYuLi4H+XO05hqEyWag4uLu5g7uZRU05hR7xcXF3cjt9civSs8JY3b5mFwcXHH3CR45UXPXoE1T71wcXF3cvOWRq8F2wt5uLi4v8itNlQmz79wcXG/mbsnnJ3Ox8XF3cjNQ0+1YJo/74guVbi4uFu41VCSHyZnFR5m4eLiruX+AQfqzn2Il8+NAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

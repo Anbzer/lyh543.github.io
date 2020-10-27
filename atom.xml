@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>小灰灰灰灰的博客</title>
+  <icon>https://blog.lyh543.cn/icon.png</icon>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.lyh543.cn/"/>
+  <updated>2020-10-27T16:11:05.634Z</updated>
+  <id>https://blog.lyh543.cn/</id>
+  
+  <author>
+    <name>lyh543</name>
+    <email>lyh543@outlook.com</email>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 爬虫 —— Selenium</title>
+    <link href="https://blog.lyh543.cn/python/selenium/"/>
+    <id>https://blog.lyh543.cn/python/selenium/</id>
+    <published>2020-10-27T22:19:33.000Z</published>
+    <updated>2020-10-27T16:11:05.634Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://wizardforcel.gitbooks.io/selenium-webdriver-simple-tutorial/content/1.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Selenium
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://blog.lyh543.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://blog.lyh543.cn/tags/Python/"/>
+    
+      <category term="Selenium" scheme="https://blog.lyh543.cn/tags/Selenium/"/>
+    
+      <category term="爬虫" scheme="https://blog.lyh543.cn/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 合集</title>
+    <link href="https://blog.lyh543.cn/cpp/leetcode/leetcode-problems/"/>
+    <id>https://blog.lyh543.cn/cpp/leetcode/leetcode-problems/</id>
+    <published>2020-10-27T19:12:57.000Z</published>
+    <updated>2020-10-27T16:11:05.566Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;记录有意思的题。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="https://blog.lyh543.cn/categories/C/"/>
+    
+      <category term="LeetCode" scheme="https://blog.lyh543.cn/categories/C/LeetCode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 合集——树形结构</title>
+    <link href="https://blog.lyh543.cn/cpp/leetcode/tree/"/>
+    <id>https://blog.lyh543.cn/cpp/leetcode/tree/</id>
+    <published>2020-10-27T19:12:22.000Z</published>
+    <updated>2020-10-27T16:11:05.566Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;树的遍历（非递归）&quot;&gt;&lt;a href=&quot;#树的遍历（非递归）&quot; class=&quot;headerlink&quot; title=&quot;树的遍历（非递归）&quot;&gt;&lt;/a&gt;树的遍历（非递归）&lt;/h2&gt;&lt;h3 id=&quot;先序遍历&quot;&gt;&lt;a href=&quot;#先序遍历&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>NumPy</title>
+    <link href="https://blog.lyh543.cn/python/numpy/"/>
+    <id>https://blog.lyh543.cn/python/numpy/</id>
+    <published>2020-10-13T14:36:42.000Z</published>
+    <updated>2020-10-27T16:11:05.634Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;NumPy-for-MATLAB-users&quot;&gt;&lt;a href=&quot;#NumPy-for-MATLAB-users&quot; class=&quot;headerlink&quot; title=&quot;NumPy for MATLAB users&quot;&gt;&lt;/a&gt;NumPy for MATLAB
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://blog.lyh543.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://blog.lyh543.cn/tags/Python/"/>
+    
+      <category term="NumPy" scheme="https://blog.lyh543.cn/tags/NumPy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用 GitHub Actions 自动化发布 Hexo 网站到 GitHub Pages</title>
+    <link href="https://blog.lyh543.cn/blog/use-github-actions-to-deploy-hexo/"/>
+    <id>https://blog.lyh543.cn/blog/use-github-actions-to-deploy-hexo/</id>
+    <published>2020-09-28T21:03:29.000Z</published>
+    <updated>2020-10-27T16:11:05.482Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;转载自：&lt;a href=&quot;https://juejin.im/post/6844903961435045902&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;用GitHub Actions 自动化发布Hexo网站到GitHub
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Blog" scheme="https://blog.lyh543.cn/categories/Blog/"/>
+    
+    
+      <category term="Hexo" scheme="https://blog.lyh543.cn/tags/Hexo/"/>
+    
+      <category term="Blog" scheme="https://blog.lyh543.cn/tags/Blog/"/>
+    
+      <category term="GitHub" scheme="https://blog.lyh543.cn/tags/GitHub/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Excel 将数字转为文本</title>
+    <link href="https://blog.lyh543.cn/microsoft/excel/convert-number-to-text/"/>
+    <id>https://blog.lyh543.cn/microsoft/excel/convert-number-to-text/</id>
+    <published>2020-09-28T11:31:11.000Z</published>
+    <updated>2020-10-27T16:11:05.606Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Excel
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Microsoft" scheme="https://blog.lyh543.cn/categories/Microsoft/"/>
+    
+      <category term="Excel" scheme="https://blog.lyh543.cn/categories/Microsoft/Excel/"/>
+    
+    
+      <category term="Excel" scheme="https://blog.lyh543.cn/tags/Excel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数模国赛答辩相关</title>
+    <link href="https://blog.lyh543.cn/mcm/cumcm-oral-defenses/"/>
+    <id>https://blog.lyh543.cn/mcm/cumcm-oral-defenses/</id>
+    <published>2020-09-27T16:21:43.000Z</published>
+    <updated>2020-10-27T16:11:05.594Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;前天晚上突然通知我们去参加数模国赛的答辩，有点受宠若惊，因为和队友三个人都是第一次参赛，大家也都很菜，觉得拿一个省一就已经可以了。参加答辩，意味着我们保国二冲国一了。大家都是第一次参加国赛答辩，在这两天了解到了不少，也把经验分享给各位。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数学建模" scheme="https://blog.lyh543.cn/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    
+      <category term="杂谈" scheme="https://blog.lyh543.cn/tags/%E6%9D%82%E8%B0%88/"/>
+    
+      <category term="数学建模" scheme="https://blog.lyh543.cn/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ffmpeg （萌新向）</title>
+    <link href="https://blog.lyh543.cn/others/ffmpeg/"/>
+    <id>https://blog.lyh543.cn/others/ffmpeg/</id>
+    <published>2020-09-26T17:56:33.000Z</published>
+    <updated>2020-10-27T16:11:05.606Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;急速裁剪视频而不改变编码&quot;&gt;&lt;a href=&quot;#急速裁剪视频而不改变编码&quot; class=&quot;headerlink&quot; title=&quot;急速裁剪视频而不改变编码&quot;&gt;&lt;/a&gt;急速裁剪视频而不改变编码&lt;/h2&gt;&lt;p&gt;开始接触 &lt;code&gt;ffmpeg&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ffmpeg" scheme="https://blog.lyh543.cn/tags/ffmpeg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>远程过程调用（Renote Procedure Call）</title>
+    <link href="https://blog.lyh543.cn/computer-science/remote-procedure-call/"/>
+    <id>https://blog.lyh543.cn/computer-science/remote-procedure-call/</id>
+    <published>2020-09-17T21:38:24.000Z</published>
+    <updated>2020-10-27T16:11:05.546Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;推荐阅读：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/36427583&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机科学" scheme="https://blog.lyh543.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="计算机科学" scheme="https://blog.lyh543.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+    
+      <category term="RPC" scheme="https://blog.lyh543.cn/tags/RPC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RESTful API 标准</title>
+    <link href="https://blog.lyh543.cn/development/restful-api-standard/"/>
+    <id>https://blog.lyh543.cn/development/restful-api-standard/</id>
+    <published>2020-09-15T21:33:43.000Z</published>
+    <updated>2020-10-27T16:11:05.570Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;转自：&lt;a href=&quot;https://www.colabug.com/2017/0627/228298/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="项目开发" scheme="https://blog.lyh543.cn/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="项目开发" scheme="https://blog.lyh543.cn/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="RESTful" scheme="https://blog.lyh543.cn/tags/RESTful/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>汇编语言与微机接口技术 课程笔记</title>
+    <link href="https://blog.lyh543.cn/computer-science/assembly-language-and-interface-technology-of-microcomputer-classnote/"/>
+    <id>https://blog.lyh543.cn/computer-science/assembly-language-and-interface-technology-of-microcomputer-classnote/</id>
+    <published>2020-09-08T14:52:38.000Z</published>
+    <updated>2020-10-27T16:11:05.482Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;授课老师：廖建明老师&lt;/li&gt;
+&lt;li&gt;教材：《微机原理与接口技术》(第4版). 吴宁,乔亚男主编. 清华大学出版社&lt;/li&gt;
+&lt;li&gt;参考教材:《汇编语言程序设计》. 廖建明主编.清华大学出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机科学" scheme="https://blog.lyh543.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="计算机科学" scheme="https://blog.lyh543.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+    
+      <category term="课程笔记" scheme="https://blog.lyh543.cn/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="汇编语言" scheme="https://blog.lyh543.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统 课程笔记</title>
+    <link href="https://blog.lyh543.cn/computer-science/operating-system-classnote/"/>
+    <id>https://blog.lyh543.cn/computer-science/operating-system-classnote/</id>
+    <published>2020-09-08T10:20:09.000Z</published>
+    <updated>2020-10-27T16:11:05.546Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;操作系统概述&quot;&gt;&lt;a href=&quot;#操作系统概述&quot; class=&quot;headerlink&quot; title=&quot;操作系统概述&quot;&gt;&lt;/a&gt;操作系统概述&lt;/h2&gt;&lt;h3 id=&quot;操作系统的目标和功能&quot;&gt;&lt;a href=&quot;#操作系统的目标和功能&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机科学" scheme="https://blog.lyh543.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="计算机科学" scheme="https://blog.lyh543.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+    
+      <category term="课程笔记" scheme="https://blog.lyh543.cn/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="操作系统" scheme="https://blog.lyh543.cn/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>电子科技大学四年游记</title>
+    <link href="https://blog.lyh543.cn/others/something-about-uestc/"/>
+    <id>https://blog.lyh543.cn/others/something-about-uestc/</id>
+    <published>2020-09-04T20:52:59.000Z</published>
+    <updated>2020-10-27T16:11:05.626Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;本文更新于 2020.10.18，文中信息可能已失效。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;常用网址&quot;&gt;&lt;a href=&quot;#常用网址&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="杂谈" scheme="https://blog.lyh543.cn/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据传输协议的速率（USB/PCIE）</title>
+    <link href="https://blog.lyh543.cn/computer-science/data-transfer-protocol-speed/"/>
+    <id>https://blog.lyh543.cn/computer-science/data-transfer-protocol-speed/</id>
+    <published>2020-09-04T19:51:04.000Z</published>
+    <updated>2020-10-27T16:11:05.494Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;USB-雷电&quot;&gt;&lt;a href=&quot;#USB-雷电&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机科学" scheme="https://blog.lyh543.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="计算机科学" scheme="https://blog.lyh543.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序开发的 tips</title>
+    <link href="https://blog.lyh543.cn/front-end/wechat-mini-program/tips/"/>
+    <id>https://blog.lyh543.cn/front-end/wechat-mini-program/tips/</id>
+    <published>2020-08-30T11:49:06.000Z</published>
+    <updated>2020-10-27T16:11:05.570Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;在-iOS-设备上测试&quot;&gt;&lt;a href=&quot;#在-iOS-设备上测试&quot; class=&quot;headerlink&quot; title=&quot;在 iOS 设备上测试&quot;&gt;&lt;/a&gt;在 iOS 设备上测试&lt;/h2&gt;&lt;p&gt;在开发测试过程中，博主注意到 iOS
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://blog.lyh543.cn/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="微信小程序" scheme="https://blog.lyh543.cn/categories/%E5%89%8D%E7%AB%AF/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="前端" scheme="https://blog.lyh543.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="tips" scheme="https://blog.lyh543.cn/tags/tips/"/>
+    
+      <category term="JavaScript" scheme="https://blog.lyh543.cn/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="https://blog.lyh543.cn/tags/CSS/"/>
+    
+      <category term="微信小程序" scheme="https://blog.lyh543.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Visual Studio Code 使用小技巧</title>
+    <link href="https://blog.lyh543.cn/microsoft/vscode-tips/"/>
+    <id>https://blog.lyh543.cn/microsoft/vscode-tips/</id>
+    <published>2020-08-29T08:40:23.000Z</published>
+    <updated>2020-10-27T16:11:05.606Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;常用快捷键&quot;&gt;&lt;a href=&quot;#常用快捷键&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Microsoft" scheme="https://blog.lyh543.cn/categories/Microsoft/"/>
+    
+      <category term="Visual Studio Code" scheme="https://blog.lyh543.cn/categories/Microsoft/Visual-Studio-Code/"/>
+    
+    
+      <category term="Visual Studio Code" scheme="https://blog.lyh543.cn/tags/Visual-Studio-Code/"/>
+    
+      <category term="Microsoft" scheme="https://blog.lyh543.cn/tags/Microsoft/"/>
+    
+      <category term="tips" scheme="https://blog.lyh543.cn/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows Terminal 使用小技巧</title>
+    <link href="https://blog.lyh543.cn/microsoft/windows/windows-terminal-tips/"/>
+    <id>https://blog.lyh543.cn/microsoft/windows/windows-terminal-tips/</id>
+    <published>2020-08-28T16:00:14.000Z</published>
+    <updated>2020-10-27T16:11:05.606Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;右键菜单“在当前文件夹启动-Windows-Terminal”&quot;&gt;&lt;a href=&quot;#右键菜单“在当前文件夹启动-Windows-Terminal”&quot; class=&quot;headerlink&quot; title=&quot;右键菜单“在当前文件夹启动 Windows
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Microsoft" scheme="https://blog.lyh543.cn/categories/Microsoft/"/>
+    
+      <category term="Windows" scheme="https://blog.lyh543.cn/categories/Microsoft/Windows/"/>
+    
+    
+      <category term="Microsoft" scheme="https://blog.lyh543.cn/tags/Microsoft/"/>
+    
+      <category term="tips" scheme="https://blog.lyh543.cn/tags/tips/"/>
+    
+      <category term="Windows" scheme="https://blog.lyh543.cn/tags/Windows/"/>
+    
+      <category term="Windows Terminal" scheme="https://blog.lyh543.cn/tags/Windows-Terminal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web App 开发入门的第 0 步</title>
+    <link href="https://blog.lyh543.cn/development/about-web-app-development/"/>
+    <id>https://blog.lyh543.cn/development/about-web-app-development/</id>
+    <published>2020-08-16T10:39:42.000Z</published>
+    <updated>2020-10-27T16:11:05.570Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;由于微信小程序需要审核且要求严格，想要把微信小程序移植为网页端的 Web App。就花了一晚上初步了解了一下，得到了一些入门的结论，因此也是给了“杂谈”的标签。&lt;/p&gt;
+&lt;h2 id=&quot;程序结构&quot;&gt;&lt;a href=&quot;#程序结构&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="项目开发" scheme="https://blog.lyh543.cn/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="项目开发" scheme="https://blog.lyh543.cn/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="前端" scheme="https://blog.lyh543.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="杂谈" scheme="https://blog.lyh543.cn/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>项目开发中的好习惯</title>
+    <link href="https://blog.lyh543.cn/development/good-habits-in-development/"/>
+    <id>https://blog.lyh543.cn/development/good-habits-in-development/</id>
+    <published>2020-08-10T09:03:10.000Z</published>
+    <updated>2020-10-27T16:11:05.570Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;学校里的程序设计课程只教如何使用编程语言，网上的大多数项目开发教程只教如何开发一个项目。只有在项目开发中才会知道某些&lt;del&gt;潜规则&lt;/del&gt;开发项目的好习惯，如合适地使用 Git 分支管理、版本号命名规则等。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="项目开发" scheme="https://blog.lyh543.cn/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="项目开发" scheme="https://blog.lyh543.cn/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Git" scheme="https://blog.lyh543.cn/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript 入门</title>
+    <link href="https://blog.lyh543.cn/front-end/javascript/basic/"/>
+    <id>https://blog.lyh543.cn/front-end/javascript/basic/</id>
+    <published>2020-07-24T14:12:48.000Z</published>
+    <updated>2020-10-27T16:11:05.570Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;运行-JavaScript&quot;&gt;&lt;a href=&quot;#运行-JavaScript&quot; class=&quot;headerlink&quot; title=&quot;运行 JavaScript&quot;&gt;&lt;/a&gt;运行 JavaScript&lt;/h2&gt;&lt;p&gt;在 Chrome 按 F12
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://blog.lyh543.cn/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="https://blog.lyh543.cn/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+    
+      <category term="编程语言入门" scheme="https://blog.lyh543.cn/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="前端" scheme="https://blog.lyh543.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="https://blog.lyh543.cn/tags/JavaScript/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,23 @@
+<hr>
+<p>title: npm 笔记<br>date: 2019-8-17<br>tags: </p>
+<ul>
+<li>npm</li>
+<li>Linux<br>category: </li>
+<li>Linux</li>
+</ul>
+<hr>
+<p>npm是随同NodeJS一起安装的包管理工具。</p>
+<p><strong>除了-g的全局命令以外，所有<code>npm</code>命令都要在工程目录执行！！！！</strong></p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="安装-npm"><a href="#安装-npm" class="headerlink" title="安装 npm"></a>安装 npm</h3><h4 id="检测版本号"><a href="#检测版本号" class="headerlink" title="检测版本号"></a>检测版本号</h4><p><code>npm -v</code></p>
+<h4 id="升级-npm"><a href="#升级-npm" class="headerlink" title="升级 npm"></a>升级 npm</h4><p><code>sudo npm install npm -g</code></p>
+<h3 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h3><p><code>npm install &lt;Module Name&gt;</code></p>
+<p>安装好之后，express 包就放在了工程目录下的 node_modules 目录中</p>
+<p>参数 <code>-g</code> 全局安装</p>
+<p><strong>给当前工程安装插件的时候需要注意</strong>：</p>
+<p><strong>一定要加<code>npm install &lt;package name&gt; --save</code>参数，这样该插件才会被加入该项目的<code>dependencies</code>中，下次生成主工程的时候才会被编译。</strong></p>
+<h4 id="查看模块"><a href="#查看模块" class="headerlink" title="查看模块"></a>查看模块</h4><p><code>npm list -g</code></p>
+<p>查看某个特定模块</p>
+<p><code>npm list &lt;Module Name&gt;</code></p>
+<h4 id="更新模块"><a href="#更新模块" class="headerlink" title="更新模块"></a>更新模块</h4><p><code>npm install &lt;Module Name&gt;@latest -g</code></p>
+<h4 id="卸载模块"><a href="#卸载模块" class="headerlink" title="卸载模块"></a>卸载模块</h4><p><code>npm unistall grunt</code></p>
+<h4 id="使用淘宝-NPM-镜像"><a href="#使用淘宝-NPM-镜像" class="headerlink" title="使用淘宝 NPM 镜像"></a>使用淘宝 NPM 镜像</h4><p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code><br><code>cnpm install [name]</code></p>

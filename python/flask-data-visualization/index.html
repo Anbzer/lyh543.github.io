@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>基于 Flask 的数据可视化 | 小灰灰灰灰的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python,服务器,Flask,JavaScript">
+    <meta name="description" content="安装 Flask 等1pip3 install flask pymysql flask_sqlalchemy  创建项目                                                                                             在 PyCharm 中创建项目                 创建完以后，运行默认项目： 1">
+<meta name="keywords" content="Python,服务器,Flask,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于 Flask 的数据可视化">
+<meta property="og:url" content="https://blog.lyh543.cn/python/flask-data-visualization/index.html">
+<meta property="og:site_name" content="小灰灰灰灰的博客">
+<meta property="og:description" content="安装 Flask 等1pip3 install flask pymysql flask_sqlalchemy  创建项目                                                                                             在 PyCharm 中创建项目                 创建完以后，运行默认项目： 1">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/5a42da1d164e03ab16b58724839f42fcfe9dcd2d8545b206b4fbc3919eedb69b.png">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/9393e430fc855796c6a535593fa90faa16e57c9b9775582d66edf46adba9d06b.png">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/48a9566a3609463534a803890d29572eb700039c5b29d636ee33e1a84e2ab5b2.png">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/244d0d82d278f8d06e1bb76f274fa36ca63b85e801564d4de3966d6b4ad5ba4d.png">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/39598dcca74eb298295bd1076e93293ad562ce28f9cb5e5b685af1c5fa48a45d.png">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/5cac9bd972360438933f014f95860e208141b2c14aa8a436e2b7637bfb1f3776.png">
+<meta property="og:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/41b0ab0e7ee2b6da4cce0f365d0e19753406e9bf3fb6575e655193d013abfb16.png">
+<meta property="og:updated_time" content="2020-10-27T16:11:05.626Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于 Flask 的数据可视化">
+<meta name="twitter:description" content="安装 Flask 等1pip3 install flask pymysql flask_sqlalchemy  创建项目                                                                                             在 PyCharm 中创建项目                 创建完以后，运行默认项目： 1">
+<meta name="twitter:image" content="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/5a42da1d164e03ab16b58724839f42fcfe9dcd2d8545b206b4fbc3919eedb69b.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="小灰灰灰灰的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lyh543</h5>
+          <a href="mailto:lyh543@outlook.com" title="lyh543@outlook.com" class="mail">lyh543@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lyh543" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">基于 Flask 的数据可视化</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">基于 Flask 的数据可视化</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-07-02T18:20:23.000Z" itemprop="datePublished" class="page-time">
+  2020-07-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装-Flask-等"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装 Flask 等</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建项目"><span class="post-toc-number">2.</span> <span class="post-toc-text">创建项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#绑定更多的页面"><span class="post-toc-number">3.</span> <span class="post-toc-text">绑定更多的页面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-json-序列化数据"><span class="post-toc-number">4.</span> <span class="post-toc-text">使用 json 序列化数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#套用-HTML-模板"><span class="post-toc-number">5.</span> <span class="post-toc-text">套用 HTML 模板</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#读入数据库"><span class="post-toc-number">6.</span> <span class="post-toc-text">读入数据库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-Echarts-绘制图表"><span class="post-toc-number">7.</span> <span class="post-toc-text">使用 Echarts 绘制图表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在-Echarts-官网找到需要的图表"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">在 Echarts 官网找到需要的图表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#替换原模板的图表"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">替换原模板的图表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将图表数据从数据库导入"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">将图表数据从数据库导入</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源代码"><span class="post-toc-number">8.</span> <span class="post-toc-text">源代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-python/flask-data-visualization"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">基于 Flask 的数据可视化</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-07-02 18:20:23" datetime="2020-07-02T18:20:23.000Z"  itemprop="datePublished">2020-07-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="安装-Flask-等"><a href="#安装-Flask-等" class="headerlink" title="安装 Flask 等"></a>安装 Flask 等</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install flask pymysql flask_sqlalchemy</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/5a42da1d164e03ab16b58724839f42fcfe9dcd2d8545b206b4fbc3919eedb69b.png" alt="在 PyCharm 中创建项目" title>
+                </div>
+                <div class="image-caption">在 PyCharm 中创建项目</div>
+            </figure>  
+
+<p>创建完以后，运行默认项目：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')    # 路由系统，表示目录是在 /</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World!'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+
+<p>打开 <code>localhost:5000</code>，就能看到 <code>Hello, world</code>。</p>
+<h2 id="绑定更多的页面"><a href="#绑定更多的页面" class="headerlink" title="绑定更多的页面"></a>绑定更多的页面</h2><p>接下来，我们创建更多的页面。创建 <code>data_view.py</code>。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># data_view.py</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Blueprint</span><br><span class="line"></span><br><span class="line">data_provider = Blueprint(<span class="string">'data_provider'</span>, __name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@data_provider.route('/get_city_count', endpoint='get_city_count')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_city_count</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'hello world'</span></span><br></pre></td></tr></table></figure>
+
+<p>然后将其注册到主页面对应的 <code>app</code>：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># app.py</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> data_view <span class="keyword">import</span> data_provider</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.register_blueprint(data_provider, url_prefix=<span class="string">'/data'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World!'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+
+<p>运行以后即可在 <code>127.0.0.1:5000/data/get_city_count</code> 看到 <code>hello world</code>。</p>
+<p>以同样的方式添加 <code>page_view</code>：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># page_view.py</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Blueprint</span><br><span class="line"></span><br><span class="line">page_provider = Blueprint(<span class="string">'page_provider'</span>, __name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@page_provider.route('/index', endpoint='index')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'hello world'</span></span><br></pre></td></tr></table></figure>
+
+<p>并在 <code>app.py</code> 添加：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> page_view <span class="keyword">import</span> page_provider</span><br><span class="line"></span><br><span class="line">app.register_blueprint(page_provider, url_prefix=<span class="string">'/page'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>运行后，就可以在 <code>/page/index</code> 看到 <code>hello world</code>。</p>
+<h2 id="使用-json-序列化数据"><a href="#使用-json-序列化数据" class="headerlink" title="使用 json 序列化数据"></a>使用 json 序列化数据</h2><p>注意到上 <code>return</code> 的字符串都直接变为了网页的内容，我们也可以将数据转为 json 然后 <code>return</code>。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># data_view.py</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Blueprint</span><br><span class="line"></span><br><span class="line">data_provider = Blueprint(<span class="string">'data_provider'</span>, __name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@data_provider.route('/get_city_count', endpoint='get_city_count')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_city_count</span><span class="params">()</span>:</span></span><br><span class="line">    dic = &#123;<span class="string">'name'</span>: <span class="string">'bilibili'</span>&#125;</span><br><span class="line">    <span class="keyword">return</span> json.dumps(dic)</span><br></pre></td></tr></table></figure>
+
+<p>运行后，在 <code>/data/get_city_count</code> 我们就能获取到 <code>{&quot;name&quot;: &quot;bilibili&quot;}</code>。</p>
+<h2 id="套用-HTML-模板"><a href="#套用-HTML-模板" class="headerlink" title="套用 HTML 模板"></a>套用 HTML 模板</h2><p>这里选择在网上下载合适的模板，这里提供<a href="html-template.zip">一个模板</a>。注意，如果想要配合后文使用 Echarts 绘图，最好使用 Echarts 相关的模板（如果是 Echarts 模板，在 <code>/js/</code> 下会有 <code>echarts.min.js</code>）。</p>
+<p>在放入 flask 项目之前，模板是可以正常打开的。</p>
+<p>第一步，将 <code>index.html</code> 放进 <code>template</code> 文件夹。</p>
+<p>第二步，在项目 <code>/static</code> 目录下建立 <code>ui</code> 文件夹，并把 <code>css</code> 等三个文件夹丢进去。</p>
+<p>第三步，将 <code>index.html</code> 中出现的所有链接加上 <code>/static/ui</code>。即：</p>
+<table>
+<thead>
+<tr>
+<th>修改前</th>
+<th>修改后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>src=&quot;js/rem.js&quot;</code></td>
+<td><code>src=&quot;/static/ui/js/rem.js&quot;</code></td>
+</tr>
+<tr>
+<td><code>href=&quot;css/style.css&quot;</code></td>
+<td><code>href=&quot;/static/ui/css/style.css&quot;</code></td>
+</tr>
+</tbody></table>
+<p>第四步，让 flask 项目调用 <code>html</code>。这里修改 <code>page_view</code> 的 <code>index</code> 函数。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># page_view.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Blueprint, render_template</span><br><span class="line"></span><br><span class="line">page_provider = Blueprint(<span class="string">'page_provider'</span>, __name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@page_provider.route('/index', endpoint='index')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'index.html'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>最后运行，并访问 <code>http://127.0.0.1:5000/page/index</code>，正确显示了模板的 HTML。</p>
+<h2 id="读入数据库"><a href="#读入数据库" class="headerlink" title="读入数据库"></a>读入数据库</h2><p>接下来，我们需要导入数据库的数据。假设数据库在 <code>localhost:3306</code>，账号为 <code>root</code>，密码为 <code>123456</code>。MySQL 8 下的 <code>test_db.city</code> 表内容如下：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">+----+</span>-----+</span><br><span class="line">|city|count|</span><br><span class="line"><span class="code">+----+</span>-----+</span><br><span class="line">|北京 |100 |</span><br><span class="line">|上海 |20  |</span><br><span class="line">|广州 |75  |</span><br><span class="line"><span class="code">+----+</span>-----+</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>app.py</code> 中添加配置数据库的代码：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemy</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">app.config[<span class="string">"SQLALCHEMY_DATABASE_URI"</span>] = <span class="string">"mysql://root:123456@localhost:3306/test_db"</span></span><br><span class="line">app.config[<span class="string">"SQLALCHEMY_TRACK_MODIFICATIONS"</span>] = <span class="literal">False</span></span><br><span class="line">db = SQLAlchemy(app)</span><br></pre></td></tr></table></figure>
+
+<p>然后编写 <code>CityCount</code> 类：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CityCount</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    <span class="comment"># 该表与数据库表形成映射关系</span></span><br><span class="line">    __tablename__ = <span class="string">'city_count'</span></span><br><span class="line">    city = db.Column(db.String(<span class="number">50</span>), primary_key=<span class="literal">True</span>)</span><br><span class="line">    count = db.Column(db.INTEGER)</span><br></pre></td></tr></table></figure>
+
+<p>之后修改 <code>data_view.py</code> 的 <code>get_city_count()</code>：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># data_view.py</span></span><br><span class="line"><span class="meta">@data_provider.route('/get_city_count', endpoint='get_city_count')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_city_count</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">from</span> app <span class="keyword">import</span> db</span><br><span class="line">    data = db.session.query(CityCount).all()</span><br><span class="line"></span><br><span class="line">    dic = &#123;<span class="string">'name'</span>: <span class="string">'bilibili'</span>&#125;</span><br><span class="line">    <span class="keyword">return</span> json.dumps(dic)</span><br></pre></td></tr></table></figure>
+
+<p>注意这里需要把 <code>import</code> 写到函数里，否则会因为循环引入而报错。更好的解决方法是把需要被 import 的代码全部写到一个 <code>config.py</code> 文件下<del>但是懒得改前面了</del>。</p>
+<p>然后运行程序，并打开 <code>http://127.0.0.1:5000/data/get_city_count</code>。如果返回 <code>{&#39;name&#39;: &#39;bilibili&#39;}</code> 则代码没有发现错误。</p>
+<p>在 <code>dic = {&#39;name&#39;: &#39;bilibili&#39;}</code> 打上断点，然后调试程序，并打开 <code>http://127.0.0.1:5000/data/get_city_count</code>。程序在这一行停止，并且可以看到 <code>data</code> 的内容。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/9393e430fc855796c6a535593fa90faa16e57c9b9775582d66edf46adba9d06b.png" alt="data 内容" title>
+                </div>
+                <div class="image-caption">data 内容</div>
+            </figure>  
+
+<p>可见成功读取了数据。</p>
+<p>接下来将直接输出数据。由于 <code>data</code> 是 <code>list</code> 套 <code>CityCount</code> 类，这里将类映射为字典，然后就可以改为 <code>json</code> 然后输出了。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># data_view.py</span></span><br><span class="line"><span class="meta">@data_provider.route('/get_city_count', endpoint='get_city_count')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_city_count</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">from</span> app <span class="keyword">import</span> db, CityCount</span><br><span class="line">    data = db.session.query(CityCount).all()</span><br><span class="line">    data = list(map(<span class="keyword">lambda</span> x: &#123;<span class="string">'city'</span>: x.city, <span class="string">'count'</span>: x.count&#125;, data))</span><br><span class="line">    <span class="keyword">return</span> json.dumps(data)</span><br></pre></td></tr></table></figure>
+
+<p>运行程序，并打开 <code>http://127.0.0.1:5000/data/get_city_count</code>。返回值除中文编码以外，是正常的。如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#123;<span class="attr">"city"</span>: <span class="string">"\u4e0a\u6d77"</span>, <span class="attr">"count"</span>: <span class="number">20</span>&#125;, &#123;<span class="attr">"city"</span>: <span class="string">"\u5317\u4eac"</span>, <span class="attr">"count"</span>: <span class="number">100</span>&#125;, &#123;<span class="attr">"city"</span>: <span class="string">"\u5e7f\u5dde"</span>, <span class="attr">"count"</span>: <span class="number">75</span>&#125;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-Echarts-绘制图表"><a href="#使用-Echarts-绘制图表" class="headerlink" title="使用 Echarts 绘制图表"></a>使用 Echarts 绘制图表</h2><h3 id="在-Echarts-官网找到需要的图表"><a href="#在-Echarts-官网找到需要的图表" class="headerlink" title="在 Echarts 官网找到需要的图表"></a>在 Echarts 官网找到需要的图表</h3><p>打开 Echarts 官网的<a href="https://echarts.apache.org/examples/zh/index.html#chart-type-bar" target="_blank" rel="noopener">实例</a>如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/48a9566a3609463534a803890d29572eb700039c5b29d636ee33e1a84e2ab5b2.png" alt="Echarts 实例" title>
+                </div>
+                <div class="image-caption">Echarts 实例</div>
+            </figure>  
+
+<p>选择一个图表（这里用简单柱状图做例子），进入<a href="https://echarts.apache.org/examples/zh/editor.html?c=bar-simple" target="_blank" rel="noopener">编辑模式</a>：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/244d0d82d278f8d06e1bb76f274fa36ca63b85e801564d4de3966d6b4ad5ba4d.png" alt="Echarts 编辑模式" title>
+                </div>
+                <div class="image-caption">Echarts 编辑模式</div>
+            </figure>
+
+<p>可以观察到，我们只需要将 <code>data</code> 替换为我们的数据即可。因此，我们在 <code>data_view.py</code> 中，将数据构造为一个列表，并装到一个列表 <code>dic</code> 中。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@data_provider.route('/get_city_count', endpoint='get_city_count')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_city_count</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">from</span> app <span class="keyword">import</span> db, CityCount</span><br><span class="line">    dic = &#123;&#125;</span><br><span class="line">    data = db.session.query(CityCount).all()</span><br><span class="line">    <span class="comment"># data = list(map(lambda x: &#123;'city': x.city, 'count': x.count&#125;, data))</span></span><br><span class="line">    dic[<span class="string">'xAxis_data'</span>] = [x.city <span class="keyword">for</span> x <span class="keyword">in</span> data]</span><br><span class="line">    dic[<span class="string">'series_data'</span>] = [x.count <span class="keyword">for</span> x <span class="keyword">in</span> data]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> json.dumps(dic)</span><br></pre></td></tr></table></figure>
+
+<p>运行程序，并打开 <code>http://127.0.0.1:5000/data/get_city_count</code>。返回值除中文编码以外，是正常的。如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"xAxis_data"</span>: [<span class="string">"\u4e0a\u6d77"</span>, <span class="string">"\u5317\u4eac"</span>, <span class="string">"\u5e7f\u5dde"</span>], <span class="attr">"series_data"</span>: [<span class="number">20</span>, <span class="number">100</span>, <span class="number">75</span>]&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="替换原模板的图表"><a href="#替换原模板的图表" class="headerlink" title="替换原模板的图表"></a>替换原模板的图表</h3><p>下面将演示如何将模板的柱状图替换为官网上的 Echarts 柱状图。这里会涉及到一点 <code>js</code> 代码。</p>
+<p>从 <code>localhost:5000/page/index</code> 打开前面设置的模板，并对右上角的派件数据进行检查元素。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/39598dcca74eb298295bd1076e93293ad562ce28f9cb5e5b685af1c5fa48a45d.png" alt="检查元素" title>
+                </div>
+                <div class="image-caption">检查元素</div>
+            </figure>
+
+<p>可以看到这块的表被放在一个 id 为 <code>chart3</code> 的 <code>div</code> 下。（当然，如果审查元素找到的 <code>div</code> 不是 <code>chart</code>，可能是因为检查到了子元素，可以适当地往上找找有没有类似的名字）</p>
+<p>然后我们在 <code>/static/ui/js/</code> 下的所有 js 搜索 <code>chart3</code>。在前文提到的模板中，我们在 <code>base.js</code> 搜索到了 <code>chart3</code> 的定义，部分代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">chart3</span>(<span class="params">type, chartType</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'chart3'</span>));</span><br><span class="line">    <span class="keyword">var</span> myCharts = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'chart3s'</span>));</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        myChart.resize();</span><br><span class="line">        myCharts.resize();</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//    设置背景阴影的参数，获取数据的最大值</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> data; <span class="comment">//横坐标数据，不动</span></span><br><span class="line">    <span class="keyword">var</span> data_; <span class="comment">//模拟数据</span></span><br><span class="line">    <span class="keyword">if</span> (type == <span class="number">1</span>) &#123;</span><br><span class="line">        data_ = [&#123;</span><br><span class="line">                name: <span class="string">"入库件"</span>,</span><br><span class="line">                value: <span class="number">584</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">//...</span></span><br><span class="line">            ]</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="comment">//...</span></span><br><span class="line">    <span class="keyword">var</span> option = &#123;</span><br><span class="line">        title: <span class="string">''</span>,</span><br><span class="line">        xAxis: <span class="comment">//...</span></span><br><span class="line">        yAxis: <span class="comment">//...</span></span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (chartType === <span class="string">''</span>) &#123;</span><br><span class="line">        myChart.clear();</span><br><span class="line">        myCharts.clear();</span><br><span class="line">        myChart.setOption(option);</span><br><span class="line">        myCharts.setOption(option);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (chartType === <span class="number">0</span>) &#123;</span><br><span class="line">        myChart.clear();</span><br><span class="line">        myChart.setOption(option);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (chartType === <span class="number">1</span>) &#123;</span><br><span class="line">        myCharts.clear();</span><br><span class="line">        myCharts.setOption(option);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面将写一段（<del>照抄一段</del>）简单的 js，命名为 <code>/static/ui/js/chart.js</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    chart3.render();</span><br><span class="line">&#125;); <span class="comment">// $表示 HTML 代码加载完以后再执行这段 js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义 chart3 类及其 render 成员函数</span></span><br><span class="line"><span class="keyword">var</span> chart3 = &#123;</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 原 chart3 函数定义的第一行，目的应该是替换掉 HTML 代码中 id 为 chart3 的 div</span></span><br><span class="line">        <span class="comment">// 这里删去了 chart3 函数定义中 myCharts 相关代码</span></span><br><span class="line">        <span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'chart3'</span>));</span><br><span class="line">        <span class="comment">// 原 chart3 函数定义的第三行，目的应该是当窗口大小变化时，自动调整 myChart 的大小</span></span><br><span class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            myChart.resize();</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//下面照抄 Echarts 实例网站给的 Option</span></span><br><span class="line">        <span class="keyword">var</span> option = &#123;</span><br><span class="line">            xAxis: &#123;</span><br><span class="line">                type: <span class="string">'category'</span>,</span><br><span class="line">                data: [<span class="string">'Mon'</span>, <span class="string">'Tue'</span>, <span class="string">'Wed'</span>, <span class="string">'Thu'</span>, <span class="string">'Fri'</span>, <span class="string">'Sat'</span>, <span class="string">'Sun'</span>]</span><br><span class="line">            &#125;,</span><br><span class="line">            yAxis: &#123;</span><br><span class="line">                type: <span class="string">'value'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            series: [&#123;</span><br><span class="line">                data: [<span class="number">120</span>, <span class="number">200</span>, <span class="number">150</span>, <span class="number">80</span>, <span class="number">70</span>, <span class="number">110</span>, <span class="number">130</span>],</span><br><span class="line">                type: <span class="string">'bar'</span>,</span><br><span class="line">                showBackground: <span class="literal">true</span>,</span><br><span class="line">                backgroundStyle: &#123;</span><br><span class="line">                    color: <span class="string">'rgba(220, 220, 220, 0.8)'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 原 chart3 函数定义的最后一行，目的应该是使用 option 对 myChart 进行设置</span></span><br><span class="line">        myChart.setOption(option);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>然后在 <code>/templates/index.html</code> 加入调用该 js 的代码，然后把 <code>base.js</code> 的代码注释掉：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/static/ui/js/jquery-3.3.1.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/static/ui/js/layer/layer.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/static/ui/js/layer/laydate/laydate.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/static/ui/js/echarts.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/static/ui/js/china.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/static/ui/js/data/guangdong.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &lt;script type="text/javascript" src="/static/ui/js/base.js"&gt;&lt;/script&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/static/ui/js/chart.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> <span class="comment">&lt;!-- 注释上一行 base.js 并添加这一行 --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>改完以后，重新运行项目并访问 <code>localhost:5000/page/index</code>。在命令行窗口可以看到有这么一行，表示成功（200）获取了 <code>chart.js</code>：</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1</span> - - <span class="string">[11/Jul/2020 11:54:38]</span> <span class="string">"<span class="keyword">GET</span> /static/ui/js/chart.js HTTP/1.1"</span> <span class="number">200</span> -</span><br></pre></td></tr></table></figure>
+
+<p>效果图如下，由于我们没有运行 <code>base.js</code>，因此只有右上角的柱状图是正常的：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/5cac9bd972360438933f014f95860e208141b2c14aa8a436e2b7637bfb1f3776.png" alt="效果图" title>
+                </div>
+                <div class="image-caption">效果图</div>
+            </figure>  
+
+<h3 id="将图表数据从数据库导入"><a href="#将图表数据从数据库导入" class="headerlink" title="将图表数据从数据库导入"></a>将图表数据从数据库导入</h3><p>接下来，我们就要把数据库的数据导入图表数据。需要写一点 js 代码。</p>
+<p>那么，我们是从 js 中读取数据库吗？</p>
+<p>不是的，我们写 js 可以从 <code>/data/get_city_count</code> 读取数据。</p>
+<p>Python Flask 只负责将数据给到 <code>/data</code> 网页，js 只负责将 <code>/data</code> 的数据可视化。前后端分离，通过 <code>/data</code> 交互数据。妙！</p>
+<p>这里继续完善 <code>chart.js</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    chart3.get_data();</span><br><span class="line">&#125;); <span class="comment">// $表示 HTML 代码加载完以后再执行这段 js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义 chart3 类及其成员函数</span></span><br><span class="line"><span class="keyword">var</span> chart3 = &#123;</span><br><span class="line">    get_data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url:<span class="string">'/data/get_city_count'</span>,</span><br><span class="line">            type: <span class="string">'GET'</span>, <span class="comment">// 向这个链接发起请求</span></span><br><span class="line">            dataType: <span class="string">'json'</span>,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123; <span class="comment">//执行成功以后的回调函数</span></span><br><span class="line">                chart3.render(data);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123; <span class="comment">//给函数定义添加了输入参数</span></span><br><span class="line">        <span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'chart3'</span>));</span><br><span class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            myChart.resize();</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> option = &#123;</span><br><span class="line">            xAxis: &#123;</span><br><span class="line">                type: <span class="string">'category'</span>,</span><br><span class="line">                data: data.xAxis_data <span class="comment">//xAxis_data 是在 data_view.py 定义的</span></span><br><span class="line">            &#125;,</span><br><span class="line">            yAxis: &#123;</span><br><span class="line">                type: <span class="string">'value'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            series: [&#123;</span><br><span class="line">                data: data.series_data,</span><br><span class="line">                type: <span class="string">'bar'</span>,</span><br><span class="line">                showBackground: <span class="literal">true</span>,</span><br><span class="line">                backgroundStyle: &#123;</span><br><span class="line">                    color: <span class="string">'rgba(220, 220, 220, 0.8)'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        myChart.setOption(option);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>重新运行项目并访问 <code>localhost:5000/page/index</code>。看到右上角的柱状图发生了变化。符合 <code>100 20 75</code> 的数据库数据。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://lyh543.coding.net/p/pic-bed/d/pic-bed/git/raw/master/41b0ab0e7ee2b6da4cce0f365d0e19753406e9bf3fb6575e655193d013abfb16.png" alt="新柱状图" title>
+                </div>
+                <div class="image-caption">新柱状图</div>
+            </figure>  
+
+<p>当然，这个图的坐标轴因为和背景都是黑色，显示不清晰，需要修改坐标轴颜色。Google 搜索 Echarts 的相关设置方法，然后修改 <code>chart3</code> 中的 <code>option</code> 部分即可。</p>
+<h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><p>最后放一份<a href="flask-project.zip">源代码</a>。因为只是测试项目，就没有传 Git 仓库了，仅作为一份学习的参考。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-10-27T16:11:05.626Z" itemprop="dateUpdated">2020-10-27 16:11:05</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.lyh543.cn">
+            <img src="/img/avatar.png" alt="lyh543">
+            lyh543
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flask/">Flask</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/python/flask-data-visualization/&title=《基于 Flask 的数据可视化》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/python/flask-data-visualization/&title=《基于 Flask 的数据可视化》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/python/flask-data-visualization/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于 Flask 的数据可视化》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/python/flask-data-visualization/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/python/flask-data-visualization/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/others/mysql/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">MySQL</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/computer-science/hadoop-spark/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">数据挖掘之 Hadoop Spark</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ec7daa4e047c3c30570d',
+          clientSecret: '025a9e40a1d101f28fd1a945d286a819e9fa1c3d',
+          repo: 'lyh543.github.io',
+          owner: 'lyh543',
+          admin: ['lyh543'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lyh543 &copy; 2019 - 2020</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备19034464号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.lyh543.cn/python/flask-data-visualization/&title=《基于 Flask 的数据可视化》 — 小灰灰灰灰的博客&pic=https://blog.lyh543.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.lyh543.cn/python/flask-data-visualization/&title=《基于 Flask 的数据可视化》 — 小灰灰灰灰的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lyh543.cn/python/flask-data-visualization/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于 Flask 的数据可视化》 — 小灰灰灰灰的博客&url=https://blog.lyh543.cn/python/flask-data-visualization/&via=https://blog.lyh543.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.lyh543.cn/python/flask-data-visualization/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACFUlEQVR42u3aQXLCMAwFUO5/6fQAaeBLIszEfl51KBi9LIRk+fWK13FayXuu3nn+1HmH1x0LAwPjsYzj7UpCfP96EmLyqQ8PCAMDYwNGdesJIEnZeWwYGBgY+RdPUjYGBgbGbxiTrhMDAwMjYSTp8mqLPHXmifvGXhwDA+OBjDw5/v7vW+YbGBgYj2IcxZWPHidHb+WoMDAwlmbkCa6H7A0AqvFgYGDsxugd5X/rAC5vksvVKwYGxhKM3nAxD7d3paxwzIeBgbEoYzKknF/t6uVMDAyMPRnVQPM0Or9mkRzGYWBg7MmYHKjdh7ncDQMDY3tGnoLzoPNAoxECBgbGBoy8KU3SXzVx9x7QP6UhBgbGoozeBYjycdjkKC1I2RgYGDsw8iY2H2Emze2kJMXAwNiHkaTUycCyyu5dQcPAwFib0SvjJuVgQu0NFTAwMFZl9Aq+yeixl8RHtS0GBsbDGdWGs5eOq2VltZ3GwMDYjTEfNPaQeQt9uRsGBsYGjObks3UAV/1vFAMGBsY2jLtTbTPEZFyBgYGxKOMort4YYJJ2y0UhBgbGcox8JSHOg6sONcsYDAyMxzImx2S9SxKTRxbNYzEwMBZlJGVfL9DeY8qvnWFgYGDkY85JBZqMNsvXwjAwMLZn5KFXL3Pke37tdwMDA+MhjPkAMh9S5q1pAYyBgbE0Y9I65hcm8uJvMlTAwMBYjvEHAMH6CPj2dHQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
